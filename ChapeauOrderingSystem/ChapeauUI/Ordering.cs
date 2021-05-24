@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChapeauModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace ChapeauUI
 {
     public partial class Ordering : Form
     {
-        public Ordering()
+        public Ordering(Table table)
         {
             InitializeComponent();
         }

@@ -16,6 +16,7 @@ namespace ChapeauUI
     public partial class TableOverview : Form
     {
         private Employee employee;
+        private Table table;
 
         public TableOverview(Employee employee)
         {
@@ -128,6 +129,9 @@ namespace ChapeauUI
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             //open new form yeraz
+            Form formOrder = new Ordering(table);
+            formOrder.Show();
+           
         }
 
         //-------------------------------------------------------------------BUTTON PAY FOR ORDER---------------------------------------------------------------------------------------------------------------------
