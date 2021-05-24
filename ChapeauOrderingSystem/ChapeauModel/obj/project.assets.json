@@ -1004,25 +1004,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yeraz\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+      "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
       "projectName": "ChapeauModel",
-      "projectPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
-      "packagesPath": "C:\\Users\\yeraz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
+      "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+      "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\yeraz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
