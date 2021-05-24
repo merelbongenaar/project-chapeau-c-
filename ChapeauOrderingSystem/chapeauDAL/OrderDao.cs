@@ -9,6 +9,8 @@ namespace ChapeauDAL
 {
     public class OrderDao : BaseDao
     {
+        //hai 
+
         public Order GetOrderByTableNr(int tableNr)
         {
             string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE tableID = 1";
