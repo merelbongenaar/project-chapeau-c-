@@ -30,6 +30,12 @@ namespace ChapeauUI
         private void InitializeComponent()
         {
             this.pnlTableOverview = new System.Windows.Forms.Panel();
+            this.btnTable9 = new System.Windows.Forms.Button();
+            this.btnTable10 = new System.Windows.Forms.Button();
+            this.bntTable8 = new System.Windows.Forms.Button();
+            this.btnTable7 = new System.Windows.Forms.Button();
+            this.btnTable6 = new System.Windows.Forms.Button();
+            this.btnTable5 = new System.Windows.Forms.Button();
             this.btnTable1 = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.pnlOrder = new System.Windows.Forms.Panel();
@@ -43,12 +49,7 @@ namespace ChapeauUI
             this.lblEmployeeInfo = new System.Windows.Forms.Label();
             this.btnTable2 = new System.Windows.Forms.Button();
             this.btnTable3 = new System.Windows.Forms.Button();
-            this.btnTable5 = new System.Windows.Forms.Button();
-            this.btnTable6 = new System.Windows.Forms.Button();
-            this.btnTable7 = new System.Windows.Forms.Button();
-            this.bntTable8 = new System.Windows.Forms.Button();
-            this.btnTable10 = new System.Windows.Forms.Button();
-            this.btnTable9 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlTableOverview.SuspendLayout();
             this.pnlOrder.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +57,7 @@ namespace ChapeauUI
             // pnlTableOverview
             // 
             this.pnlTableOverview.BackColor = System.Drawing.Color.Pink;
+            this.pnlTableOverview.Controls.Add(this.label1);
             this.pnlTableOverview.Controls.Add(this.btnTable9);
             this.pnlTableOverview.Controls.Add(this.btnTable10);
             this.pnlTableOverview.Controls.Add(this.bntTable8);
@@ -73,6 +75,72 @@ namespace ChapeauUI
             this.pnlTableOverview.Name = "pnlTableOverview";
             this.pnlTableOverview.Size = new System.Drawing.Size(887, 644);
             this.pnlTableOverview.TabIndex = 0;
+            // 
+            // btnTable9
+            // 
+            this.btnTable9.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable9.Location = new System.Drawing.Point(152, 530);
+            this.btnTable9.Name = "btnTable9";
+            this.btnTable9.Size = new System.Drawing.Size(75, 72);
+            this.btnTable9.TabIndex = 14;
+            this.btnTable9.Text = "Table 9";
+            this.btnTable9.UseVisualStyleBackColor = false;
+            this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
+            // 
+            // btnTable10
+            // 
+            this.btnTable10.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable10.Location = new System.Drawing.Point(294, 530);
+            this.btnTable10.Name = "btnTable10";
+            this.btnTable10.Size = new System.Drawing.Size(75, 72);
+            this.btnTable10.TabIndex = 13;
+            this.btnTable10.Text = "Table 10";
+            this.btnTable10.UseVisualStyleBackColor = false;
+            this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
+            // 
+            // bntTable8
+            // 
+            this.bntTable8.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.bntTable8.Location = new System.Drawing.Point(294, 423);
+            this.bntTable8.Name = "bntTable8";
+            this.bntTable8.Size = new System.Drawing.Size(75, 72);
+            this.bntTable8.TabIndex = 12;
+            this.bntTable8.Text = "Table 8";
+            this.bntTable8.UseVisualStyleBackColor = false;
+            this.bntTable8.Click += new System.EventHandler(this.bntTable8_Click);
+            // 
+            // btnTable7
+            // 
+            this.btnTable7.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable7.Location = new System.Drawing.Point(152, 423);
+            this.btnTable7.Name = "btnTable7";
+            this.btnTable7.Size = new System.Drawing.Size(75, 72);
+            this.btnTable7.TabIndex = 11;
+            this.btnTable7.Text = "Table 7";
+            this.btnTable7.UseVisualStyleBackColor = false;
+            this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
+            // 
+            // btnTable6
+            // 
+            this.btnTable6.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable6.Location = new System.Drawing.Point(294, 308);
+            this.btnTable6.Name = "btnTable6";
+            this.btnTable6.Size = new System.Drawing.Size(75, 72);
+            this.btnTable6.TabIndex = 10;
+            this.btnTable6.Text = "Table 6";
+            this.btnTable6.UseVisualStyleBackColor = false;
+            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
+            // 
+            // btnTable5
+            // 
+            this.btnTable5.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable5.Location = new System.Drawing.Point(152, 308);
+            this.btnTable5.Name = "btnTable5";
+            this.btnTable5.Size = new System.Drawing.Size(75, 72);
+            this.btnTable5.TabIndex = 9;
+            this.btnTable5.Text = "Table 5";
+            this.btnTable5.UseVisualStyleBackColor = false;
+            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
             // 
             // btnTable1
             // 
@@ -201,71 +269,14 @@ namespace ChapeauUI
             this.btnTable3.UseVisualStyleBackColor = false;
             this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
             // 
-            // btnTable5
+            // label1
             // 
-            this.btnTable5.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnTable5.Location = new System.Drawing.Point(152, 308);
-            this.btnTable5.Name = "btnTable5";
-            this.btnTable5.Size = new System.Drawing.Size(75, 72);
-            this.btnTable5.TabIndex = 9;
-            this.btnTable5.Text = "Table 5";
-            this.btnTable5.UseVisualStyleBackColor = false;
-            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
-            // 
-            // btnTable6
-            // 
-            this.btnTable6.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnTable6.Location = new System.Drawing.Point(294, 308);
-            this.btnTable6.Name = "btnTable6";
-            this.btnTable6.Size = new System.Drawing.Size(75, 72);
-            this.btnTable6.TabIndex = 10;
-            this.btnTable6.Text = "Table 6";
-            this.btnTable6.UseVisualStyleBackColor = false;
-            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
-            // 
-            // btnTable7
-            // 
-            this.btnTable7.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnTable7.Location = new System.Drawing.Point(152, 423);
-            this.btnTable7.Name = "btnTable7";
-            this.btnTable7.Size = new System.Drawing.Size(75, 72);
-            this.btnTable7.TabIndex = 11;
-            this.btnTable7.Text = "Table 7";
-            this.btnTable7.UseVisualStyleBackColor = false;
-            this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
-            // 
-            // bntTable8
-            // 
-            this.bntTable8.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.bntTable8.Location = new System.Drawing.Point(294, 423);
-            this.bntTable8.Name = "bntTable8";
-            this.bntTable8.Size = new System.Drawing.Size(75, 72);
-            this.bntTable8.TabIndex = 12;
-            this.bntTable8.Text = "Table 8";
-            this.bntTable8.UseVisualStyleBackColor = false;
-            this.bntTable8.Click += new System.EventHandler(this.bntTable8_Click);
-            // 
-            // btnTable10
-            // 
-            this.btnTable10.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnTable10.Location = new System.Drawing.Point(294, 530);
-            this.btnTable10.Name = "btnTable10";
-            this.btnTable10.Size = new System.Drawing.Size(75, 72);
-            this.btnTable10.TabIndex = 13;
-            this.btnTable10.Text = "Table 10";
-            this.btnTable10.UseVisualStyleBackColor = false;
-            this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
-            // 
-            // btnTable9
-            // 
-            this.btnTable9.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnTable9.Location = new System.Drawing.Point(152, 530);
-            this.btnTable9.Name = "btnTable9";
-            this.btnTable9.Size = new System.Drawing.Size(75, 72);
-            this.btnTable9.TabIndex = 14;
-            this.btnTable9.Text = "Table 9";
-            this.btnTable9.UseVisualStyleBackColor = false;
-            this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(464, 297);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "help";
             // 
             // TableOverview
             // 
@@ -306,5 +317,6 @@ namespace ChapeauUI
         private System.Windows.Forms.Button btnTable7;
         private System.Windows.Forms.Button btnTable6;
         private System.Windows.Forms.Button btnTable5;
+        private System.Windows.Forms.Label label1;
     }
 }
