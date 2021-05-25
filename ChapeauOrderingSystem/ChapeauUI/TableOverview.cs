@@ -26,6 +26,7 @@ namespace ChapeauUI
 
             btnAddItem.Hide();
             btnPayForOrder.Hide();
+            
         }
 
         //----------------------------------------------------------------------------------TABLE BUTTONS-----------------------------------------------------------------------------------------------------------
@@ -36,7 +37,7 @@ namespace ChapeauUI
             TableService tableService = new TableService();
             OrderService orderService = new OrderService();
 
-            if (btnTable1.BackColor == Color.PaleTurquoise)
+            if (btnTable1.BackColor == Color.Gainsboro)
             {
                 DialogResult dialogResult = MessageBox.Show("occupy table", "Some Title", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -50,19 +51,11 @@ namespace ChapeauUI
                 }
             }
 
-            else if (btnTable1.BackColor == Color.Green)
+            else if (btnTable1.BackColor == Color.LightGreen)
             {
                 btnAddItem.Show();
                 btnPayForOrder.Show();
-                
 
-                //now table name should show up on the right and also a + sign that will link to the order part
-                //maybe also and unoccupy bttn and update state back to unoccupied
-                
-            }
-
-            else if (btnTable1.BackColor == Color.Yellow)
-            {
                 listViewOrderTableOverview.Items.Clear();
 
                 Order order = new Order();
@@ -75,7 +68,13 @@ namespace ChapeauUI
 
                     listViewOrderTableOverview.Items.Add(li);
                 }
+
+                //now table name should show up on the right and also a + sign that will link to the order part
+                //maybe also and unoccupy bttn and update state back to unoccupied
+
             }
+
+          
 
         }
 
@@ -146,6 +145,11 @@ namespace ChapeauUI
         //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            RefreshTables();
+        }
+
+        private void RefreshTables()
+        {
             //List<Table> tables = new List<Table>();
             TableService tableService = new TableService();
 
@@ -153,41 +157,94 @@ namespace ChapeauUI
 
             if (tables[0].IsOccupied)
             {
-                btnTable1.BackColor = Color.Red;
+                btnTable1.BackColor = Color.LightGreen;
             }
             else
             {
-                btnTable1.BackColor = Color.Green;
+                btnTable1.BackColor = Color.Gainsboro;
             }
 
             if (tables[1].IsOccupied)
             {
-                btnTable2.BackColor = Color.Red;
+                btnTable2.BackColor = Color.LightGreen;
             }
             else
             {
-                btnTable2.BackColor = Color.Green;
+                btnTable2.BackColor = Color.Gainsboro;
             }
 
             if (tables[2].IsOccupied)
             {
-                btnTable3.BackColor = Color.Red;
+                btnTable3.BackColor = Color.LightGreen;
             }
             else
             {
-                btnTable3.BackColor = Color.Green;
+                btnTable3.BackColor = Color.Gainsboro;
             }
 
             if (tables[3].IsOccupied)
             {
-                btnTable4.BackColor = Color.Red;
+                btnTable4.BackColor = Color.LightGreen;
             }
             else
             {
-                btnTable4.BackColor = Color.Green;
+                btnTable4.BackColor = Color.Gainsboro;
+            }
+
+            if (tables[4].IsOccupied)
+            {
+                btnTable5.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                btnTable5.BackColor = Color.Gainsboro;
+            }
+
+            if (tables[5].IsOccupied)
+            {
+                btnTable6.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                btnTable6.BackColor = Color.Gainsboro;
+            }
+
+            if (tables[6].IsOccupied)
+            {
+                btnTable7.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                btnTable7.BackColor = Color.Gainsboro;
+            }
+
+            if (tables[7].IsOccupied)
+            {
+                btnTable8.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                btnTable8.BackColor = Color.Gainsboro;
+            }
+
+            if (tables[8].IsOccupied)
+            {
+                btnTable9.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                btnTable9.BackColor = Color.Gainsboro;
             }
 
 
+            if (tables[9].IsOccupied)
+            {
+                btnTable10.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                btnTable10.BackColor = Color.Gainsboro;
+            }
         }
 
 

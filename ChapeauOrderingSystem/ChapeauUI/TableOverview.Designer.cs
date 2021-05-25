@@ -30,9 +30,10 @@ namespace ChapeauUI
         private void InitializeComponent()
         {
             this.pnlTableOverview = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnTable9 = new System.Windows.Forms.Button();
             this.btnTable10 = new System.Windows.Forms.Button();
-            this.bntTable8 = new System.Windows.Forms.Button();
+            this.btnTable8 = new System.Windows.Forms.Button();
             this.btnTable7 = new System.Windows.Forms.Button();
             this.btnTable6 = new System.Windows.Forms.Button();
             this.btnTable5 = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace ChapeauUI
             this.lblEmployeeInfo = new System.Windows.Forms.Label();
             this.btnTable2 = new System.Windows.Forms.Button();
             this.btnTable3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlTableOverview.SuspendLayout();
             this.pnlOrder.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@ namespace ChapeauUI
             this.pnlTableOverview.Controls.Add(this.label1);
             this.pnlTableOverview.Controls.Add(this.btnTable9);
             this.pnlTableOverview.Controls.Add(this.btnTable10);
-            this.pnlTableOverview.Controls.Add(this.bntTable8);
+            this.pnlTableOverview.Controls.Add(this.btnTable8);
             this.pnlTableOverview.Controls.Add(this.btnTable7);
             this.pnlTableOverview.Controls.Add(this.btnTable6);
             this.pnlTableOverview.Controls.Add(this.btnTable5);
@@ -75,6 +75,15 @@ namespace ChapeauUI
             this.pnlTableOverview.Name = "pnlTableOverview";
             this.pnlTableOverview.Size = new System.Drawing.Size(887, 644);
             this.pnlTableOverview.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(464, 297);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "help";
             // 
             // btnTable9
             // 
@@ -98,16 +107,16 @@ namespace ChapeauUI
             this.btnTable10.UseVisualStyleBackColor = false;
             this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
             // 
-            // bntTable8
+            // btnTable8
             // 
-            this.bntTable8.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.bntTable8.Location = new System.Drawing.Point(294, 423);
-            this.bntTable8.Name = "bntTable8";
-            this.bntTable8.Size = new System.Drawing.Size(75, 72);
-            this.bntTable8.TabIndex = 12;
-            this.bntTable8.Text = "Table 8";
-            this.bntTable8.UseVisualStyleBackColor = false;
-            this.bntTable8.Click += new System.EventHandler(this.bntTable8_Click);
+            this.btnTable8.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable8.Location = new System.Drawing.Point(294, 423);
+            this.btnTable8.Name = "btnTable8";
+            this.btnTable8.Size = new System.Drawing.Size(75, 72);
+            this.btnTable8.TabIndex = 12;
+            this.btnTable8.Text = "Table 8";
+            this.btnTable8.UseVisualStyleBackColor = false;
+            this.btnTable8.Click += new System.EventHandler(this.bntTable8_Click);
             // 
             // btnTable7
             // 
@@ -144,7 +153,7 @@ namespace ChapeauUI
             // 
             // btnTable1
             // 
-            this.btnTable1.BackColor = System.Drawing.Color.Yellow;
+            this.btnTable1.BackColor = System.Drawing.Color.LightGreen;
             this.btnTable1.Location = new System.Drawing.Point(152, 58);
             this.btnTable1.Name = "btnTable1";
             this.btnTable1.Size = new System.Drawing.Size(75, 72);
@@ -249,7 +258,7 @@ namespace ChapeauUI
             // 
             // btnTable2
             // 
-            this.btnTable2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable2.BackColor = System.Drawing.Color.Gainsboro;
             this.btnTable2.Location = new System.Drawing.Point(294, 58);
             this.btnTable2.Name = "btnTable2";
             this.btnTable2.Size = new System.Drawing.Size(75, 72);
@@ -260,7 +269,7 @@ namespace ChapeauUI
             // 
             // btnTable3
             // 
-            this.btnTable3.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnTable3.BackColor = System.Drawing.Color.Gainsboro;
             this.btnTable3.Location = new System.Drawing.Point(152, 178);
             this.btnTable3.Name = "btnTable3";
             this.btnTable3.Size = new System.Drawing.Size(75, 71);
@@ -268,15 +277,6 @@ namespace ChapeauUI
             this.btnTable3.Text = "Table 3";
             this.btnTable3.UseVisualStyleBackColor = false;
             this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(464, 297);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "help";
             // 
             // TableOverview
             // 
@@ -313,7 +313,7 @@ namespace ChapeauUI
         private System.Windows.Forms.Label lblTableNR;
         private System.Windows.Forms.Button btnTable9;
         private System.Windows.Forms.Button btnTable10;
-        private System.Windows.Forms.Button bntTable8;
+        private System.Windows.Forms.Button btnTable8;
         private System.Windows.Forms.Button btnTable7;
         private System.Windows.Forms.Button btnTable6;
         private System.Windows.Forms.Button btnTable5;
