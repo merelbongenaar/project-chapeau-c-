@@ -32,7 +32,7 @@ namespace ChapeauUI
             this.label3 = new System.Windows.Forms.Label();
             this.lbltxt = new System.Windows.Forms.Label();
             this.lblTableNr = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowPnlcategories = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@ namespace ChapeauUI
             this.listViewOrderOrder = new System.Windows.Forms.ListView();
             this.orderItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderItemQNT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.flowLayoutPanel2.SuspendLayout();
+            this.flowPnlcategories.SuspendLayout();
             this.flowPnlLunch.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,16 +75,16 @@ namespace ChapeauUI
             this.lblTableNr.TabIndex = 3;
             this.lblTableNr.Text = "...";
             // 
-            // flowLayoutPanel2
+            // flowPnlcategories
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Controls.Add(this.button2);
-            this.flowLayoutPanel2.Controls.Add(this.button3);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(49, 106);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(945, 1061);
-            this.flowLayoutPanel2.TabIndex = 6;
+            this.flowPnlcategories.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flowPnlcategories.Controls.Add(this.button1);
+            this.flowPnlcategories.Controls.Add(this.button2);
+            this.flowPnlcategories.Controls.Add(this.button3);
+            this.flowPnlcategories.Location = new System.Drawing.Point(49, 106);
+            this.flowPnlcategories.Name = "flowPnlcategories";
+            this.flowPnlcategories.Size = new System.Drawing.Size(945, 1061);
+            this.flowPnlcategories.TabIndex = 6;
             // 
             // button1
             // 
@@ -120,6 +120,7 @@ namespace ChapeauUI
             this.flowPnlLunchMainItems.Name = "flowPnlLunchMainItems";
             this.flowPnlLunchMainItems.Size = new System.Drawing.Size(945, 1061);
             this.flowPnlLunchMainItems.TabIndex = 7;
+            this.flowPnlLunchMainItems.Paint += new System.Windows.Forms.PaintEventHandler(this.flowPnlLunchMainItems_Paint);
             // 
             // flowPnlLunch
             // 
@@ -140,6 +141,7 @@ namespace ChapeauUI
             this.bttnLunch.TabIndex = 0;
             this.bttnLunch.Text = "Lunch";
             this.bttnLunch.UseVisualStyleBackColor = true;
+            this.bttnLunch.Click += new System.EventHandler(this.bttnLunch_Click);
             // 
             // bttnDiner
             // 
@@ -192,12 +194,12 @@ namespace ChapeauUI
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbltxt);
             this.Controls.Add(this.lblTableNr);
-            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowPnlLunch);
             this.Controls.Add(this.flowPnlLunchMainItems);
+            this.Controls.Add(this.flowPnlcategories);
             this.Name = "Ordering";
             this.Text = "Ordering";
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowPnlcategories.ResumeLayout(false);
             this.flowPnlLunch.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,7 +211,7 @@ namespace ChapeauUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbltxt;
         private System.Windows.Forms.Label lblTableNr;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowPnlcategories;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
