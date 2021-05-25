@@ -23,16 +23,16 @@ namespace ChapeauUI
         private void flowPnlLunchMainItems_Paint(object sender, PaintEventArgs e)
         {
             //for each menuItem in lunch
-            //foreach (var item in collection)
-            //{
-            //    Button testbutton = new Button();
-            //    testbutton.Text = "button1";
-            //    testbutton.Location = new Point(70, 70);
-            //    testbutton.Size = new Size(100, 100);
-            //    testbutton.Visible = true;
-            //    testbutton.BringToFront();
-            //    this.Controls.Add(testbutton);
-            //}
+            foreach (var item in collection)
+            {
+                Button testbutton = new Button();
+                testbutton.Text = "button1";
+                testbutton.Location = new Point(70, 70);
+                testbutton.Size = new Size(100, 100);
+                testbutton.Visible = true;
+                testbutton.BringToFront();
+                this.Controls.Add(testbutton);
+            }
         }
 
         private void bttnLunch_Click(object sender, EventArgs e)
