@@ -28,3 +28,13 @@ C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderin
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csprojAssemblyReference.cache
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Form1.resources
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Login.resources
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Ordering.resources
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Properties.Resources.resources
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.TableOverview.resources
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.GenerateResource.cache
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CoreCompileInputs.cache
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb

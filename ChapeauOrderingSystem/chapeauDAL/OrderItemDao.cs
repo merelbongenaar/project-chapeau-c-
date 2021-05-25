@@ -9,7 +9,7 @@ namespace ChapeauDAL
 {
     public class OrderItemDao : BaseDao
     {
-        public List<OrderItem> GetAllOrderItems() //add a category to filter? and a where statement maybe? 
+        public List<OrderItem> GetAllOrderItems() 
         {
             string query = $"SELECT orderID, item, quantity, state, orderTime, comment FROM OrderItem";
 
