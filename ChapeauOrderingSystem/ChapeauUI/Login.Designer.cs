@@ -41,7 +41,7 @@ namespace ChapeauUI
             // txtPassword
             // 
             this.txtPassword.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPassword.Location = new System.Drawing.Point(174, 290);
+            this.txtPassword.Location = new System.Drawing.Point(351, 325);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(196, 20);
             this.txtPassword.TabIndex = 4;
@@ -49,7 +49,7 @@ namespace ChapeauUI
             // txtUsername
             // 
             this.txtUsername.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtUsername.Location = new System.Drawing.Point(174, 242);
+            this.txtUsername.Location = new System.Drawing.Point(351, 277);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(196, 20);
             this.txtUsername.TabIndex = 5;
@@ -57,7 +57,7 @@ namespace ChapeauUI
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ChapeauUI.Properties.Resources.Untitled;
-            this.pictureBox1.Location = new System.Drawing.Point(190, 109);
+            this.pictureBox1.Location = new System.Drawing.Point(367, 144);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(171, 91);
             this.pictureBox1.TabIndex = 6;
@@ -66,7 +66,7 @@ namespace ChapeauUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 245);
+            this.label1.Location = new System.Drawing.Point(264, 280);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 7;
@@ -75,7 +75,7 @@ namespace ChapeauUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 293);
+            this.label2.Location = new System.Drawing.Point(264, 328);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 8;
@@ -87,7 +87,7 @@ namespace ChapeauUI
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(282, 332);
+            this.btnLogin.Location = new System.Drawing.Point(459, 367);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(88, 37);
             this.btnLogin.TabIndex = 9;
@@ -100,7 +100,7 @@ namespace ChapeauUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(529, 652);
+            this.ClientSize = new System.Drawing.Size(898, 596);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

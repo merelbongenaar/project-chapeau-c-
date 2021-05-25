@@ -56,6 +56,7 @@ C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderin
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
+<<<<<<< Updated upstream
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.exe.config
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.exe
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.pdb
@@ -86,3 +87,6 @@ C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\Chapea
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
+=======
+C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Ordering.resources
+>>>>>>> Stashed changes
