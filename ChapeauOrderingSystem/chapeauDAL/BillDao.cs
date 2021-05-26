@@ -51,17 +51,13 @@ namespace ChapeauDAL
         }
 
         public List<OrderItem> GetOrderItemForOrderID(int orderID)
-        {​​​​​​​
+        {
             List<OrderItem> orderItems = new List<OrderItem>();
-
-
             string query = "SELECT I.item_id, I.quantity, I.orderTime, I.itemStatus, I.comment, M.item_name, M.item_price FROM ORDER_ITEM AS I JOIN MENU_ITEM AS M on M.item_id = I.item_id WHERE I.orderID = @id";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", orderID);
-
-
             return ReadOrderItem(ExecuteSelectQuery(query, sqlParameters));
-        }​​​​​​​
+        }
 
         private List<OrderItem> ReadOrderItem(DataTable dataTable)
         {
