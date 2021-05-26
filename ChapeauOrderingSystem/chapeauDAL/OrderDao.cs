@@ -15,7 +15,7 @@ namespace ChapeauDAL
 
         public Order GetOrderByTableNr(int tableNr)
         {
-            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE tableID = 1";
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE tableID = {tableNr}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
@@ -51,7 +51,7 @@ namespace ChapeauDAL
                 orderItem.OrderID = (int)(dr["orderID"]);
                 orderItem.Quantity = (int)(dr["count"]);
 
-                if (dr["comment"] == null)
+                if (dr["comment"] == DBNull.Value)
                 {
                     orderItem.Comment = "";
                 }

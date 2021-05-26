@@ -34,9 +34,9 @@ namespace ChapeauUI
         {
             Button button = (Button)sender;
 
-            int tableNr = (int)button.Tag;
+            int tableNr = Convert.ToInt32(button.Tag);
 
-            lblTableNR.Text = "$Table {tableNr}";
+            lblTableNR.Text = $"Table {tableNr}";
 
             TableService tableService = new TableService();
             OrderService orderService = new OrderService();
@@ -65,13 +65,17 @@ namespace ChapeauUI
                 Order order = new Order();
                 order = orderService.GetOrderByTableNR(tableNr);
 
-                foreach (OrderItem orderItem in order.orderedItems)
+                if (order != null)
                 {
-                    ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
-                    li.SubItems.Add(orderItem.Quantity.ToString());
+                    foreach (OrderItem orderItem in order.orderedItems)
+                    {
+                        ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
+                        li.SubItems.Add(orderItem.Quantity.ToString());
 
-                    listViewOrderTableOverview.Items.Add(li);
+                        listViewOrderTableOverview.Items.Add(li);
+                    }
                 }
+
 
                 //now table name should show up on the right and also a + sign that will link to the order part
                 //maybe also and unoccupy bttn and update state back to unoccupied

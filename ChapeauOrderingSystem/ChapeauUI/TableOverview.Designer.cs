@@ -29,6 +29,7 @@ namespace ChapeauUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableOverview));
             this.pnlTableOverview = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTable9 = new System.Windows.Forms.Button();
@@ -50,13 +51,16 @@ namespace ChapeauUI
             this.lblEmployeeInfo = new System.Windows.Forms.Label();
             this.btnTable2 = new System.Windows.Forms.Button();
             this.btnTable3 = new System.Windows.Forms.Button();
+            this.readyTable1 = new System.Windows.Forms.PictureBox();
             this.pnlTableOverview.SuspendLayout();
             this.pnlOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.readyTable1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTableOverview
             // 
             this.pnlTableOverview.BackColor = System.Drawing.Color.Pink;
+            this.pnlTableOverview.Controls.Add(this.readyTable1);
             this.pnlTableOverview.Controls.Add(this.label1);
             this.pnlTableOverview.Controls.Add(this.btnTable9);
             this.pnlTableOverview.Controls.Add(this.btnTable10);
@@ -71,29 +75,26 @@ namespace ChapeauUI
             this.pnlTableOverview.Controls.Add(this.lblEmployeeInfo);
             this.pnlTableOverview.Controls.Add(this.btnTable2);
             this.pnlTableOverview.Controls.Add(this.btnTable3);
-            this.pnlTableOverview.Location = new System.Drawing.Point(18, 18);
-            this.pnlTableOverview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlTableOverview.Location = new System.Drawing.Point(12, 12);
             this.pnlTableOverview.Name = "pnlTableOverview";
-            this.pnlTableOverview.Size = new System.Drawing.Size(1330, 991);
+            this.pnlTableOverview.Size = new System.Drawing.Size(887, 644);
             this.pnlTableOverview.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(696, 457);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(464, 297);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 20);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "help";
             // 
             // btnTable9
             // 
             this.btnTable9.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable9.Location = new System.Drawing.Point(228, 815);
-            this.btnTable9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable9.Location = new System.Drawing.Point(152, 530);
             this.btnTable9.Name = "btnTable9";
-            this.btnTable9.Size = new System.Drawing.Size(112, 111);
+            this.btnTable9.Size = new System.Drawing.Size(75, 72);
             this.btnTable9.TabIndex = 14;
             this.btnTable9.Tag = "9";
             this.btnTable9.Text = "Table 9";
@@ -103,10 +104,9 @@ namespace ChapeauUI
             // btnTable10
             // 
             this.btnTable10.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable10.Location = new System.Drawing.Point(441, 815);
-            this.btnTable10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable10.Location = new System.Drawing.Point(294, 530);
             this.btnTable10.Name = "btnTable10";
-            this.btnTable10.Size = new System.Drawing.Size(112, 111);
+            this.btnTable10.Size = new System.Drawing.Size(75, 72);
             this.btnTable10.TabIndex = 13;
             this.btnTable10.Tag = "10";
             this.btnTable10.Text = "Table 10";
@@ -116,10 +116,9 @@ namespace ChapeauUI
             // btnTable8
             // 
             this.btnTable8.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable8.Location = new System.Drawing.Point(441, 651);
-            this.btnTable8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable8.Location = new System.Drawing.Point(294, 423);
             this.btnTable8.Name = "btnTable8";
-            this.btnTable8.Size = new System.Drawing.Size(112, 111);
+            this.btnTable8.Size = new System.Drawing.Size(75, 72);
             this.btnTable8.TabIndex = 12;
             this.btnTable8.Tag = "8";
             this.btnTable8.Text = "Table 8";
@@ -129,10 +128,9 @@ namespace ChapeauUI
             // btnTable7
             // 
             this.btnTable7.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable7.Location = new System.Drawing.Point(228, 651);
-            this.btnTable7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable7.Location = new System.Drawing.Point(152, 423);
             this.btnTable7.Name = "btnTable7";
-            this.btnTable7.Size = new System.Drawing.Size(112, 111);
+            this.btnTable7.Size = new System.Drawing.Size(75, 72);
             this.btnTable7.TabIndex = 11;
             this.btnTable7.Tag = "7";
             this.btnTable7.Text = "Table 7";
@@ -142,10 +140,9 @@ namespace ChapeauUI
             // btnTable6
             // 
             this.btnTable6.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable6.Location = new System.Drawing.Point(441, 474);
-            this.btnTable6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable6.Location = new System.Drawing.Point(294, 308);
             this.btnTable6.Name = "btnTable6";
-            this.btnTable6.Size = new System.Drawing.Size(112, 111);
+            this.btnTable6.Size = new System.Drawing.Size(75, 72);
             this.btnTable6.TabIndex = 10;
             this.btnTable6.Tag = "6";
             this.btnTable6.Text = "Table 6";
@@ -155,10 +152,9 @@ namespace ChapeauUI
             // btnTable5
             // 
             this.btnTable5.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable5.Location = new System.Drawing.Point(228, 474);
-            this.btnTable5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable5.Location = new System.Drawing.Point(152, 308);
             this.btnTable5.Name = "btnTable5";
-            this.btnTable5.Size = new System.Drawing.Size(112, 111);
+            this.btnTable5.Size = new System.Drawing.Size(75, 72);
             this.btnTable5.TabIndex = 9;
             this.btnTable5.Tag = "5";
             this.btnTable5.Text = "Table 5";
@@ -168,10 +164,9 @@ namespace ChapeauUI
             // btnTable1
             // 
             this.btnTable1.BackColor = System.Drawing.Color.LightGreen;
-            this.btnTable1.Location = new System.Drawing.Point(228, 89);
-            this.btnTable1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable1.Location = new System.Drawing.Point(152, 58);
             this.btnTable1.Name = "btnTable1";
-            this.btnTable1.Size = new System.Drawing.Size(112, 111);
+            this.btnTable1.Size = new System.Drawing.Size(75, 72);
             this.btnTable1.TabIndex = 0;
             this.btnTable1.Tag = "1";
             this.btnTable1.Text = "Table 1";
@@ -180,10 +175,9 @@ namespace ChapeauUI
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(26, 940);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRefresh.Location = new System.Drawing.Point(17, 611);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(112, 35);
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 8;
             this.btnRefresh.Text = "refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -196,28 +190,25 @@ namespace ChapeauUI
             this.pnlOrder.Controls.Add(this.btnPayForOrder);
             this.pnlOrder.Controls.Add(this.btnAddItem);
             this.pnlOrder.Controls.Add(this.listViewOrderTableOverview);
-            this.pnlOrder.Location = new System.Drawing.Point(908, 20);
-            this.pnlOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlOrder.Location = new System.Drawing.Point(605, 13);
             this.pnlOrder.Name = "pnlOrder";
-            this.pnlOrder.Size = new System.Drawing.Size(405, 954);
+            this.pnlOrder.Size = new System.Drawing.Size(270, 620);
             this.pnlOrder.TabIndex = 7;
             // 
             // lblTableNR
             // 
             this.lblTableNR.AutoSize = true;
-            this.lblTableNR.Location = new System.Drawing.Point(28, 18);
-            this.lblTableNR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTableNR.Location = new System.Drawing.Point(19, 12);
             this.lblTableNR.Name = "lblTableNR";
-            this.lblTableNR.Size = new System.Drawing.Size(132, 20);
+            this.lblTableNR.Size = new System.Drawing.Size(90, 13);
             this.lblTableNR.TabIndex = 11;
             this.lblTableNR.Text = "No table selected";
             // 
             // btnPayForOrder
             // 
-            this.btnPayForOrder.Location = new System.Drawing.Point(202, 912);
-            this.btnPayForOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPayForOrder.Location = new System.Drawing.Point(135, 593);
             this.btnPayForOrder.Name = "btnPayForOrder";
-            this.btnPayForOrder.Size = new System.Drawing.Size(171, 35);
+            this.btnPayForOrder.Size = new System.Drawing.Size(114, 23);
             this.btnPayForOrder.TabIndex = 10;
             this.btnPayForOrder.Text = "&Pay for order";
             this.btnPayForOrder.UseVisualStyleBackColor = true;
@@ -225,10 +216,9 @@ namespace ChapeauUI
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(28, 912);
-            this.btnAddItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddItem.Location = new System.Drawing.Point(19, 593);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(171, 35);
+            this.btnAddItem.Size = new System.Drawing.Size(114, 23);
             this.btnAddItem.TabIndex = 9;
             this.btnAddItem.Text = "&Add items";
             this.btnAddItem.UseVisualStyleBackColor = true;
@@ -240,10 +230,9 @@ namespace ChapeauUI
             this.orderItem,
             this.orderItemQNT});
             this.listViewOrderTableOverview.HideSelection = false;
-            this.listViewOrderTableOverview.Location = new System.Drawing.Point(28, 48);
-            this.listViewOrderTableOverview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listViewOrderTableOverview.Location = new System.Drawing.Point(19, 31);
             this.listViewOrderTableOverview.Name = "listViewOrderTableOverview";
-            this.listViewOrderTableOverview.Size = new System.Drawing.Size(343, 856);
+            this.listViewOrderTableOverview.Size = new System.Drawing.Size(230, 558);
             this.listViewOrderTableOverview.TabIndex = 4;
             this.listViewOrderTableOverview.UseCompatibleStateImageBehavior = false;
             this.listViewOrderTableOverview.View = System.Windows.Forms.View.Details;
@@ -261,10 +250,9 @@ namespace ChapeauUI
             // btnTable4
             // 
             this.btnTable4.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable4.Location = new System.Drawing.Point(441, 274);
-            this.btnTable4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable4.Location = new System.Drawing.Point(294, 178);
             this.btnTable4.Name = "btnTable4";
-            this.btnTable4.Size = new System.Drawing.Size(112, 111);
+            this.btnTable4.Size = new System.Drawing.Size(75, 72);
             this.btnTable4.TabIndex = 6;
             this.btnTable4.Tag = "4";
             this.btnTable4.Text = "Table 4";
@@ -274,20 +262,18 @@ namespace ChapeauUI
             // lblEmployeeInfo
             // 
             this.lblEmployeeInfo.AutoSize = true;
-            this.lblEmployeeInfo.Location = new System.Drawing.Point(21, 940);
-            this.lblEmployeeInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmployeeInfo.Location = new System.Drawing.Point(14, 611);
             this.lblEmployeeInfo.Name = "lblEmployeeInfo";
-            this.lblEmployeeInfo.Size = new System.Drawing.Size(21, 20);
+            this.lblEmployeeInfo.Size = new System.Drawing.Size(16, 13);
             this.lblEmployeeInfo.TabIndex = 5;
             this.lblEmployeeInfo.Text = "...";
             // 
             // btnTable2
             // 
             this.btnTable2.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable2.Location = new System.Drawing.Point(441, 89);
-            this.btnTable2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable2.Location = new System.Drawing.Point(294, 58);
             this.btnTable2.Name = "btnTable2";
-            this.btnTable2.Size = new System.Drawing.Size(112, 111);
+            this.btnTable2.Size = new System.Drawing.Size(75, 72);
             this.btnTable2.TabIndex = 3;
             this.btnTable2.Tag = "2";
             this.btnTable2.Text = "Table 2";
@@ -297,30 +283,39 @@ namespace ChapeauUI
             // btnTable3
             // 
             this.btnTable3.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTable3.Location = new System.Drawing.Point(228, 274);
-            this.btnTable3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTable3.Location = new System.Drawing.Point(152, 178);
             this.btnTable3.Name = "btnTable3";
-            this.btnTable3.Size = new System.Drawing.Size(112, 109);
+            this.btnTable3.Size = new System.Drawing.Size(75, 71);
             this.btnTable3.TabIndex = 2;
             this.btnTable3.Tag = "3";
             this.btnTable3.Text = "Table 3";
             this.btnTable3.UseVisualStyleBackColor = false;
             this.btnTable3.Click += new System.EventHandler(this.btnTable1_Click);
             // 
+            // readyTable1
+            // 
+            this.readyTable1.Image = ((System.Drawing.Image)(resources.GetObject("readyTable1.Image")));
+            this.readyTable1.Location = new System.Drawing.Point(118, 58);
+            this.readyTable1.Name = "readyTable1";
+            this.readyTable1.Size = new System.Drawing.Size(28, 30);
+            this.readyTable1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.readyTable1.TabIndex = 16;
+            this.readyTable1.TabStop = false;
+            // 
             // TableOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ClientSize = new System.Drawing.Size(1366, 1028);
+            this.ClientSize = new System.Drawing.Size(911, 668);
             this.Controls.Add(this.pnlTableOverview);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TableOverview";
             this.Text = "TableOverview";
             this.pnlTableOverview.ResumeLayout(false);
             this.pnlTableOverview.PerformLayout();
             this.pnlOrder.ResumeLayout(false);
             this.pnlOrder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.readyTable1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,5 +343,6 @@ namespace ChapeauUI
         private System.Windows.Forms.Button btnTable6;
         private System.Windows.Forms.Button btnTable5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox readyTable1;
     }
 }
