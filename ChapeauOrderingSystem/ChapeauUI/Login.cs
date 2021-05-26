@@ -41,7 +41,10 @@ namespace ChapeauUI
 
                 else if (employee.Role == "k" || employee.Role == "b")
                 {
-                    //open new form ruben and pass employee object
+                    BarKitchenView barKitchenView = new BarKitchenView(employee);
+                    this.Hide();
+
+                    barKitchenView.ShowDialog();
                 }
             }
             else
