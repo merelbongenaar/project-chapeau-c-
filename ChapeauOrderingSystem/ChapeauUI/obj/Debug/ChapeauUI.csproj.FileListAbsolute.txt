@@ -39,6 +39,7 @@ C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\Chapea
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.exe.config
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.exe
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.pdb
@@ -60,6 +61,8 @@ C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\Chapea
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauDAL.pdb
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 =======
+=======
+>>>>>>> Stashed changes
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csprojAssemblyReference.cache
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BarKitchenView.resources
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Form1.resources
@@ -92,4 +95,7 @@ C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\Chapeau
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauDAL.pdb
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

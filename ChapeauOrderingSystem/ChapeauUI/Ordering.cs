@@ -24,6 +24,7 @@ namespace ChapeauUI
         {
             //for each menuItem in lunch
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             //foreach (var item in collection)
             //{
             //    Button testbutton = new Button();
@@ -35,6 +36,8 @@ namespace ChapeauUI
             //    this.Controls.Add(testbutton);
             //}
 =======
+=======
+>>>>>>> Stashed changes
             /*foreach (var item in collection)
             {
                 Button testbutton = new Button();
@@ -45,6 +48,9 @@ namespace ChapeauUI
                 testbutton.BringToFront();
                 this.Controls.Add(testbutton);
             }*/
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
 
