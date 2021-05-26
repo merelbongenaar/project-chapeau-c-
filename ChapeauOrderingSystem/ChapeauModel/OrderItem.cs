@@ -6,7 +6,6 @@ namespace ChapeauModel
 {
     //Class OrderItem can contain a MenuItem instead of (int) MenuItemId
 
-
     public enum State
     {
         NotStarted=1, Preparing, Done

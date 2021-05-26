@@ -1,10 +1,18 @@
-﻿using System;
+﻿using ChapeauDAL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ChapeauLogic
 {
-    class ItemService
+    public class ItemService
     {
+        ItemDao itemDao;
+
+        public ItemService()
+        {
+            itemDao = new ItemDao();
+        }
+
     }
 }
