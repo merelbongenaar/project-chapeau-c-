@@ -51,15 +51,15 @@ namespace ChapeauDAL
                 orderItem.OrderID = (int)(dr["orderID"]);
                 orderItem.Quantity = (int)(dr["count"]);
 
-                //if (dr["comment"] == null)
-                //{
-                //    orderItem.Comment = "";
-                //}
-                //else
-                //{
-                //    orderItem.Comment = (string)(dr["comment"]);
-                //}
-                
+                if (dr["comment"] == null)
+                {
+                    orderItem.Comment = "";
+                }
+                else
+                {
+                    orderItem.Comment = (string)(dr["comment"]);
+                }
+
                 orderItem.OrderTime = (DateTime)(dr["orderTime"]);
                 orderItem.State = (State)(dr["state"]);
                 orderItem.Item = item;

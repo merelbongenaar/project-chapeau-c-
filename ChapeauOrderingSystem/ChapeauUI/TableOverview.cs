@@ -32,7 +32,11 @@ namespace ChapeauUI
         //----------------------------------------------------------------------------------TABLE BUTTONS-----------------------------------------------------------------------------------------------------------
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            lblTableNR.Text = "Table 1";
+            Button button = (Button)sender;
+
+            int tableNr = (int)button.Tag;
+
+            lblTableNR.Text = "$Table {tableNr}";
 
             TableService tableService = new TableService();
             OrderService orderService = new OrderService();
@@ -42,12 +46,12 @@ namespace ChapeauUI
                 DialogResult dialogResult = MessageBox.Show("occupy table", "Some Title", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    tableService.UpdateStateTableToTrue(1);
-                    btnTable1.BackColor = Color.Green;
+                    tableService.UpdateStateTableToTrue(tableNr);
+                    button.BackColor = Color.Green;
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    
+                    button.BackColor = Color.Gainsboro;
                 }
             }
 
@@ -59,7 +63,7 @@ namespace ChapeauUI
                 listViewOrderTableOverview.Items.Clear();
 
                 Order order = new Order();
-                order = orderService.GetOrderByTableNR(1);
+                order = orderService.GetOrderByTableNR(tableNr);
 
                 foreach (OrderItem orderItem in order.orderedItems)
                 {
@@ -75,50 +79,6 @@ namespace ChapeauUI
             }
 
           
-
-        }
-
-        private void btnTable2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnTable3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTable4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTable5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTable6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTable7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bntTable8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTable9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTable10_Click(object sender, EventArgs e)
-        {
 
         }
 
