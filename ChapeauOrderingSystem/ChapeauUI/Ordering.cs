@@ -23,6 +23,8 @@ namespace ChapeauUI
         private void flowPnlLunchMainItems_Paint(object sender, PaintEventArgs e)
         {
             //for each menuItem in lunch
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             //foreach (var item in collection)
             //{
             //    Button testbutton = new Button();
@@ -33,6 +35,23 @@ namespace ChapeauUI
             //    testbutton.BringToFront();
             //    this.Controls.Add(testbutton);
             //}
+=======
+=======
+>>>>>>> Stashed changes
+            /*foreach (var item in collection)
+            {
+                Button testbutton = new Button();
+                testbutton.Text = "button1";
+                testbutton.Location = new Point(70, 70);
+                testbutton.Size = new Size(100, 100);
+                testbutton.Visible = true;
+                testbutton.BringToFront();
+                this.Controls.Add(testbutton);
+            }*/
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         }
 
         private void bttnLunch_Click(object sender, EventArgs e)

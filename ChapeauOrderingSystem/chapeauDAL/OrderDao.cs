@@ -29,6 +29,15 @@ namespace ChapeauDAL
             }
         }
 
+        public List<Order> GetAllOrders()
+        {
+            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID ORDER BY startTime";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
+            return orders;
+        }
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -51,6 +60,7 @@ namespace ChapeauDAL
                 orderItem.OrderID = (int)(dr["orderID"]);
                 orderItem.Quantity = (int)(dr["count"]);
 
+<<<<<<< Updated upstream
                 if (dr["comment"] == DBNull.Value)
                 {
                     orderItem.Comment = "";
@@ -60,6 +70,17 @@ namespace ChapeauDAL
                     orderItem.Comment = (string)(dr["comment"]);
                 }
 
+=======
+                //if (dr["comment"] == null)
+                //{
+                //    orderItem.Comment = "None";
+                //}
+                //else
+                //{
+                //    orderItem.Comment = (string)(dr["comment"]);
+                //}
+                
+>>>>>>> Stashed changes
                 orderItem.OrderTime = (DateTime)(dr["orderTime"]);
                 orderItem.State = (State)(dr["state"]);
                 orderItem.Item = item;
