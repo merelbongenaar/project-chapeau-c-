@@ -40,5 +40,6 @@ namespace ChapeauUI
             //show panel 
             flowPnlLunchMainItems.Show();
         }
+
     }
 }

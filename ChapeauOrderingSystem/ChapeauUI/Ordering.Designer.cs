@@ -81,9 +81,9 @@ namespace ChapeauUI
             this.flowPnlcategories.Controls.Add(this.button1);
             this.flowPnlcategories.Controls.Add(this.button2);
             this.flowPnlcategories.Controls.Add(this.button3);
-            this.flowPnlcategories.Location = new System.Drawing.Point(49, 106);
+            this.flowPnlcategories.Location = new System.Drawing.Point(49, 234);
             this.flowPnlcategories.Name = "flowPnlcategories";
-            this.flowPnlcategories.Size = new System.Drawing.Size(945, 1061);
+            this.flowPnlcategories.Size = new System.Drawing.Size(945, 933);
             this.flowPnlcategories.TabIndex = 6;
             // 
             // button1
@@ -116,9 +116,9 @@ namespace ChapeauUI
             // flowPnlLunchMainItems
             // 
             this.flowPnlLunchMainItems.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowPnlLunchMainItems.Location = new System.Drawing.Point(49, 106);
+            this.flowPnlLunchMainItems.Location = new System.Drawing.Point(49, 362);
             this.flowPnlLunchMainItems.Name = "flowPnlLunchMainItems";
-            this.flowPnlLunchMainItems.Size = new System.Drawing.Size(945, 1061);
+            this.flowPnlLunchMainItems.Size = new System.Drawing.Size(945, 805);
             this.flowPnlLunchMainItems.TabIndex = 7;
             this.flowPnlLunchMainItems.Paint += new System.Windows.Forms.PaintEventHandler(this.flowPnlLunchMainItems_Paint);
             // 
@@ -194,9 +194,9 @@ namespace ChapeauUI
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbltxt);
             this.Controls.Add(this.lblTableNr);
-            this.Controls.Add(this.flowPnlLunch);
             this.Controls.Add(this.flowPnlLunchMainItems);
             this.Controls.Add(this.flowPnlcategories);
+            this.Controls.Add(this.flowPnlLunch);
             this.Name = "Ordering";
             this.Text = "Ordering";
             this.flowPnlcategories.ResumeLayout(false);
