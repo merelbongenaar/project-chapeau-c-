@@ -1024,19 +1024,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\moham\\.nuget\\packages\\": {}
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
+      "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
       "projectName": "ChapeauDAL",
-      "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
-      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\obj\\",
+      "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
+      "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1050,8 +1050,8 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
-              "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj"
+            "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
+              "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj"
             }
           }
         }
