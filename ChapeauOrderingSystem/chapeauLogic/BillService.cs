@@ -25,9 +25,9 @@ namespace ChapeauLogic
         }
 
         public List<OrderItem> GetOrderItemForOrderID(int orderID)
-        {​​​​​​​
+        {
             return billDao.GetOrderItemForOrderID(orderID);
-        }​​​​​​​
+        }
 
         public void UpdateOrderStatus(Order order)
         {

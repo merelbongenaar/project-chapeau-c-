@@ -1,2 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChapeauModel.typeOfPayment">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauModel.Bill">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="TypeOfPayment" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapeauModel.Order">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauModel.Table">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauModel.SubCategory">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauModel.Category">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauModel.Item">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Category" />
+      <Property Name="SubCategory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapeauModel.State">
+    <Position X="12" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauModel.OrderItem">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChapeauLogic.OrderService">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauLogic.TableService">
+    <Position X="13" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauLogic.OrderItemService">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauLogic.EmployeeService">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ChapeauLogic.BillService">
+    <Position X="15.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
