@@ -9,7 +9,7 @@ namespace ChapeauModel
 
     public enum State
     {
-        NotStarted=1, Preparing, Done
+        NotStarted=1, Preparing, Done, Served
     }
 
     public class OrderItem

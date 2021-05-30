@@ -20,5 +20,11 @@ namespace ChapeauLogic
             Order order = orderdb.GetOrderByTableNr(tablenr);
             return order;
         }
+
+        public List<Order> GetAllRunningOrders()
+        {
+            List<Order> runningOrders = orderdb.GetAllRunningOrders();
+            return runningOrders;
+        }
     }
 }

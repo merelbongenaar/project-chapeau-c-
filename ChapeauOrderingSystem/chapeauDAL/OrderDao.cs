@@ -29,6 +29,16 @@ namespace ChapeauDAL
             }
         }
 
+        public List<Order> GetAllRunningOrders()
+        {
+            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType" +
+            "FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0";
+            
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return orders;
+        }
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -68,17 +78,25 @@ namespace ChapeauDAL
                 order.OrderNr = (int)(dr["orderID"]);
                 order.EmployeeID = (int)(dr["employeeID"]);
                 order.TableID = (int)(dr["tableID"]);
-                order.StartTime = (DateTime)(dr["startTime"]);
 
-                //if ((dr["endTime"]) != null)
-                //{
-                //    order.EndTime = (DateTime)(dr["endTime"]);
-                //}
-                //else
-                //{
-                //    order.EndTime = new DateTime(0000, 00, 00, 00, 00, 00);
-                //}
-                
+                if (dr["startTime"] != DBNull.Value)
+                {
+                    order.StartTime = (DateTime)(dr["startTime"]);
+                }
+                else
+                {
+                    order.StartTime = new DateTime(0000, 00, 00, 00, 00, 00);
+                }
+
+                if ((dr["endTime"]) != DBNull.Value)
+                {
+                    order.EndTime = (DateTime)(dr["endTime"]);
+                }
+                else
+                {
+                    order.EndTime = new DateTime(0000, 00, 00, 00, 00, 00);
+                }
+
                 order.orderedItems.Add(orderItem);
 
                 orders.Add(order);

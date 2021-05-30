@@ -96,7 +96,50 @@ namespace ChapeauUI
 
             }
 
-          
+        }
+
+        private void RefreshIcons()
+        {
+            PictureBox[] readyIcons = new PictureBox[] { readyTable1, readyTable2, readyTable3, readyTable4, readyTable5, readyTable6, readyTable7, readyTable8, readyTable9, readyTable10 };
+            PictureBox[] preparingIcons = new PictureBox[] { preparingTable1, preparingTable2, preparingTable3, preparingTable4, preparingTable5, preparingTable6, preparingTable7, preparingTable8, preparingTable9, preparingTable10 };
+
+            OrderService orderService = new OrderService();
+            List<Order> runningOrders = orderService.GetAllRunningOrders();
+
+            foreach (Order o in runningOrders)
+            {
+                foreach (OrderItem orderItem in o.orderedItems)
+                {
+                    if (orderItem.Item.SubCategory == SubCategory.Starters)
+                    {
+
+                    }
+                }
+            }
+        }
+
+        private void RefreshTables()
+        {
+            //List<Table> tables = new List<Table>();
+            TableService tableService = new TableService();
+            List<Table> tables = tableService.GetAllTables();
+            Button[] buttons = new Button[] { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+
+            int i = 0;
+            foreach (Table table in tables)
+            {
+                if (table.IsOccupied)
+                {
+                    buttons[i].BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    buttons[i].BackColor = Color.Gainsboro;
+                }
+
+                i++;
+            }
+
 
         }
 
@@ -117,118 +160,112 @@ namespace ChapeauUI
             //open new form mohammed
         }
 
-
-
-
         //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshTables();
+            RefreshIcons();
         }
-
-        private void RefreshTables()
-        {
-            //List<Table> tables = new List<Table>();
-            TableService tableService = new TableService();
-
-            List<Table> tables = tableService.GetAllTables();
-
-            if (tables[0].IsOccupied)
-            {
-                btnTable1.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable1.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[1].IsOccupied)
-            {
-                btnTable2.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable2.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[2].IsOccupied)
-            {
-                btnTable3.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable3.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[3].IsOccupied)
-            {
-                btnTable4.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable4.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[4].IsOccupied)
-            {
-                btnTable5.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable5.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[5].IsOccupied)
-            {
-                btnTable6.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable6.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[6].IsOccupied)
-            {
-                btnTable7.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable7.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[7].IsOccupied)
-            {
-                btnTable8.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable8.BackColor = Color.Gainsboro;
-            }
-
-            if (tables[8].IsOccupied)
-            {
-                btnTable9.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable9.BackColor = Color.Gainsboro;
-            }
-
-
-            if (tables[9].IsOccupied)
-            {
-                btnTable10.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                btnTable10.BackColor = Color.Gainsboro;
-            }
-        }
-
 
         private void listViewOrderTableOverview_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //if (tables[0].IsOccupied)
+        //{
+        //    btnTable1.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable1.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[1].IsOccupied)
+        //{
+        //    btnTable2.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable2.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[2].IsOccupied)
+        //{
+        //    btnTable3.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable3.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[3].IsOccupied)
+        //{
+        //    btnTable4.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable4.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[4].IsOccupied)
+        //{
+        //    btnTable5.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable5.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[5].IsOccupied)
+        //{
+        //    btnTable6.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable6.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[6].IsOccupied)
+        //{
+        //    btnTable7.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable7.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[7].IsOccupied)
+        //{
+        //    btnTable8.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable8.BackColor = Color.Gainsboro;
+        //}
+
+        //if (tables[8].IsOccupied)
+        //{
+        //    btnTable9.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable9.BackColor = Color.Gainsboro;
+        //}
+
+
+        //if (tables[9].IsOccupied)
+        //{
+        //    btnTable10.BackColor = Color.LightGreen;
+        //}
+        //else
+        //{
+        //    btnTable10.BackColor = Color.Gainsboro;
+        //}
     }
 }
