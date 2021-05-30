@@ -88,3 +88,33 @@ C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.exe.config
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.exe
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauUI.pdb
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauLogic.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauModel.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Data.SqlClient.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.AccessControl.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.Permissions.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauDAL.dll
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauLogic.pdb
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauModel.pdb
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Data.SqlClient.xml
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.AccessControl.xml
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.Permissions.xml
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauDAL.pdb
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csprojAssemblyReference.cache
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Form1.resources
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Login.resources
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Ordering.resources
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Properties.Resources.resources
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.TableOverview.resources
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.GenerateResource.cache
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CoreCompileInputs.cache
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
