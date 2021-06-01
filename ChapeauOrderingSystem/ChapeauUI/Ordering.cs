@@ -1,4 +1,5 @@
-﻿using ChapeauModel;
+﻿using ChapeauLogic;
+using ChapeauModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,47 +14,81 @@ namespace ChapeauUI
 {
     public partial class Ordering : Form
     {
-        public Ordering(Table table) //???
+        ItemService itemService = new ItemService();
+        Order order;
+
+        public Ordering(Table table)
         {
             InitializeComponent();
+            order = new Order();
 
-            
+            //lblTableNr.Text = table.TableNumber.ToString();
         }
 
+        /// <summary>
+        /// buttons for the menu items
+        /// </summary>
         private void bttnLunch_Click(object sender, EventArgs e)
         {
-            List<Item>
-            flowPnlItems.Show();
+            //clear all items
+            flowPnlItems.Controls.Clear();
 
-            //for each menuItem in lunch
-            //foreach (var item in collection)
-            //{
-            //    Button testbutton = new Button();
-            //    testbutton.Text = "button1";
-            //    testbutton.Location = new Point(70, 70);
-            //    testbutton.Size = new Size(100, 100);
-            //    testbutton.Visible = true;
-            //    testbutton.BringToFront();
-            //    this.Controls.Add(testbutton);
-            //}
+            List<Item> lunchItems = new List<Item>();
+            lunchItems = itemService.GetItemsByCategory(1);
 
-            foreach (Item item in collection)
+            foreach (Item item in lunchItems)
             {
+                //127, 104
+                Button itemButten = new Button();
+                itemButten.Text = item.ItemName;
+                itemButten.Size = new Size(90, 90);
 
+                flowPnlItems.Controls.Add(itemButten);
             }
-
-
         }
 
         private void bttnDiner_Click(object sender, EventArgs e)
         {
+            //clear all items
+            flowPnlItems.Controls.Clear();
 
+            List<Item> lunchItems = new List<Item>();
+            lunchItems = itemService.GetItemsByCategory(2);
+
+            foreach (Item item in lunchItems)
+            {
+                Button itemButten = new Button();
+                itemButten.Text = item.ItemName;
+                itemButten.Size = new Size(90, 90);
+
+                flowPnlItems.Controls.Add(itemButten);
+            }
         }
 
         private void bttnDrinks_Click(object sender, EventArgs e)
         {
+            //clear all items
+            flowPnlItems.Controls.Clear();
 
+            List<Item> lunchItems = new List<Item>();
+            lunchItems = itemService.GetItemsByCategory(3);
+
+            foreach (Item item in lunchItems)
+            {
+                Button itemButten = new Button();
+                itemButten.Text = item.ItemName;
+                itemButten.Size = new Size(90, 90);
+
+                flowPnlItems.Controls.Add(itemButten);
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private void bttnSend_Click(object sender, EventArgs e)
+        {
+            //send order to kitchen/bar
+        }
     }
 }
