@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {}
+    "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
+    "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+        "projectUniqueName": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
         "projectName": "ChapeauModel",
-        "projectPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
-        "packagesPath": "C:\\Users\\merel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
+        "projectPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+        "packagesPath": "C:\\Users\\yeraz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\merel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\yeraz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
