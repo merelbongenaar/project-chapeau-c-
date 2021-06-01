@@ -7,9 +7,9 @@ using ChapeauModel;
 
 namespace ChapeauDAL
 {
-    public class ItemDao
+    public class ItemDao : BaseDao
     {
-        public List<Item> GetAllOrderItems()
+        public List<Item> GetAllItems()
         {
             string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items";
 
@@ -40,6 +40,24 @@ namespace ChapeauDAL
             return items;
         }
 
+        public List<Item> GetMenuItemByCategory(int category)
+        {
+            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemType = {category}";
+                                                                                       
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Item> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
+            return items;
+        }
+
+        public List<Item> GetMenuItemBySubCategory(int category)
+        {
+            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemSubType = {category}";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Item> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
+            return items;
+        }
     }
 }

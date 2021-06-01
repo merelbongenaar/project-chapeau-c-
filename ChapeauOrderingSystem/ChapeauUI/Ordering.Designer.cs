@@ -31,7 +31,7 @@ namespace ChapeauUI
         {
             this.lbltxt = new System.Windows.Forms.Label();
             this.lblTableNr = new System.Windows.Forms.Label();
-            this.flowPnlcategories = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowPnlItems = new System.Windows.Forms.FlowLayoutPanel();
             this.bttnLunch = new System.Windows.Forms.Button();
             this.bttnDiner = new System.Windows.Forms.Button();
             this.bttnDrinks = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@ namespace ChapeauUI
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbltxt
@@ -63,17 +64,17 @@ namespace ChapeauUI
             this.lblTableNr.TabIndex = 3;
             this.lblTableNr.Text = "...";
             // 
-            // flowPnlcategories
+            // flowPnlItems
             // 
-            this.flowPnlcategories.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowPnlcategories.Location = new System.Drawing.Point(187, 116);
-            this.flowPnlcategories.Name = "flowPnlcategories";
-            this.flowPnlcategories.Size = new System.Drawing.Size(945, 842);
-            this.flowPnlcategories.TabIndex = 6;
+            this.flowPnlItems.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flowPnlItems.Location = new System.Drawing.Point(187, 116);
+            this.flowPnlItems.Name = "flowPnlItems";
+            this.flowPnlItems.Size = new System.Drawing.Size(945, 842);
+            this.flowPnlItems.TabIndex = 6;
             // 
             // bttnLunch
             // 
-            this.bttnLunch.Location = new System.Drawing.Point(33, 116);
+            this.bttnLunch.Location = new System.Drawing.Point(39, 225);
             this.bttnLunch.Name = "bttnLunch";
             this.bttnLunch.Size = new System.Drawing.Size(127, 104);
             this.bttnLunch.TabIndex = 0;
@@ -83,21 +84,23 @@ namespace ChapeauUI
             // 
             // bttnDiner
             // 
-            this.bttnDiner.Location = new System.Drawing.Point(33, 226);
+            this.bttnDiner.Location = new System.Drawing.Point(39, 335);
             this.bttnDiner.Name = "bttnDiner";
             this.bttnDiner.Size = new System.Drawing.Size(127, 104);
             this.bttnDiner.TabIndex = 1;
             this.bttnDiner.Text = "Diner";
             this.bttnDiner.UseVisualStyleBackColor = true;
+            this.bttnDiner.Click += new System.EventHandler(this.bttnDiner_Click);
             // 
             // bttnDrinks
             // 
-            this.bttnDrinks.Location = new System.Drawing.Point(33, 336);
+            this.bttnDrinks.Location = new System.Drawing.Point(39, 115);
             this.bttnDrinks.Name = "bttnDrinks";
             this.bttnDrinks.Size = new System.Drawing.Size(127, 104);
             this.bttnDrinks.TabIndex = 2;
             this.bttnDrinks.Text = "Drinks";
             this.bttnDrinks.UseVisualStyleBackColor = true;
+            this.bttnDrinks.Click += new System.EventHandler(this.bttnDrinks_Click);
             // 
             // listViewOrderOrder
             // 
@@ -166,12 +169,22 @@ namespace ChapeauUI
             this.button5.Text = "add comment";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(39, 445);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(127, 104);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Desserts";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // Ordering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1670, 1233);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -180,7 +193,7 @@ namespace ChapeauUI
             this.Controls.Add(this.bttnDrinks);
             this.Controls.Add(this.bttnDiner);
             this.Controls.Add(this.bttnLunch);
-            this.Controls.Add(this.flowPnlcategories);
+            this.Controls.Add(this.flowPnlItems);
             this.Controls.Add(this.listViewOrderOrder);
             this.Controls.Add(this.lbltxt);
             this.Controls.Add(this.lblTableNr);
@@ -194,7 +207,7 @@ namespace ChapeauUI
         #endregion
         private System.Windows.Forms.Label lbltxt;
         private System.Windows.Forms.Label lblTableNr;
-        private System.Windows.Forms.FlowLayoutPanel flowPnlcategories;
+        private System.Windows.Forms.FlowLayoutPanel flowPnlItems;
         private System.Windows.Forms.Button bttnLunch;
         private System.Windows.Forms.Button bttnDiner;
         private System.Windows.Forms.Button bttnDrinks;
@@ -206,5 +219,6 @@ namespace ChapeauUI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

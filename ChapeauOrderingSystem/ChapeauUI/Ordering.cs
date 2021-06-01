@@ -17,11 +17,14 @@ namespace ChapeauUI
         {
             InitializeComponent();
 
-            flowPnlcategories.Show();
+            
         }
 
-        private void flowPnlLunchMainItems_Paint(object sender, PaintEventArgs e)
+        private void bttnLunch_Click(object sender, EventArgs e)
         {
+            List<Item>
+            flowPnlItems.Show();
+
             //for each menuItem in lunch
             //foreach (var item in collection)
             //{
@@ -33,17 +36,24 @@ namespace ChapeauUI
             //    testbutton.BringToFront();
             //    this.Controls.Add(testbutton);
             //}
+
+            foreach (Item item in collection)
+            {
+
+            }
+
+
         }
 
-        private void bttnLunch_Click(object sender, EventArgs e)
+        private void bttnDiner_Click(object sender, EventArgs e)
         {
-            //show panel 
-            flowPnlLunchMainItems.Show();
+
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void bttnDrinks_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }
