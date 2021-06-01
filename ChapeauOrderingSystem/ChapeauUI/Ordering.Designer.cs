@@ -110,6 +110,7 @@ namespace ChapeauUI
             this.listViewOrderOrder.TabIndex = 8;
             this.listViewOrderOrder.UseCompatibleStateImageBehavior = false;
             this.listViewOrderOrder.View = System.Windows.Forms.View.Details;
+            this.listViewOrderOrder.SelectedIndexChanged += new System.EventHandler(this.listViewOrderOrder_SelectedIndexChanged);
             // 
             // orderItem
             // 

@@ -13,14 +13,14 @@ using System.Windows.Forms;
 namespace ChapeauUI
 {
     public partial class Ordering : Form
-    {
+    { 
         ItemService itemService = new ItemService();
-        Order order;
+        private Table table;
 
         public Ordering(Table table)
         {
             InitializeComponent();
-            order = new Order();
+            this.table = table;
 
             //lblTableNr.Text = table.TableNumber.ToString();
         }
@@ -38,7 +38,6 @@ namespace ChapeauUI
 
             foreach (Item item in lunchItems)
             {
-                //127, 104
                 Button itemButten = new Button();
                 itemButten.Text = item.ItemName;
                 itemButten.Size = new Size(90, 90);
@@ -79,6 +78,8 @@ namespace ChapeauUI
                 itemButten.Text = item.ItemName;
                 itemButten.Size = new Size(90, 90);
 
+                itemButten.Tag = item.ItemID; //or should this be the item name?
+
                 flowPnlItems.Controls.Add(itemButten);
             }
         }
@@ -90,5 +91,34 @@ namespace ChapeauUI
         {
             //send order to kitchen/bar
         }
+
+        private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            
+            //comment button is clicked, open a new form
+            if (true)
+            {
+                var formPopup = new Form();
+                formPopup.Show(this); // if you need non-modal window
+            }
+        }
+
+
+        //                  listViewOrderTableOverview.Items.Clear();
+
+        //                Order order = new Order();
+        //        order = orderService.GetOrderByTableNR(tableNr);
+
+        //                if (order != null)
+        //                {
+        //                    foreach (OrderItem orderItem in order.orderedItems)
+        //                    {
+        //                        ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
+        //        li.SubItems.Add(orderItem.Quantity.ToString());
+
+        //                        listViewOrderTableOverview.Items.Add(li);
+        //                    }
+        //}
     }
 }
