@@ -15,20 +15,13 @@ namespace ChapeauUI
     public partial class Ordering : Form
     { 
         ItemService itemService = new ItemService();
-        //private Table table;
-        int tablenr; 
 
         public Ordering(int tablenr, Employee employee)
         {
             InitializeComponent();
-            this.tablenr = tablenr;
-
             lblTableNr.Text = tablenr.ToString();
         }
 
-        /// <summary>
-        /// buttons for the menu items
-        /// </summary>
         private void bttnLunch_Click(object sender, EventArgs e)
         {
             Button[] buttons = new Button[50];
@@ -98,9 +91,6 @@ namespace ChapeauUI
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void bttnSend_Click(object sender, EventArgs e)
         {
             //send order to kitchen/bar
@@ -116,9 +106,8 @@ namespace ChapeauUI
                 var formPopup = new Form();
                 formPopup.Show(this); // if you need non-modal window
             }
-
-           
         }
+
 
 
         //                  listViewOrderTableOverview.Items.Clear();
