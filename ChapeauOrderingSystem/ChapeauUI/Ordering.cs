@@ -31,6 +31,9 @@ namespace ChapeauUI
         /// </summary>
         private void bttnLunch_Click(object sender, EventArgs e)
         {
+            Button[] buttons = new Button[50];
+            int i = 0;
+
             //clear all items
             flowPnlItems.Controls.Clear();
 
@@ -42,9 +45,18 @@ namespace ChapeauUI
                 Button itemButten = new Button();
                 itemButten.Text = item.ItemName;
                 itemButten.Size = new Size(90, 90);
+                itemButten.Click += new EventHandler(itemButten_Click);
 
                 flowPnlItems.Controls.Add(itemButten);
+                buttons[i] = itemButten;
+                i++;
             }
+        }
+
+        void itemButten_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
         }
 
         private void bttnDiner_Click(object sender, EventArgs e)
