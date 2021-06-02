@@ -1024,20 +1024,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\": {}
+    "C:\\Users\\yeraz\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
+      "projectUniqueName": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
       "projectName": "ChapeauDAL",
-      "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
-      "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\obj\\",
+      "projectPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
+      "packagesPath": "C:\\Users\\yeraz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\yeraz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -1050,8 +1055,8 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
-              "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\school\\project\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj"
+            "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
+              "projectPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj"
             }
           }
         }
