@@ -28,6 +28,7 @@ namespace ChapeauUI
             btnPayForOrder.Hide();
 
             RefreshTables();
+            RefreshIcons();
 
             System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
             t.Interval = 15000; // specify interval time as you want
