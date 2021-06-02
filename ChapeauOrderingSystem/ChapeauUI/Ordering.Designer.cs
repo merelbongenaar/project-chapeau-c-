@@ -124,9 +124,9 @@ namespace ChapeauUI
             // bttnSend
             // 
             this.bttnSend.BackColor = System.Drawing.Color.Red;
-            this.bttnSend.Location = new System.Drawing.Point(1414, 787);
+            this.bttnSend.Location = new System.Drawing.Point(1414, 803);
             this.bttnSend.Name = "bttnSend";
-            this.bttnSend.Size = new System.Drawing.Size(155, 171);
+            this.bttnSend.Size = new System.Drawing.Size(155, 188);
             this.bttnSend.TabIndex = 9;
             this.bttnSend.Text = "Send";
             this.bttnSend.UseVisualStyleBackColor = false;
@@ -135,9 +135,9 @@ namespace ChapeauUI
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SeaShell;
-            this.button1.Location = new System.Drawing.Point(1151, 880);
+            this.button1.Location = new System.Drawing.Point(1151, 900);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 78);
+            this.button1.Size = new System.Drawing.Size(117, 91);
             this.button1.TabIndex = 10;
             this.button1.Text = "remove item";
             this.button1.UseVisualStyleBackColor = false;
@@ -145,9 +145,9 @@ namespace ChapeauUI
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.SeaShell;
-            this.button2.Location = new System.Drawing.Point(1275, 787);
+            this.button2.Location = new System.Drawing.Point(1275, 803);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 78);
+            this.button2.Size = new System.Drawing.Size(117, 91);
             this.button2.TabIndex = 11;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = false;
@@ -155,18 +155,18 @@ namespace ChapeauUI
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.SeaShell;
-            this.button3.Location = new System.Drawing.Point(1275, 880);
+            this.button3.Location = new System.Drawing.Point(1275, 900);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 78);
+            this.button3.Size = new System.Drawing.Size(117, 91);
             this.button3.TabIndex = 12;
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.SeaShell;
-            this.button5.Location = new System.Drawing.Point(1151, 787);
+            this.button5.Location = new System.Drawing.Point(1151, 803);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 78);
+            this.button5.Size = new System.Drawing.Size(117, 91);
             this.button5.TabIndex = 13;
             this.button5.Text = "add comment";
             this.button5.UseVisualStyleBackColor = false;
@@ -185,7 +185,7 @@ namespace ChapeauUI
             this.flowPnlItems.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flowPnlItems.Location = new System.Drawing.Point(198, 105);
             this.flowPnlItems.Name = "flowPnlItems";
-            this.flowPnlItems.Size = new System.Drawing.Size(929, 853);
+            this.flowPnlItems.Size = new System.Drawing.Size(929, 886);
             this.flowPnlItems.TabIndex = 15;
             // 
             // Ordering

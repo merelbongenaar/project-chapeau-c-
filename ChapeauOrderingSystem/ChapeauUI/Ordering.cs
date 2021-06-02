@@ -69,6 +69,7 @@ namespace ChapeauUI
             //clear all items
             flowPnlItems.Controls.Clear();
 
+            //should be class level i think
             List<Item> lunchItems = new List<Item>();
             lunchItems = itemService.GetItemsByCategory(3);
 
@@ -102,6 +103,8 @@ namespace ChapeauUI
                 var formPopup = new Form();
                 formPopup.Show(this); // if you need non-modal window
             }
+
+           
         }
 
 
