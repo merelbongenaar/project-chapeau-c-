@@ -49,6 +49,7 @@ namespace ChapeauUI
             Button button = (Button)sender;
 
             int tableNr = Convert.ToInt32(button.Tag);
+            btnAddItem.Tag = tableNr; //assign clicked tablenr to addbtn
 
             lblTableNR.Text = $"Table {tableNr}";
 
@@ -103,19 +104,53 @@ namespace ChapeauUI
             PictureBox[] readyIcons = new PictureBox[] { readyTable1, readyTable2, readyTable3, readyTable4, readyTable5, readyTable6, readyTable7, readyTable8, readyTable9, readyTable10 };
             PictureBox[] preparingIcons = new PictureBox[] { preparingTable1, preparingTable2, preparingTable3, preparingTable4, preparingTable5, preparingTable6, preparingTable7, preparingTable8, preparingTable9, preparingTable10 };
 
+            for (int j = 0; j < 10; j++)
+            {
+                readyIcons[j].Hide();
+                preparingIcons[j].Hide();
+            }
+
+
             OrderService orderService = new OrderService();
             List<Order> runningOrders = orderService.GetAllRunningOrders();
 
+            int i = 0;
             foreach (Order o in runningOrders)
             {
-                foreach (OrderItem orderItem in o.orderedItems)
+                foreach (OrderItem item in o.orderedItems)
                 {
-                    if (orderItem.Item.SubCategory == SubCategory.Starters)
+                    if (item.State == State.Preparing)
                     {
+                        preparingIcons[i].Show();
+                    }
+                    else
+                    {
+                        preparingIcons[i].Hide();
+                    }
 
+                    if (item.State == State.Done)
+                    {
+                        readyIcons[i].Show();
+                    }
+                    else
+                    {
+                        readyIcons[i].Hide();
                     }
                 }
+
+                i++;
             }
+
+            //foreach (Order o in runningOrders)
+            //{
+            //    foreach (OrderItem orderItem in o.orderedItems)
+            //    {
+            //        if (orderItem.Item.SubCategory == SubCategory.Starters)
+            //        {
+
+            //        }
+            //    }
+            //}
         }
 
         private void RefreshTables()
@@ -149,7 +184,10 @@ namespace ChapeauUI
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             //open new form yeraz
-            Form formOrder = new Ordering(table);
+            Button btn = (Button)sender;
+            int tableNr = (int)btn.Tag;
+
+            Form formOrder = new Ordering(tableNr);
             formOrder.Show();
            
         }

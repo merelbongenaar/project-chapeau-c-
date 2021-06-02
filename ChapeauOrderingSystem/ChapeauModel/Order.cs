@@ -14,8 +14,10 @@ namespace ChapeauModel
 
         public int TableID { get; set; }
         public int EmployeeID { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+
+        //nullable datetimes
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
         public decimal Bill { get; set; }
 
         public Order()

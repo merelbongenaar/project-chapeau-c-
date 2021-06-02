@@ -85,7 +85,7 @@ namespace ChapeauDAL
                 }
                 else
                 {
-                    order.StartTime = new DateTime(0000, 00, 00, 00, 00, 00);
+                    order.StartTime = null;
                 }
 
                 if ((dr["endTime"]) != DBNull.Value)
@@ -94,7 +94,7 @@ namespace ChapeauDAL
                 }
                 else
                 {
-                    order.EndTime = new DateTime(0000, 00, 00, 00, 00, 00);
+                    order.EndTime = null;
                 }
 
                 order.orderedItems.Add(orderItem);

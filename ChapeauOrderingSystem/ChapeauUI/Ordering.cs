@@ -15,14 +15,15 @@ namespace ChapeauUI
     public partial class Ordering : Form
     { 
         ItemService itemService = new ItemService();
-        private Table table;
+        //private Table table;
+        int tablenr; 
 
-        public Ordering(Table table)
+        public Ordering(int tablenr)
         {
             InitializeComponent();
-            this.table = table;
+            this.tablenr = tablenr;
 
-            //lblTableNr.Text = table.TableNumber.ToString();
+            lblTableNr.Text = tablenr.ToString();
         }
 
         /// <summary>
