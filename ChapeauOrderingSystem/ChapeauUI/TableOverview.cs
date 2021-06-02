@@ -175,8 +175,6 @@ namespace ChapeauUI
 
                 i++;
             }
-
-
         }
 
 
@@ -188,7 +186,7 @@ namespace ChapeauUI
             Button btn = (Button)sender;
             int tableNr = (int)btn.Tag;
 
-            Form formOrder = new Ordering(tableNr);
+            Form formOrder = new Ordering(tableNr, employee);
             formOrder.Show();
            
         }

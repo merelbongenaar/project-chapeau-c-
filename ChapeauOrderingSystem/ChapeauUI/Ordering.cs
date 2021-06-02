@@ -18,7 +18,7 @@ namespace ChapeauUI
         //private Table table;
         int tablenr; 
 
-        public Ordering(int tablenr)
+        public Ordering(int tablenr, Employee employee)
         {
             InitializeComponent();
             this.tablenr = tablenr;
