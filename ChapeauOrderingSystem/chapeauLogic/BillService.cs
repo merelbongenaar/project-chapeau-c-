@@ -13,9 +13,15 @@ namespace ChapeauLogic
         {
             billDao = new BillDao();
         }
+
         public void AddBill(Bill bill)
         {
             billDao.AddBill(bill);
+
+        }
+        public Order GetOrderByTableID(int tableID)
+        {
+            return billDao.GetOrderByTableID(tableID);
 
         }
         public List<Order> GetOrders()
@@ -34,5 +40,9 @@ namespace ChapeauLogic
             billDao.UpdateOrderStatus(order);
         }
 
+        public void UpdateTableStatus(int tableID)
+        {
+            billDao.UpdateTableStatus(tableID);
+        }
     }
 }

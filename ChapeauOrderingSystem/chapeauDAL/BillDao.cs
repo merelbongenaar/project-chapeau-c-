@@ -27,7 +27,7 @@ namespace ChapeauDAL
         public List<Order> GetOrders()
         {
             string query = "SELECT orderID, employeeID, tableID FROM [Order] WHERE ispaid = 0";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
+            SqlParameter[] sqlParameters = new SqlParameter[0];
 
             return ReadOrders(ExecuteSelectQuery(query, sqlParameters));
 
@@ -44,18 +44,47 @@ namespace ChapeauDAL
                     OrderNr = Convert.ToInt32(dr["orderID"]),
                     EmployeeID = Convert.ToInt32(dr["employeeID"]),
                     TableID = Convert.ToInt32(dr["tableID"]),
+
                 };
                 orders.Add(order);
             }
             return orders;
         }
 
+
+        public Order GetOrderByTableID(int tableID)
+        {
+            string query = "SELECT orderID, employeeID FROM [Order] WHERE tableID = @tableID AND ispaid = 0";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("tableID", tableID);
+
+            return ReadOrderByTableID(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private Order ReadOrderByTableID(DataTable dataTable)
+        {
+            Order order = null;
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                order = new Order()
+                {
+                    OrderNr = Convert.ToInt32(dr["orderID"]),
+                    EmployeeID = Convert.ToInt32(dr["employeeID"]),
+                };
+            }
+            return order;
+        }
+
         public List<OrderItem> GetOrderItemForOrderID(int orderID)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
-            string query = "SELECT I.item_id, I.quantity, I.orderTime, I.itemStatus, I.comment, M.item_name, M.item_price FROM ORDER_ITEM AS I JOIN MENU_ITEM AS M on M.item_id = I.item_id WHERE I.orderID = @id";
+
+
+            string query = "SELECT I.itemID, I.count, I.orderTime, I.state, I.comment, M.itemName, M.price, M.itemType, M.itemSubType FROM [OrderItem] AS I JOIN [Items] AS M on I.itemID = M.itemID WHERE I.orderID = @orderID";
             SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@id", orderID);
+            sqlParameters[0] = new SqlParameter("@orderID", orderID);
+
+
             return ReadOrderItem(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -64,22 +93,46 @@ namespace ChapeauDAL
             List<OrderItem> orderItems = new List<OrderItem>();
             foreach (DataRow dr in dataTable.Rows)
             {
-
+                Item item = new Item()
+                {
+                    ItemID = Convert.ToInt32(dr["itemID"]),
+                    ItemName = Convert.ToString(dr["itemName"]),
+                    Price = Convert.ToDecimal(dr["price"]),
+                    Category = (Category)dr["itemType"],
+                    SubCategory = (SubCategory)dr["itemSubType"]
+                };
+                OrderItem orderItem = new OrderItem()
+                {
+                    Item = item,
+                    Quantity = Convert.ToInt32(dr["count"]),
+                    State = (State)dr["state"],
+                    OrderTime = (DateTime)dr["orderTime"],
+                    Comment = Convert.ToString(dr["comment"]),
+                };
+                orderItems.Add(orderItem);
             }
             return orderItems;
         }
 
         public void UpdateOrderStatus(Order order)
         {
-            string query = $"UPDATE [order] SET isPaid=@isPaid, WHERE orderID=@orderID";
+            string query = $"UPDATE [order] SET isPaid=@isPaid WHERE orderID=@orderID";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("orderID", order.OrderNr);
-            sqlParameters[0] = new SqlParameter("isPaid", 1);
+            sqlParameters[1] = new SqlParameter("isPaid", 1);
 
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void UpdateTableStatus(int tableID)
+        {
+            string query = $"UPDATE [Table] SET isOccupied=@isOccupied WHERE tableID=@tableID";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("tableID", tableID);
+            sqlParameters[1] = new SqlParameter("isOccupied", Convert.ToBoolean(0));
 
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
 
 
