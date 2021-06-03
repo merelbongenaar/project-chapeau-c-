@@ -107,6 +107,7 @@ namespace ChapeauUI
             orderItem.OrderTime = DateTime.Now;
             orderItem.Quantity = 1;
             orderItem.State = State.NotStarted;
+            //decrease stock
 
             order.orderedItems.Add(orderItem);
 
