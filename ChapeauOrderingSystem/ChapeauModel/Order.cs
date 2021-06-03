@@ -24,5 +24,7 @@ namespace ChapeauModel
         {
             orderedItems = new List<OrderItem>();
         }
+
+        //method add order item if 
     }
 }

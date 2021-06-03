@@ -14,6 +14,9 @@ namespace ChapeauUI
 {
     public partial class Ordering : Form
     {
+        //
+        ListViewItem selectedLI;
+
         //for displaying the menu buttons
         private List<Item> menuItems;
 
@@ -44,7 +47,7 @@ namespace ChapeauUI
         private void bttnLunch_Click(object sender, EventArgs e)
         {
             flowPnlItems.Controls.Clear();
-            menuItems = itemService.GetItemsByCategory(1);
+            menuItems = itemService.GetItemsByCategory(1); //if null then fill else get from the list
 
             foreach (Item item in menuItems)
             {
@@ -97,6 +100,7 @@ namespace ChapeauUI
             Button bttn = (Button)sender;
             Item selectedItem = (Item)bttn.Tag;
 
+            //check if order is already there ++ 
             OrderItem orderItem = new OrderItem();
             orderItem.Item = selectedItem;
             //orderItem.OrderID = order.OrderNr; //hmmmmm
@@ -106,6 +110,7 @@ namespace ChapeauUI
 
             order.orderedItems.Add(orderItem);
 
+            //method display order running
             ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
             li.SubItems.Add(orderItem.Quantity.ToString());
 
@@ -120,16 +125,10 @@ namespace ChapeauUI
 
         private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            //if (listViewDrinks.SelectedItems.Count > 0)
-            //{
-            //    ListViewItem li = listViewDrinks.SelectedItems[0];
-            //    txtBoxDrinkId.Text = li.SubItems[0].Text;
-            //    txtBoxDrinkName.Text = li.SubItems[1].Text;
-            //    txtBoxPrice.Text = li.SubItems[2].Text;
-            //    txtBoxStock.Text = li.SubItems[3].Text;
-            //    txtBoxAlcohol.Text = li.SubItems[4].Text;
-            //}
+            if (listViewOrderOrder.SelectedItems.Count > 0)
+            {
+                selectedLI = listViewOrderOrder.SelectedItems[0];
+            }
         }
 
         private void bttnAddComment_Click(object sender, EventArgs e)
@@ -147,7 +146,7 @@ namespace ChapeauUI
 
         private void bttnAddQNT_Click(object sender, EventArgs e)
         {
-            order.orderedItems[0].Quantity++;
+            //order.orderedItems[].Quantity++;
         }
     }
 }
