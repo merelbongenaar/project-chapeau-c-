@@ -38,6 +38,17 @@ namespace ChapeauDAL
             return orders;
         }
 
+        public void AddOrder(Order order)
+        {
+            foreach (OrderItem item in order.orderedItems)
+            {
+                string query = $"INSERT INTO [OrderItem] (orderID, employeeID, tableID, startTime, endTime, isPaid) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, {order.StartTime}, {order.EndTime}, {0} );";
+                SqlParameter[] sqlParameters = new SqlParameter[0];
+
+                ExecuteEditQuery(query, sqlParameters);
+            }
+        }
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();

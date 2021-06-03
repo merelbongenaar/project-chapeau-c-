@@ -13,58 +13,63 @@ using System.Windows.Forms;
 namespace ChapeauUI
 {
     public partial class Ordering : Form
-    { 
-        ItemService itemService = new ItemService();
+    {
+        //for displaying the menu buttons
+        private List<Item> menuItems;
 
-        public Ordering(int tablenr, Employee employee)
+        //for entering the database
+        private ItemService itemService;
+        private OrderService orderService;
+
+        private Order order;
+
+        public Ordering(int tableNr, Employee employee)
         {
             InitializeComponent();
-            lblTableNr.Text = tablenr.ToString();
+
+            menuItems = new List<Item>();
+            itemService = new ItemService();
+            orderService = new OrderService();
+
+            order = new Order();
+            order.EmployeeID = employee.EmployeeID;
+            order.StartTime = DateTime.Now;
+            order.TableID = tableNr;
+            order.EndTime = null;
+
+            lblEmployeeName.Text = employee.Name.ToString();
+            lblTableNr.Text = tableNr.ToString();
         }
 
         private void bttnLunch_Click(object sender, EventArgs e)
         {
-            Button[] buttons = new Button[50];
-            int i = 0;
-
-            //clear all items
             flowPnlItems.Controls.Clear();
+            menuItems = itemService.GetItemsByCategory(1);
 
-            List<Item> lunchItems = new List<Item>();
-            lunchItems = itemService.GetItemsByCategory(1);
-
-            foreach (Item item in lunchItems)
+            foreach (Item item in menuItems)
             {
                 Button itemButten = new Button();
                 itemButten.Text = item.ItemName;
                 itemButten.Size = new Size(90, 90);
                 itemButten.Click += new EventHandler(itemButten_Click);
+                itemButten.Tag = item;
 
                 flowPnlItems.Controls.Add(itemButten);
-                buttons[i] = itemButten;
-                i++;
             }
-        }
-
-        void itemButten_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-
         }
 
         private void bttnDiner_Click(object sender, EventArgs e)
         {
-            //clear all items
             flowPnlItems.Controls.Clear();
+            menuItems = itemService.GetItemsByCategory(2);
 
-            List<Item> lunchItems = new List<Item>();
-            lunchItems = itemService.GetItemsByCategory(2);
-
-            foreach (Item item in lunchItems)
+            foreach (Item item in menuItems)
             {
                 Button itemButten = new Button();
                 itemButten.Text = item.ItemName;
                 itemButten.Size = new Size(90, 90);
+                itemButten.Click += new EventHandler(itemButten_Click);
+                itemButten.Tag = item;
 
                 flowPnlItems.Controls.Add(itemButten);
             }
@@ -72,58 +77,77 @@ namespace ChapeauUI
 
         private void bttnDrinks_Click(object sender, EventArgs e)
         {
-            //clear all items
             flowPnlItems.Controls.Clear();
+            menuItems = itemService.GetItemsByCategory(3);
 
-            //should be class level i think
-            List<Item> lunchItems = new List<Item>();
-            lunchItems = itemService.GetItemsByCategory(3);
-
-            foreach (Item item in lunchItems)
+            foreach (Item item in menuItems)
             {
                 Button itemButten = new Button();
                 itemButten.Text = item.ItemName;
                 itemButten.Size = new Size(90, 90);
-
-                itemButten.Tag = item.ItemID; //or should this be the item name?
+                itemButten.Click += new EventHandler(itemButten_Click);
+                itemButten.Tag = item;
 
                 flowPnlItems.Controls.Add(itemButten);
             }
         }
 
+        void itemButten_Click(object sender, EventArgs e)
+        {
+            Button bttn = (Button)sender;
+            Item selectedItem = (Item)bttn.Tag;
+
+            OrderItem orderItem = new OrderItem();
+            orderItem.Item = selectedItem;
+            //orderItem.OrderID = order.OrderNr; //hmmmmm
+            orderItem.OrderTime = DateTime.Now;
+            orderItem.Quantity = 1;
+            orderItem.State = State.NotStarted;
+
+            order.orderedItems.Add(orderItem);
+
+            ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
+            li.SubItems.Add(orderItem.Quantity.ToString());
+
+            listViewOrderOrder.Items.Add(li);
+        }
+
         private void bttnSend_Click(object sender, EventArgs e)
         {
             //send order to kitchen/bar
+            orderService.AddDataToOrder(order);
         }
 
         private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Order order = new Order();
-            
-            //comment button is clicked, open a new form
-            if (true)
-            {
-                var formPopup = new Form();
-                formPopup.Show(this); // if you need non-modal window
-            }
+
+            //if (listViewDrinks.SelectedItems.Count > 0)
+            //{
+            //    ListViewItem li = listViewDrinks.SelectedItems[0];
+            //    txtBoxDrinkId.Text = li.SubItems[0].Text;
+            //    txtBoxDrinkName.Text = li.SubItems[1].Text;
+            //    txtBoxPrice.Text = li.SubItems[2].Text;
+            //    txtBoxStock.Text = li.SubItems[3].Text;
+            //    txtBoxAlcohol.Text = li.SubItems[4].Text;
+            //}
         }
 
+        private void bttnAddComment_Click(object sender, EventArgs e)
+        {
+            //comment button is clicked, open a new form
 
+            //    var formPopup = new Form();
+            //    formPopup.Show(this); // if you need non-modal window
+        }
 
-        //                  listViewOrderTableOverview.Items.Clear();
+        private void bttnRemoveItem_Click(object sender, EventArgs e)
+        {
 
-        //                Order order = new Order();
-        //        order = orderService.GetOrderByTableNR(tableNr);
+        }
 
-        //                if (order != null)
-        //                {
-        //                    foreach (OrderItem orderItem in order.orderedItems)
-        //                    {
-        //                        ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
-        //        li.SubItems.Add(orderItem.Quantity.ToString());
-
-        //                        listViewOrderTableOverview.Items.Add(li);
-        //                    }
-        //}
+        private void bttnAddQNT_Click(object sender, EventArgs e)
+        {
+            order.orderedItems[0].Quantity++;
+        }
     }
 }

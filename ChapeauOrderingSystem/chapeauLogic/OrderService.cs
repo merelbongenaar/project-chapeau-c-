@@ -26,5 +26,10 @@ namespace ChapeauLogic
             List<Order> runningOrders = orderdb.GetAllRunningOrders();
             return runningOrders;
         }
+
+        public void AddDataToOrder(Order order)
+        {
+            orderdb.AddOrder(order); //list
+        }
     }
 }
