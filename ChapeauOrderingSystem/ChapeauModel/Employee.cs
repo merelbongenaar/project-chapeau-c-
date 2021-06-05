@@ -4,7 +4,10 @@ using System.Text;
 
 namespace ChapeauModel
 {
-    public enum Role { Bar=1, Kitchen, Waiter, Manager}
+    public enum Role 
+    {
+        Bar=1, Kitchen, Waiter, Manager
+    }
 
     public class Employee
     {
@@ -13,7 +16,7 @@ namespace ChapeauModel
 
         public string Name { get; set; }
 
-        public string Role { get; set; }
+        public Role Role { get; set; }
 
         public string Password { get; set; }
     }

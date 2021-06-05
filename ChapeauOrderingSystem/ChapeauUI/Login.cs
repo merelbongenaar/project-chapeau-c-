@@ -21,17 +21,21 @@ namespace ChapeauUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //read user input
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
             Employee employee = new Employee();
             EmployeeService employeeService = new EmployeeService();
 
+            //get employee from database
             employee = employeeService.GetEmployee(username, password);
 
+            //check if input is correct 
             if (employee != null)
             {
-                if (employee.Role == "w")
+                //open different forms according to the role of the employee
+                if (employee.Role == Role.Waiter)
                 {
                     TableOverview tableOverview = new TableOverview(employee);
                     this.Hide();
@@ -39,9 +43,9 @@ namespace ChapeauUI
                     tableOverview.ShowDialog();
                 }
 
-                else if (employee.Role == "k" || employee.Role == "b")
+                else if (employee.Role == Role.Kitchen || employee.Role == Role.Bar)
                 {
-                    //open new form ruben and pass employee object
+                    //Form kitchenOrBarView = new Form(employee);
                 }
             }
             else
