@@ -21,6 +21,13 @@ namespace ChapeauLogic
             return tables;
         }
 
+        public Table GetTableByTableNR(int tableNr)
+        {
+            Table table = tabledb.GetTableByTableNr(tableNr);
+            return table;
+
+        }
+
         public void UpdateStateTableToTrue(int tableNR)
         {
             tabledb.UpdateStateTableToTrue(tableNR);
