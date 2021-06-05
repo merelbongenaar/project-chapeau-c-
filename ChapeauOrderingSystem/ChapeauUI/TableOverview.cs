@@ -17,6 +17,7 @@ namespace ChapeauUI
     {
         private Employee employee;
         private Table table;
+        private Order order;
 
         public TableOverview(Employee employee)
         {
@@ -78,7 +79,8 @@ namespace ChapeauUI
 
                 listViewOrderTableOverview.Items.Clear();
 
-                Order order = new Order();
+                order = new Order();
+
                 order = orderService.GetOrderByTableNR(tableNr);
 
                 if (order != null)
@@ -194,7 +196,8 @@ namespace ChapeauUI
         //-------------------------------------------------------------------BUTTON PAY FOR ORDER---------------------------------------------------------------------------------------------------------------------
         private void btnPayForOrder_Click(object sender, EventArgs e)
         {
-            //open new form mohammed
+            Form formPayment = new BillForm(order);
+            formPayment.Show();
         }
 
         //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------

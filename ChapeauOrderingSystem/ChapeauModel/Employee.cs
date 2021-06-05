@@ -5,6 +5,7 @@ using System.Text;
 namespace ChapeauModel
 {
     public enum Role { Bar=1, Kitchen, Waiter, Manager}
+
     public class Employee
     {
 

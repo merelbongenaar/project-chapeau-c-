@@ -55,6 +55,7 @@ namespace ChapeauModel
         public Order()
         {
             orderedItems = new List<OrderItem>();
+            Bill = new Bill();
         }
 
         //method add order item if 

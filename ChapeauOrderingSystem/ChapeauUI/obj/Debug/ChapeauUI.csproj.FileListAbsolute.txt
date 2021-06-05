@@ -118,3 +118,4 @@ C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrde
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
+C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources
