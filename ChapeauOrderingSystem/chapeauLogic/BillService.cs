@@ -14,35 +14,12 @@ namespace ChapeauLogic
             billDao = new BillDao();
         }
 
-        public void AddBill(Bill bill)
+        public void AddBill(Order order)
         {
-            billDao.AddBill(bill);
-
-        }
-        public Order GetOrderByTableID(int tableID)
-        {
-            return billDao.GetOrderByTableID(tableID);
-
-        }
-        public List<Order> GetOrders()
-        {
-            return billDao.GetOrders();
-
-        }
-
-        public List<OrderItem> GetOrderItemForOrderID(int orderID)
-        {
-            return billDao.GetOrderItemForOrderID(orderID);
-        }
-
-        public void UpdateOrderStatus(Order order)
-        {
+            billDao.AddBill(order.Bill);
             billDao.UpdateOrderStatus(order);
+            billDao.UpdateTableStatus(order.TableID);
         }
 
-        public void UpdateTableStatus(int tableID)
-        {
-            billDao.UpdateTableStatus(tableID);
-        }
     }
 }
