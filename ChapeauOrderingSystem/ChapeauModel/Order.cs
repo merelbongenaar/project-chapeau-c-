@@ -18,7 +18,39 @@ namespace ChapeauModel
         //nullable datetimes
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public decimal Bill { get; set; }
+        //public decimal Bill { get; set; }
+        public Bill Bill { get; set; }
+
+        public decimal TotalPrice
+        {
+            get
+            {
+                foreach (OrderItem orderItem in orderedItems)
+                {
+                    // Bill.TotalPrice
+                    Bill.TotalPrice += orderItem.Item.Price * orderItem.Quantity;
+                }
+                return Bill.TotalPrice;
+            }
+        }
+        public decimal Vat
+        {
+            get
+            {
+                foreach (OrderItem orderItem in orderedItems)
+                {
+                    if (orderItem.Item.SubCategory == SubCategory.Beers || orderItem.Item.SubCategory == SubCategory.Wines)
+                    {
+                        Bill.Tax += orderItem.Item.Price * orderItem.Quantity * 0.21m;
+                    }
+                    else
+                    {
+                        Bill.Tax += orderItem.Item.Price * orderItem.Quantity * 0.06m;
+                    }
+                }
+                return Bill.Tax;
+            }
+        }
 
         public Order()
         {
