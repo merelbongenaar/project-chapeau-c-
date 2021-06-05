@@ -119,3 +119,4 @@ C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrde
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.exe
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.pdb
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources

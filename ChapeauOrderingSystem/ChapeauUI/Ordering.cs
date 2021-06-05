@@ -17,11 +17,8 @@ namespace ChapeauUI
         //
         ListViewItem selectedLI;
 
-        //for displaying the menu buttons
-        private List<Item> menuItems;
-
         //for entering the database
-        private ItemService itemService;
+        
         private OrderService orderService;
 
         private Order order;
@@ -30,8 +27,6 @@ namespace ChapeauUI
         {
             InitializeComponent();
 
-            menuItems = new List<Item>();
-            itemService = new ItemService();
             orderService = new OrderService();
 
             order = new Order();
@@ -47,52 +42,26 @@ namespace ChapeauUI
         private void bttnLunch_Click(object sender, EventArgs e)
         {
             flowPnlItems.Controls.Clear();
-            menuItems = itemService.GetItemsByCategory(1); //if null then fill else get from the list
+            
+            List<Item> menuItems = ListOfMenuItemsByCategory(1); //if null then fill else get from the list
 
-            foreach (Item item in menuItems)
-            {
-                Button itemButten = new Button();
-                itemButten.Text = item.ItemName;
-                itemButten.Size = new Size(90, 90);
-                itemButten.Click += new EventHandler(itemButten_Click);
-                itemButten.Tag = item;
-
-                flowPnlItems.Controls.Add(itemButten);
-            }
+            CreateMenuButtons(menuItems);
         }
 
         private void bttnDiner_Click(object sender, EventArgs e)
         {
             flowPnlItems.Controls.Clear();
-            menuItems = itemService.GetItemsByCategory(2);
+            List<Item> menuItems = ListOfMenuItemsByCategory(2);
 
-            foreach (Item item in menuItems)
-            {
-                Button itemButten = new Button();
-                itemButten.Text = item.ItemName;
-                itemButten.Size = new Size(90, 90);
-                itemButten.Click += new EventHandler(itemButten_Click);
-                itemButten.Tag = item;
-
-                flowPnlItems.Controls.Add(itemButten);
-            }
+            CreateMenuButtons(menuItems);
         }
 
         private void bttnDrinks_Click(object sender, EventArgs e)
         {
             flowPnlItems.Controls.Clear();
-            menuItems = itemService.GetItemsByCategory(3);
+            List<Item> menuItems = ListOfMenuItemsByCategory(3);
 
-            foreach (Item item in menuItems)
-            {
-                Button itemButten = new Button();
-                itemButten.Text = item.ItemName;
-                itemButten.Size = new Size(90, 90);
-                itemButten.Click += new EventHandler(itemButten_Click);
-                itemButten.Tag = item;
-
-                flowPnlItems.Controls.Add(itemButten);
-            }
+            CreateMenuButtons(menuItems);
         }
 
         void itemButten_Click(object sender, EventArgs e)
@@ -149,5 +118,42 @@ namespace ChapeauUI
         {
             //order.orderedItems[].Quantity++;
         }
+
+
+        //methods 
+        private List<Item> ListOfMenuItemsByCategory(int categoryNr)
+        {
+            ItemService itemService = new ItemService();
+
+            List<Item> menuItems = new List<Item>();
+            menuItems = itemService.GetItemsByCategory(categoryNr);
+
+            return menuItems;
+        }
+
+        private List<Item> ListOfMenuItemsBySubCategory(int subCategoryNr)
+        {
+            ItemService itemService = new ItemService();
+
+            List<Item> menuItems = new List<Item>();
+            menuItems = itemService.GetItemsBySubCategory(subCategoryNr);
+
+            return menuItems;
+        }
+
+        private void CreateMenuButtons(List<Item> menuItems)
+        {
+            foreach (Item item in menuItems)
+            {
+                Button itemButten = new Button();
+                itemButten.Text = item.ItemName;
+                itemButten.Size = new Size(90, 90);
+                itemButten.Click += new EventHandler(itemButten_Click);
+                itemButten.Tag = item;
+
+                flowPnlItems.Controls.Add(itemButten);
+            }
+        }
+
     }
 }
