@@ -14,20 +14,12 @@ namespace ChapeauUI
 {
     public partial class Ordering : Form
     {
-        //
-        ListViewItem selectedLI;
-
-        //for entering the database
-        
-        private OrderService orderService;
-
         private Order order;
+        private ListViewItem selectedItem;
 
         public Ordering(int tableNr, Employee employee)
         {
             InitializeComponent();
-
-            orderService = new OrderService();
 
             order = new Order();
             order.EmployeeID = employee.EmployeeID;
@@ -39,68 +31,50 @@ namespace ChapeauUI
             lblTableNr.Text = tableNr.ToString();
         }
 
-        private void bttnLunch_Click(object sender, EventArgs e)
-        {
-            flowPnlItems.Controls.Clear();
-            
-            List<Item> menuItems = ListOfMenuItemsByCategory(1); //if null then fill else get from the list
-
-            CreateMenuButtons(menuItems);
-        }
-
-        private void bttnDiner_Click(object sender, EventArgs e)
-        {
-            flowPnlItems.Controls.Clear();
-            List<Item> menuItems = ListOfMenuItemsByCategory(2);
-
-            CreateMenuButtons(menuItems);
-        }
-
-        private void bttnDrinks_Click(object sender, EventArgs e)
-        {
-            flowPnlItems.Controls.Clear();
-            List<Item> menuItems = ListOfMenuItemsByCategory(3);
-
-            CreateMenuButtons(menuItems);
-        }
-
         void itemButten_Click(object sender, EventArgs e)
         {
             Button bttn = (Button)sender;
-            Item selectedItem = (Item)bttn.Tag;
+            Item selectedMenuItem = (Item)bttn.Tag;
 
-            //check if order is already there ++ 
-            OrderItem orderItem = new OrderItem();
-            orderItem.Item = selectedItem;
-            //orderItem.OrderID = order.OrderNr; //hmmmmm
-            orderItem.OrderTime = DateTime.Now;
-            orderItem.Quantity = 1;
-            orderItem.State = State.NotStarted;
-            //decrease stock
+            if (selectedMenuItem.Stock <= 0)
+            {
+                MessageBox.Show($"{selectedMenuItem.ItemName} is out of stock");
+            }
+            else
+            {
+                //method create new orderItem?
+                OrderItem orderItem = new OrderItem();        //check if an order item is already there, ++;
+                orderItem.Item = selectedMenuItem;
+                //orderItem.OrderID = order.OrderNr; //hmmmmm
+                orderItem.OrderTime = DateTime.Now;
+                orderItem.Quantity = 1;
+                orderItem.State = State.NotStarted;
+                //decrease the stock everytime an item is ordered 
+                orderItem.Item.Stock--;
 
-            order.orderedItems.Add(orderItem);
+                order.orderedItems.Add(orderItem);
 
-            //method display order running
-            ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
-            li.SubItems.Add(orderItem.Quantity.ToString());
-
-            listViewOrderOrder.Items.Add(li);
+                DisplayRunningOrders();
+            }  
         }
 
         private void bttnSend_Click(object sender, EventArgs e)
         {
             //send order to kitchen/bar
-            orderService.AddDataToOrder(order);
+            OrderService orderService = new OrderService();
+            orderService.AddDataToOrder(order); //does not work yet
         }
 
         private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewOrderOrder.SelectedItems.Count > 0)
             {
-                selectedLI = listViewOrderOrder.SelectedItems[0];
+                selectedItem = listViewOrderOrder.SelectedItems[0];
             }
+            
         }
 
+        /////////////////////////////////////////////////////////////buttons for changing the order
         private void bttnAddComment_Click(object sender, EventArgs e)
         {
             //comment button is clicked, open a new form
@@ -116,11 +90,25 @@ namespace ChapeauUI
 
         private void bttnAddQNT_Click(object sender, EventArgs e)
         {
-            //order.orderedItems[].Quantity++;
+            //order.orderedItems[selectedItem].Quantity++;
         }
 
 
-        //methods 
+        /////////////////////////////////////////////////////////////////////methods 
+        private void DisplayRunningOrders()
+        {
+            foreach (OrderItem orderItem in order.orderedItems)
+            {
+                ListViewItem li = new ListViewItem(orderItem.Item.ItemID.ToString());
+                li.SubItems.Add(orderItem.Item.ItemName);
+                li.SubItems.Add(orderItem.Quantity.ToString());
+
+                listViewOrderOrder.Items.Add(li);
+            }
+            
+
+        }
+
         private List<Item> ListOfMenuItemsByCategory(int categoryNr)
         {
             ItemService itemService = new ItemService();
@@ -155,5 +143,44 @@ namespace ChapeauUI
             }
         }
 
+        /////////////////////////////////////////////////////////////////buttons category 
+        private void bttnMenuCategory_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+
+            int category = Convert.ToInt32(button.Tag);
+            button.Tag = category;
+
+            flowPnlItems.Controls.Clear();
+
+            List<Item> menuItems = new List<Item>();
+            if (menuItems.Count <= 0)
+            {
+                menuItems = ListOfMenuItemsByCategory(category);
+            }
+
+            CreateMenuButtons(menuItems);
+        }
+
+        /////////////////////////////////////////////////////////////////buttons Subcategorys
+        private void bttnMenuSubCatgory_Click(object sender, EventArgs e)
+        {
+            //
+            Button button = (Button)sender;
+
+            int subCategory = Convert.ToInt32(button.Tag);
+            button.Tag = subCategory;
+
+            //make this button for all sub categorys 
+            flowPnlItems.Controls.Clear();
+
+            List<Item> menuItems = new List<Item>();
+            if (menuItems.Count <= 0)
+            {
+                menuItems = ListOfMenuItemsBySubCategory(subCategory);
+            }
+
+            CreateMenuButtons(menuItems);
+        }
     }
 }
