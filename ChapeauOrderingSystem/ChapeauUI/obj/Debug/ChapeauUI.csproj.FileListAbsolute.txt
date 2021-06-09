@@ -152,3 +152,5 @@ C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\Chapeau
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauDAL.pdb
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
+C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BarKitchenView.resources
+C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources

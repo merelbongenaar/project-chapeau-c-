@@ -92,20 +92,22 @@ namespace ChapeauUI
             // store the paymenet type to the new bill object using radio button
             if (radioBtnCredit.Checked)
             {
-                Bill.TypeOfPayment = ChapeauModel.typeOfPayment.creditCard;
+                Order.Bill.TypeOfPayment = ChapeauModel.typeOfPayment.creditCard;
             }
             else if (radioBtnCash.Checked)
             {
-                Bill.TypeOfPayment = ChapeauModel.typeOfPayment.cash;
+                Order.Bill.TypeOfPayment = ChapeauModel.typeOfPayment.cash;
             }
             else if (radioBtnPin.Checked)
             {
-                Bill.TypeOfPayment = ChapeauModel.typeOfPayment.pin;
+                Order.Bill.TypeOfPayment = ChapeauModel.typeOfPayment.pin;
             }
 
             // store the final total amount and the feedback to the new bill object
             Order.Bill.TotalPrice = (decimal)lblTotalAmount.Tag;
             Order.Bill.Feedback = txtBoxFeedback.Text;
+            Order.Bill.OrderID = Order.OrderNr;
+            Order.Bill.Tax = Order.Vat;
 
             // add the new bill to the databse and update order status to Paid. also, update table status to Not Occupied 
             BillService billService = new BillService();
