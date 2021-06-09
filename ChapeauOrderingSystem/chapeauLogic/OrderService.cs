@@ -31,5 +31,15 @@ namespace ChapeauLogic
         {
             orderdb.AddOrder(order); //list
         }
+
+        public List<Order> GetAllOrders()
+        {
+            return orderdb.GetAllOrders();
+        }
+
+        public void UpdateOrderState(int orderState, int orderID)
+        {
+            orderdb.UpdateOrderState(orderState, orderID);
+        }
     }
 }

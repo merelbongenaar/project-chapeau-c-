@@ -49,6 +49,32 @@ namespace ChapeauDAL
             }
         }
 
+        public List<Order> GetAllOrders()
+        {
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
+            return orders;
+        }
+
+        public Order GetOrderByOrderID(int orderID)
+        {
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE orderID = {orderID} ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            Order order = orders[1];
+
+            return order;
+        }
+
+        public void UpdateOrderState(int orderState, int orderID)
+        {
+            string query = $"UPDATE table OrderItem SET state = {orderState} WHERE orderID = {orderID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
