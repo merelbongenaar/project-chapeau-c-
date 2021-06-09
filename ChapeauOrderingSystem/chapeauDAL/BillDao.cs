@@ -35,10 +35,9 @@ namespace ChapeauDAL
 
         public void UpdateTableStatus(int tableID)
         {
-            string query = $"UPDATE [Table] SET isOccupied=@isOccupied WHERE tableID=@tableID";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
+            string query = $"UPDATE [Table] SET isOccupied=0 WHERE tableID=@tableID";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("tableID", tableID);
-            sqlParameters[1] = new SqlParameter("isOccupied", 0);
 
             ExecuteEditQuery(query, sqlParameters);
         }
