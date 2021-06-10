@@ -124,32 +124,35 @@ namespace ChapeauUI
             OrderService orderService = new OrderService();
             List<Order> runningOrders = orderService.GetAllRunningOrders();
 
+            Order currentOrder = runningOrders[0];
+
             int i = 0;
             foreach (Order o in runningOrders)
             {
+
                 foreach (OrderItem item in o.orderedItems)
                 {
                     if (item.State == State.Preparing)
                     {
-                        preparingIcons[i].Show();
+                        preparingIcons[o.TableID - 1].Show();
                     }
 
                     //this should be removed i think
-                    else
-                    {
-                        preparingIcons[i].Hide();
-                    }
+                    //else
+                    //{
+                    //    preparingIcons[i].Hide();
+                    //}
 
                     if (item.State == State.Done)
                     {
-                        readyIcons[i].Show();
+                        readyIcons[o.TableID - 1].Show();
                     }
 
                     //this one as well
-                    else
-                    {
-                        readyIcons[i].Hide();
-                    }
+                    //else
+                    //{
+                    //    readyIcons[i].Hide();
+                    //}
                 }
 
                 i++;

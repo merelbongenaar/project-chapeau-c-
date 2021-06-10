@@ -25,6 +25,7 @@ namespace ChapeauModel
         {
             get
             {
+                Bill.TotalPrice = 0;
                 foreach (OrderItem orderItem in orderedItems)
                 {
                     // Bill.TotalPrice
@@ -37,15 +38,17 @@ namespace ChapeauModel
         {
             get
             {
+                Bill.Tax = 0;
                 foreach (OrderItem orderItem in orderedItems)
                 {
+                    
                     if (orderItem.Item.SubCategory == SubCategory.Beers || orderItem.Item.SubCategory == SubCategory.Wines)
                     {
-                        Bill.Tax += orderItem.Item.Price * orderItem.Quantity * 0.21m;
+                        Bill.Tax += orderItem.Item.Price * orderItem.Quantity * (decimal)0.21;
                     }
                     else
                     {
-                        Bill.Tax += orderItem.Item.Price * orderItem.Quantity * 0.06m;
+                        Bill.Tax += orderItem.Item.Price * orderItem.Quantity * (decimal)0.06;
                     }
                 }
                 return Bill.Tax;

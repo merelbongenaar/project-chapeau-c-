@@ -37,7 +37,7 @@ namespace ChapeauUI
                 //open different forms according to the role of the employee
                 if (employee.Role == Role.Waiter)
                 {
-                    TableOverview tableOverview = new TableOverview(employee);
+                    Form tableOverview = new TableOverview(employee);
                     this.Hide();
 
                     tableOverview.ShowDialog();
@@ -45,7 +45,10 @@ namespace ChapeauUI
 
                 else if (employee.Role == Role.Kitchen || employee.Role == Role.Bar)
                 {
-                    //Form kitchenOrBarView = new Form(employee);
+                    BarKitchenView barKitchenView = new BarKitchenView(employee);
+                    this.Hide();
+
+                    barKitchenView.Show();
                 }
             }
             else
