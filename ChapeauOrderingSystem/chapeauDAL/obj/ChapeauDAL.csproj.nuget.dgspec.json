@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj": {}
+    "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj": {
+    "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
+        "projectUniqueName": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
         "projectName": "ChapeauDAL",
-        "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\obj\\",
+        "projectPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\ChapeauDAL.csproj",
+        "packagesPath": "C:\\Users\\merel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\chapeauDAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\merel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
-                "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj"
+              "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
+                "projectPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj"
               }
             }
           }
@@ -73,25 +69,21 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
+    "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+        "projectUniqueName": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
         "projectName": "ChapeauModel",
-        "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
+        "projectPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+        "packagesPath": "C:\\Users\\merel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\merel\\OneDrive\\Bureaublad\\Nieuwe map (2)\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\merel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -142,7 +134,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

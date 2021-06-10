@@ -37,7 +37,7 @@ namespace ChapeauUI
                 //open different forms according to the role of the employee
                 if (employee.Role == Role.Waiter)
                 {
-                    TableOverview tableOverview = new TableOverview(employee);
+                    Form tableOverview = new TableOverview(employee);
                     this.Hide();
 
                     tableOverview.ShowDialog();
