@@ -47,7 +47,13 @@ namespace ChapeauUI
             RefreshIcons();
         }
 
-
+        //------------------------------------------------------------------------------------LOG OUT------------------------------------------------------------------------------------------------------
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form loginForm = new Login();
+            loginForm.Show();
+        }
 
         //----------------------------------------------------------------------------------TABLE BUTTONS-----------------------------------------------------------------------------------------------------------
         private void btnTable1_Click(object sender, EventArgs e)
@@ -196,11 +202,7 @@ namespace ChapeauUI
 
 
         //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            RefreshTables();
-            RefreshIcons();
-        }
+
 
         private void listViewOrderTableOverview_SelectedIndexChanged(object sender, EventArgs e)
         {
