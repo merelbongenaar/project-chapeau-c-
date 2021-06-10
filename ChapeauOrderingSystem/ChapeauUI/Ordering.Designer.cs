@@ -36,6 +36,7 @@ namespace ChapeauUI
             this.bttnMenuCategory = new System.Windows.Forms.Button();
             this.listViewOrderOrder = new System.Windows.Forms.ListView();
             this.orderItemId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.orderItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderItemQNT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bttnSend = new System.Windows.Forms.Button();
             this.bttnRemoveItem = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace ChapeauUI
             this.bttnMain = new System.Windows.Forms.Button();
             this.bttnDesserts = new System.Windows.Forms.Button();
             this.bttnWines = new System.Windows.Forms.Button();
-            this.orderItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lbltxt
@@ -126,7 +126,7 @@ namespace ChapeauUI
             this.listViewOrderOrder.Location = new System.Drawing.Point(1098, 72);
             this.listViewOrderOrder.Margin = new System.Windows.Forms.Padding(6);
             this.listViewOrderOrder.Name = "listViewOrderOrder";
-            this.listViewOrderOrder.Size = new System.Drawing.Size(480, 818);
+            this.listViewOrderOrder.Size = new System.Drawing.Size(480, 625);
             this.listViewOrderOrder.TabIndex = 8;
             this.listViewOrderOrder.UseCompatibleStateImageBehavior = false;
             this.listViewOrderOrder.View = System.Windows.Forms.View.Details;
@@ -137,6 +137,10 @@ namespace ChapeauUI
             this.orderItemId.Text = "ItemID";
             this.orderItemId.Width = 62;
             // 
+            // orderItem
+            // 
+            this.orderItem.Text = "Item";
+            // 
             // orderItemQNT
             // 
             this.orderItemQNT.Text = "qnt";
@@ -145,10 +149,10 @@ namespace ChapeauUI
             // bttnSend
             // 
             this.bttnSend.BackColor = System.Drawing.Color.Red;
-            this.bttnSend.Location = new System.Drawing.Point(1445, 909);
+            this.bttnSend.Location = new System.Drawing.Point(1445, 722);
             this.bttnSend.Margin = new System.Windows.Forms.Padding(4);
             this.bttnSend.Name = "bttnSend";
-            this.bttnSend.Size = new System.Drawing.Size(133, 244);
+            this.bttnSend.Size = new System.Drawing.Size(133, 179);
             this.bttnSend.TabIndex = 9;
             this.bttnSend.Text = "Send";
             this.bttnSend.UseVisualStyleBackColor = false;
@@ -157,10 +161,10 @@ namespace ChapeauUI
             // bttnRemoveItem
             // 
             this.bttnRemoveItem.BackColor = System.Drawing.Color.SeaShell;
-            this.bttnRemoveItem.Location = new System.Drawing.Point(1272, 909);
+            this.bttnRemoveItem.Location = new System.Drawing.Point(1272, 722);
             this.bttnRemoveItem.Margin = new System.Windows.Forms.Padding(4);
             this.bttnRemoveItem.Name = "bttnRemoveItem";
-            this.bttnRemoveItem.Size = new System.Drawing.Size(165, 114);
+            this.bttnRemoveItem.Size = new System.Drawing.Size(165, 81);
             this.bttnRemoveItem.TabIndex = 10;
             this.bttnRemoveItem.Text = "-";
             this.bttnRemoveItem.UseVisualStyleBackColor = false;
@@ -169,10 +173,10 @@ namespace ChapeauUI
             // bttnAddQNT
             // 
             this.bttnAddQNT.BackColor = System.Drawing.Color.SeaShell;
-            this.bttnAddQNT.Location = new System.Drawing.Point(1098, 909);
+            this.bttnAddQNT.Location = new System.Drawing.Point(1098, 722);
             this.bttnAddQNT.Margin = new System.Windows.Forms.Padding(4);
             this.bttnAddQNT.Name = "bttnAddQNT";
-            this.bttnAddQNT.Size = new System.Drawing.Size(165, 114);
+            this.bttnAddQNT.Size = new System.Drawing.Size(165, 81);
             this.bttnAddQNT.TabIndex = 11;
             this.bttnAddQNT.Text = "+";
             this.bttnAddQNT.UseVisualStyleBackColor = false;
@@ -181,10 +185,10 @@ namespace ChapeauUI
             // bttnAddComment
             // 
             this.bttnAddComment.BackColor = System.Drawing.Color.SeaShell;
-            this.bttnAddComment.Location = new System.Drawing.Point(1099, 1031);
+            this.bttnAddComment.Location = new System.Drawing.Point(1099, 811);
             this.bttnAddComment.Margin = new System.Windows.Forms.Padding(4);
             this.bttnAddComment.Name = "bttnAddComment";
-            this.bttnAddComment.Size = new System.Drawing.Size(338, 122);
+            this.bttnAddComment.Size = new System.Drawing.Size(338, 90);
             this.bttnAddComment.TabIndex = 13;
             this.bttnAddComment.Text = "add comment";
             this.bttnAddComment.UseVisualStyleBackColor = false;
@@ -347,10 +351,6 @@ namespace ChapeauUI
             this.bttnWines.Text = "Wines";
             this.bttnWines.UseVisualStyleBackColor = false;
             this.bttnWines.Click += new System.EventHandler(this.bttnMenuSubCatgory_Click);
-            // 
-            // orderItem
-            // 
-            this.orderItem.Text = "Item";
             // 
             // Ordering
             // 

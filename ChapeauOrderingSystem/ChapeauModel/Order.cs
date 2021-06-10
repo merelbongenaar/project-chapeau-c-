@@ -5,9 +5,6 @@ namespace ChapeauModel
 {
     public class Order
     {
-        //Class Order can contain a list of OrderItem-objects(and a Table instead of TableId, and a Employee instead of EmployeeId)
-       
-        
         public List<OrderItem> orderedItems { get; set; }
 
         public int OrderNr { get; set; }

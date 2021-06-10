@@ -10,7 +10,6 @@ C:\Users\Gebruiker\source\repos\merelbongenaar\Chapeau\ChapeauOrderingSystem\Cha
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\bin\Debug\netstandard2.0\ChapeauModel.deps.json
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\bin\Debug\netstandard2.0\ChapeauModel.dll
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\bin\Debug\netstandard2.0\ChapeauModel.pdb
-C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.csprojAssemblyReference.cache
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.AssemblyInfoInputs.cache
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.AssemblyInfo.cs
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.csproj.CoreCompileInputs.cache
@@ -52,3 +51,4 @@ C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\Chapeau
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.dll
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.pdb
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.csproj.AssemblyReference.cache
+C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauModel\obj\Debug\netstandard2.0\ChapeauModel.csprojAssemblyReference.cache
