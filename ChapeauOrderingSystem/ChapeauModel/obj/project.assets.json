@@ -1004,12 +1004,18 @@
     ]
   },
   "packageFolders": {
+<<<<<<< Updated upstream
     "C:\\Users\\moham\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\yeraz\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+>>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
       "projectName": "ChapeauModel",
       "projectPath": "C:\\Users\\moham\\OneDrive\\Desktop\\proj22\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
@@ -1023,6 +1029,21 @@
         "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+      "projectName": "ChapeauModel",
+      "projectPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\ChapeauModel.csproj",
+      "packagesPath": "C:\\Users\\yeraz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yeraz\\OneDrive\\Desktop\\DatabasesProject3-main\\project-chapeau-c-\\ChapeauOrderingSystem\\ChapeauModel\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\yeraz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> Stashed changes
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
