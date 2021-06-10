@@ -153,7 +153,7 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadOrders(ExecuteSelectQuery(query, sqlParameters));
 
-            GetOrderItems(orders);
+            //GetOrderItems(orders);
 
             return orders;
 

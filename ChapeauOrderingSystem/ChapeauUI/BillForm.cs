@@ -65,18 +65,38 @@ namespace ChapeauUI
                 MessageBox.Show("Something went wrong while loading the bills: " + r.Message);
             }
         }
-
+        private bool TxtBoxDigitsFilter(string txt)
+        {
+            foreach (char c in txt)
+            {
+                if (c <'0' || c>'9')
+                {
+                    return false;
+                }
+            }
+            return true; 
+        }
+        
         private void txtBoxTip_TextChanged(object sender, EventArgs e)
         {
             // get the tip amount that the user will enter 
+            
             decimal tip = 0;
-            if (txtBoxTip.Text.Length > 0)
+            if (txtBoxTip.Text.Length > 0 && TxtBoxDigitsFilter(txtBoxTip.Text))
             {
                 tip = decimal.Parse(txtBoxTip.Text);
             }
-            else
+            else if (!TxtBoxDigitsFilter(txtBoxTip.Text) && txtBoxTip.Text.Length > 0)
             {
-                tip = 0;
+                MessageBox.Show("tip is invalid. please add only digits!");
+                //char c = txtBoxTip.Text[txtBoxTip.Text.Length - 1];
+                //txtBoxTip.Text = txtBoxTip.Text.Remove(txtBoxTip.Text.Length - 1);
+                txtBoxTip.Text = "";
+
+            }
+            else
+            {  
+                tip = 0;                
             }
 
             // store the tip amount to the new bill object
@@ -115,6 +135,7 @@ namespace ChapeauUI
 
             // diaplay a message to the user that the order has been paid for
             MessageBox.Show("order has been paid");
+            this.Close();
         }
     }
 }
