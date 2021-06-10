@@ -199,6 +199,7 @@ namespace ChapeauUI
         {
             Form formPayment = new BillForm(order);
             formPayment.Show();
+            //listViewOrderTableOverview.Clear();
         }
 
 
