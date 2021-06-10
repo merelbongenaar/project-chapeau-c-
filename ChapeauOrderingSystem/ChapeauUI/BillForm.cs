@@ -15,12 +15,10 @@ namespace ChapeauUI
     public partial class BillForm : Form
     {
         public Order Order { get; set; }
-        public Bill Bill { get; set; }
         public BillForm(Order order)
         {
             InitializeComponent();
             this.Order = order;
-            this.Bill = new Bill();
         }
 
         private void BillForm_Load(object sender, EventArgs e)
@@ -31,9 +29,9 @@ namespace ChapeauUI
 
         private void ShowPanel(string name)
         {
-            // Get all orders that are not paid for and display the table number for each order in the combo box
             try
             {
+                // display table number and waiter id
                 lblTableID.Text = Order.TableID.ToString();
                 lblWaiterID.Text = Order.EmployeeID.ToString();
 
@@ -54,6 +52,7 @@ namespace ChapeauUI
                     listViewOrderItems.Items.Add(li);
                 }
 
+                // display total amount and VAT
                 lblTotalAmount.Text = (Order.TotalPrice + Order.Vat).ToString("€ 0.00");
                 lblTotalAmount.Tag = Order.TotalPrice + Order.Vat;
                 lblVAT.Text = Order.Vat.ToString("€ 0.00");
@@ -65,34 +64,20 @@ namespace ChapeauUI
                 MessageBox.Show("Something went wrong while loading the bills: " + r.Message);
             }
         }
-        private bool TxtBoxDigitsFilter(string txt)
-        {
-            foreach (char c in txt)
-            {
-                if (c <'0' || c>'9')
-                {
-                    return false;
-                }
-            }
-            return true; 
-        }
         
         private void txtBoxTip_TextChanged(object sender, EventArgs e)
         {
-            // get the tip amount that the user will enter 
-            
+            // get the tip amount that the user will enter            
             decimal tip = 0;
+
             if (txtBoxTip.Text.Length > 0 && TxtBoxDigitsFilter(txtBoxTip.Text))
             {
                 tip = decimal.Parse(txtBoxTip.Text);
             }
             else if (!TxtBoxDigitsFilter(txtBoxTip.Text) && txtBoxTip.Text.Length > 0)
             {
-                MessageBox.Show("tip is invalid. please add only digits!");
-                //char c = txtBoxTip.Text[txtBoxTip.Text.Length - 1];
-                //txtBoxTip.Text = txtBoxTip.Text.Remove(txtBoxTip.Text.Length - 1);
+                MessageBox.Show("Invalid tip amount, please enter only digits!");
                 txtBoxTip.Text = "";
-
             }
             else
             {  
@@ -105,6 +90,19 @@ namespace ChapeauUI
             // display the new total amount 
             lblTotalAmount.Text = (Order.TotalPrice + Order.Bill.Tip + Order.Vat).ToString("€ 0.00");
             lblTotalAmount.Tag = Order.TotalPrice + Order.Bill.Tip + Order.Vat;
+        }
+
+        // method to filter the txtbox to accept int only
+        private bool TxtBoxDigitsFilter(string txt)
+        {
+            foreach (char c in txt)
+            {
+                if (c < '0' || c > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void BtnFinishPayment_Click(object sender, EventArgs e)
@@ -123,7 +121,7 @@ namespace ChapeauUI
                 Order.Bill.TypeOfPayment = ChapeauModel.typeOfPayment.pin;
             }
 
-            // store the final total amount and the feedback to the new bill object
+            // store the final total amount, the feedback, orderID and VAT to the new bill object
             Order.Bill.TotalPrice = (decimal)lblTotalAmount.Tag;
             Order.Bill.Feedback = txtBoxFeedback.Text;
             Order.Bill.OrderID = Order.OrderNr;
@@ -135,6 +133,8 @@ namespace ChapeauUI
 
             // diaplay a message to the user that the order has been paid for
             MessageBox.Show("order has been paid");
+
+            // close the form and return to table overview
             this.Close();
         }
     }
