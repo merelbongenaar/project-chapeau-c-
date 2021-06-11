@@ -29,7 +29,13 @@ namespace ChapeauLogic
 
         public void AddDataToOrder(Order order)
         {
-            orderdb.AddOrder(order); //list
+            foreach (OrderItem item in order.orderedItems)
+            {
+                //orderdb.AddOrder
+                //add orderItems to the database
+            }
+ 
+            orderdb.AddOrderOrderItems(order); //list
         }
 
         public List<Order> GetAllOrders()

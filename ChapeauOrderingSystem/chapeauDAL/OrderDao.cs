@@ -26,8 +26,6 @@ namespace ChapeauDAL
             }
         }
 
-
-
         //the joins in this one dont really work
         public List<Order> GetAllRunningOrders()
         {
@@ -38,16 +36,18 @@ namespace ChapeauDAL
             return orders;
         }
 
-        public void AddOrder(Order order)
+        public void AddOrderOrderItems(Order order)// this method adds all the orderItems from the list in Order to the database
         {
-            foreach (OrderItem item in order.orderedItems)
+            foreach (OrderItem orderItem in order.orderedItems)
             {
-                string query = $"INSERT INTO [OrderItem] (orderID, employeeID, tableID, startTime, endTime, isPaid) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, {order.StartTime}, {order.EndTime}, {0} );";
+                int state = (int)orderItem.State;
+                string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, {orderItem.OrderTime}, {null} );";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
 
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
+
 
         public List<Order> GetAllOrders()
         {
