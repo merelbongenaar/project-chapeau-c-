@@ -126,6 +126,7 @@ namespace ChapeauUI
             Order.Bill.Feedback = txtBoxFeedback.Text;
             Order.Bill.OrderID = Order.OrderNr;
             Order.Bill.Tax = Order.Vat;
+            Order.EndTime = DateTime.Now;
 
             // add the new bill to the databse and update order status to Paid. also, update table status to Not Occupied 
             BillService billService = new BillService();
