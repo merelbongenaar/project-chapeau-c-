@@ -258,6 +258,8 @@ namespace ChapeauUI
             this.readyTable9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable9.TabIndex = 25;
             this.readyTable9.TabStop = false;
+            this.readyTable9.Tag = "9";
+            this.readyTable9.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable7
             // 
@@ -269,6 +271,8 @@ namespace ChapeauUI
             this.readyTable7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable7.TabIndex = 24;
             this.readyTable7.TabStop = false;
+            this.readyTable7.Tag = "7";
+            this.readyTable7.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable5
             // 
@@ -280,6 +284,8 @@ namespace ChapeauUI
             this.readyTable5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable5.TabIndex = 23;
             this.readyTable5.TabStop = false;
+            this.readyTable5.Tag = "5";
+            this.readyTable5.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable10
             // 
@@ -291,6 +297,8 @@ namespace ChapeauUI
             this.readyTable10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable10.TabIndex = 22;
             this.readyTable10.TabStop = false;
+            this.readyTable10.Tag = "10";
+            this.readyTable10.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable8
             // 
@@ -302,6 +310,8 @@ namespace ChapeauUI
             this.readyTable8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable8.TabIndex = 21;
             this.readyTable8.TabStop = false;
+            this.readyTable8.Tag = "8";
+            this.readyTable8.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable6
             // 
@@ -313,6 +323,8 @@ namespace ChapeauUI
             this.readyTable6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable6.TabIndex = 20;
             this.readyTable6.TabStop = false;
+            this.readyTable6.Tag = "6";
+            this.readyTable6.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable4
             // 
@@ -324,6 +336,8 @@ namespace ChapeauUI
             this.readyTable4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable4.TabIndex = 19;
             this.readyTable4.TabStop = false;
+            this.readyTable4.Tag = "4";
+            this.readyTable4.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable2
             // 
@@ -335,6 +349,8 @@ namespace ChapeauUI
             this.readyTable2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable2.TabIndex = 18;
             this.readyTable2.TabStop = false;
+            this.readyTable2.Tag = "2";
+            this.readyTable2.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable3
             // 
@@ -346,6 +362,8 @@ namespace ChapeauUI
             this.readyTable3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable3.TabIndex = 17;
             this.readyTable3.TabStop = false;
+            this.readyTable3.Tag = "3";
+            this.readyTable3.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // readyTable1
             // 
@@ -357,6 +375,8 @@ namespace ChapeauUI
             this.readyTable1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.readyTable1.TabIndex = 16;
             this.readyTable1.TabStop = false;
+            this.readyTable1.Tag = "1";
+            this.readyTable1.Click += new System.EventHandler(this.readyTable1_Click);
             // 
             // btnTable9
             // 

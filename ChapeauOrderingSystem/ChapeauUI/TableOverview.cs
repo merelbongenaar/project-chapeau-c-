@@ -109,6 +109,29 @@ namespace ChapeauUI
 
         }
 
+        //-----------------------------------------------------------------------------------------------mark item as served----------------------------------------------------------------------------------------------------------------------------
+
+        private void readyTable1_Click(object sender, EventArgs e)
+        {
+            PictureBox icon = (PictureBox)sender;
+            int tableNr = Convert.ToInt32(icon.Tag);
+
+            OrderService orderservice = new OrderService();
+
+            DialogResult dialogResult = MessageBox.Show($"Do you want to update the food status to served for table {tableNr}?", "Serve food", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Order order = orderservice.GetOrderByTableNR(tableNr);
+                orderservice.UpdateOrderState(4, order.OrderNr);
+                icon.Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------icons-------------------------------------------------------------------------------------------------------------------------------------------
         private void RefreshIcons()
         {
             PictureBox[] readyIcons = new PictureBox[] { readyTable1, readyTable2, readyTable3, readyTable4, readyTable5, readyTable6, readyTable7, readyTable8, readyTable9, readyTable10 };
@@ -137,22 +160,10 @@ namespace ChapeauUI
                         preparingIcons[o.TableID - 1].Show();
                     }
 
-                    //this should be removed i think
-                    //else
-                    //{
-                    //    preparingIcons[i].Hide();
-                    //}
-
                     if (item.State == State.Done)
                     {
                         readyIcons[o.TableID - 1].Show();
                     }
-
-                    //this one as well
-                    //else
-                    //{
-                    //    readyIcons[i].Hide();
-                    //}
                 }
 
                 i++;
@@ -217,5 +228,7 @@ namespace ChapeauUI
         {
 
         }
+
+
     }
 }
