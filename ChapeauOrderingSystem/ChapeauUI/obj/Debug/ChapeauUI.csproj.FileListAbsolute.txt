@@ -156,3 +156,5 @@ C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources
 C:\Users\merel\OneDrive\Bureaublad\Nieuwe map (2)\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BarKitchenView.resources
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BarKitchenView.resources
+C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BarKitchenView.resources
+C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources

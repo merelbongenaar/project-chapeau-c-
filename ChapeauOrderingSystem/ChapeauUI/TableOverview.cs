@@ -23,7 +23,7 @@ namespace ChapeauUI
         {
             InitializeComponent();
             this.employee = employee;
-            lblEmployeeInfo.Text = $"{employee.EmployeeID}: {employee.Name}";
+            lblEmployeeInfo.Text = $"Welcome {employee.Name} ({employee.EmployeeID})";
 
             //hide buttons order view 
             btnAddItem.Hide();
@@ -76,7 +76,7 @@ namespace ChapeauUI
                 if (dialogResult == DialogResult.Yes)
                 {
                     tableService.UpdateStateTableToTrue(tableNr);
-                    button.BackColor = Color.Green;
+                    button.BackColor = Color.PaleTurquoise;
                     RefreshTables();
                 }
                 else if (dialogResult == DialogResult.No)
@@ -181,7 +181,7 @@ namespace ChapeauUI
             {
                 if (table.IsOccupied)
                 {
-                    buttons[i].BackColor = Color.LightGreen;
+                    buttons[i].BackColor = Color.PaleTurquoise;
                 }
                 else
                 {
@@ -201,6 +201,11 @@ namespace ChapeauUI
             int tableNr = (int)btn.Tag;
 
             Form formOrder = new Ordering(tableNr, employee);
+
+            formOrder.StartPosition = FormStartPosition.Manual;
+            formOrder.Location = this.Location;
+            formOrder.Size = this.Size;
+
             formOrder.Show();
            
         }
@@ -209,6 +214,11 @@ namespace ChapeauUI
         private void btnPayForOrder_Click(object sender, EventArgs e)
         {
             Form formPayment = new BillForm(order);
+
+            formPayment.StartPosition = FormStartPosition.Manual;
+            formPayment.Location = this.Location;
+            formPayment.Size = this.Size;
+
             formPayment.Show();
             //listViewOrderTableOverview.Clear();
         }
