@@ -41,7 +41,8 @@ namespace ChapeauDAL
             foreach (OrderItem orderItem in order.orderedItems)
             {
                 int state = (int)orderItem.State;
-                string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, {orderItem.OrderTime}, {null} );";
+                string query = $"INSERT INTO [OrderItem] ( itemID, count, state, orderTime, comment) Values ( {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
+
                 SqlParameter[] sqlParameters = new SqlParameter[0];
 
                 ExecuteEditQuery(query, sqlParameters);

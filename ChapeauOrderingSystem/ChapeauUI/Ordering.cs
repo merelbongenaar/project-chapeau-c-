@@ -38,7 +38,6 @@ namespace ChapeauUI
             //select an item from the listview and add this to a variable
             if (listViewOrderOrder.SelectedItems.Count > 0)
             {
-                
 
 
                 //ListViewItem selectedItem = listViewOrderOrder.SelectedItems[0];
