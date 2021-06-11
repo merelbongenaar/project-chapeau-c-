@@ -21,69 +21,89 @@ namespace ChapeauUI
         {
             InitializeComponent();
 
-            //creata an order for the table
             currentOrder = new Order();
             currentOrder.EmployeeID = employee.EmployeeID;
+            currentOrder.OrderNr = 5; ////////how should I do this, this should be the lastOrder nummer but ++
             currentOrder.StartTime = DateTime.Now;
             currentOrder.TableID = tableNr;
             currentOrder.EndTime = null;
 
-            //fill the lables with the employee name and the table nr
             lblEmployeeName.Text = employee.Name.ToString();
             lblTableNr.Text = tableNr.ToString();
         }
 
         private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //select an item from the listview and add this to a variable
             if (listViewOrderOrder.SelectedItems.Count > 0)
             {
+                ListViewItem li = listViewOrderOrder.SelectedItems[0];
+                
+                Item selItem = new Item();
+                //selItem.ItemName
+                selectedOrderItem = new OrderItem();
+                selectedOrderItem.Quantity = int.Parse(li.SubItems[0].Text); //this works
+                selectedOrderItem.Item.ItemName = li.SubItems[1].Text; //set to null reference, so doesnt work :((
 
-
-                //ListViewItem selectedItem = listViewOrderOrder.SelectedItems[0];
-                //selectedItem.Tag = listViewOrderOrder.SelectedItems;
-                //selectedOrderItem.Item = (Item)selectedItem.Tag;
             }
         }
 
-        /////////////////////////////////////////////////////////////sending order to the database
+        //sending order to the database
         private void bttnSend_Click(object sender, EventArgs e)
         {
-            //send order to the database
             OrderService orderService = new OrderService();
             orderService.AddDataToOrder(currentOrder); //does not work yet
         }
 
-        /////////////////////////////////////////////////////////////buttons for changing the orderItem
+        //buttons for changing the orderItem
         private void bttnAddComment_Click(object sender, EventArgs e)
         {
-            //comment button is clicked, open a new form
+            string comment = ""; //need a way for the user to enter this in the form
 
-            //    var formPopup = new Form();
-            //    formPopup.Show(this); // if you need non-modal window
+            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            {
+                if (currentOrder.orderedItems[i] == selectedOrderItem)
+                {
+                    currentOrder.orderedItems[i].Comment = comment;
+                }
+            }
         }
 
         private void bttnRemoveItem_Click(object sender, EventArgs e)
         {
-           
+            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            {
+                if (currentOrder.orderedItems[i] == selectedOrderItem)
+                {
+                    currentOrder.orderedItems.Remove(currentOrder.orderedItems[i]);
+                }
+            }
         }
 
         private void bttnAddQNT_Click(object sender, EventArgs e)
         {
-            //order.orderedItems[selectedItem].Quantity++;
+            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            {
+                if (currentOrder.orderedItems[i] == selectedOrderItem)
+                {
+                    currentOrder.orderedItems[i].Quantity++;
+                }
+            }
         }
 
-
-        /////////////////////////////////////////////////////////////////////methods 
+        //methods 
         private void DisplayRunningOrders()
         {
             listViewOrderOrder.Items.Clear();
 
-            foreach (OrderItem orderItem in currentOrder.orderedItems)
+            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
             {
-                ListViewItem li = new ListViewItem(orderItem.Quantity.ToString()); ///(orderItem.Item.ItemID.ToString());
-                li.SubItems.Add(orderItem.Item.ItemName);
-                //li.SubItems.Add(orderItem.Quantity.ToString());
+                ListViewItem li = new ListViewItem(currentOrder.orderedItems[i].Quantity.ToString());
+                li.SubItems.Add(currentOrder.orderedItems[i].Item.ItemName);
+
+                if (currentOrder.orderedItems[i].Comment != "")
+                {
+                    li.SubItems.Add(currentOrder.orderedItems[i].Comment);
+                }
 
                 listViewOrderOrder.Items.Add(li);
             }
@@ -109,7 +129,7 @@ namespace ChapeauUI
             return menuItems;
         }
 
-        /////////////////////////////////////////////////////////////////////methods creating buttons         
+        //methods creating buttons         
         private void CreateMenuButtons(List<Item> menuItems)
         {
             foreach (Item item in menuItems)
@@ -135,14 +155,12 @@ namespace ChapeauUI
             }
             else
             {
-                //method create new orderItem?
-                OrderItem orderItem = new OrderItem();        //check if an order item is already there, ++;
+                OrderItem orderItem = new OrderItem(); 
                 orderItem.Item = selectedMenuItem;
-                //orderItem.OrderID = order.OrderNr; //hmmmmm
+                orderItem.OrderID = currentOrder.OrderNr; 
                 orderItem.OrderTime = DateTime.Now;
                 orderItem.Quantity = 1;
                 orderItem.State = State.NotStarted;
-                //decrease the stock everytime an item is ordered 
                 orderItem.Item.Stock--;
 
                 currentOrder.orderedItems.Add(orderItem);
@@ -151,7 +169,7 @@ namespace ChapeauUI
             }
         }
 
-        /////////////////////////////////////////////////////////////////buttons category 
+        //buttons category 
         private void bttnMenuCategory_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -170,10 +188,9 @@ namespace ChapeauUI
             CreateMenuButtons(menuItems);
         }
 
-        /////////////////////////////////////////////////////////////////buttons Subcategorys
+        //buttons Subcategorys
         private void bttnMenuSubCatgory_Click(object sender, EventArgs e)
         {
-            //
             Button button = (Button)sender;
 
             int subCategory = Convert.ToInt32(button.Tag);

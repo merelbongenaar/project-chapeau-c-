@@ -35,7 +35,7 @@ namespace ChapeauUI
             this.bttnDiner = new System.Windows.Forms.Button();
             this.bttnMenuCategory = new System.Windows.Forms.Button();
             this.listViewOrderOrder = new System.Windows.Forms.ListView();
-            this.orderItemId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.orderItemComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderItemQNT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bttnSend = new System.Windows.Forms.Button();
@@ -119,37 +119,38 @@ namespace ChapeauUI
             // listViewOrderOrder
             // 
             this.listViewOrderOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.orderItemId,
+            this.orderItemQNT,
             this.orderItem,
-            this.orderItemQNT});
+            this.orderItemComment});
             this.listViewOrderOrder.HideSelection = false;
             this.listViewOrderOrder.Location = new System.Drawing.Point(1098, 72);
             this.listViewOrderOrder.Margin = new System.Windows.Forms.Padding(6);
             this.listViewOrderOrder.Name = "listViewOrderOrder";
-            this.listViewOrderOrder.Size = new System.Drawing.Size(480, 625);
+            this.listViewOrderOrder.Size = new System.Drawing.Size(480, 762);
             this.listViewOrderOrder.TabIndex = 8;
             this.listViewOrderOrder.UseCompatibleStateImageBehavior = false;
             this.listViewOrderOrder.View = System.Windows.Forms.View.Details;
             this.listViewOrderOrder.SelectedIndexChanged += new System.EventHandler(this.listViewOrderOrder_SelectedIndexChanged);
             // 
-            // orderItemId
+            // orderItemComment
             // 
-            this.orderItemId.Text = "ItemID";
-            this.orderItemId.Width = 62;
+            this.orderItemComment.Text = "comment";
+            this.orderItemComment.Width = 197;
             // 
             // orderItem
             // 
             this.orderItem.Text = "Item";
+            this.orderItem.Width = 150;
             // 
             // orderItemQNT
             // 
             this.orderItemQNT.Text = "qnt";
-            this.orderItemQNT.Width = 123;
+            this.orderItemQNT.Width = 40;
             // 
             // bttnSend
             // 
             this.bttnSend.BackColor = System.Drawing.Color.Red;
-            this.bttnSend.Location = new System.Drawing.Point(1445, 722);
+            this.bttnSend.Location = new System.Drawing.Point(1445, 844);
             this.bttnSend.Margin = new System.Windows.Forms.Padding(4);
             this.bttnSend.Name = "bttnSend";
             this.bttnSend.Size = new System.Drawing.Size(133, 179);
@@ -161,7 +162,7 @@ namespace ChapeauUI
             // bttnRemoveItem
             // 
             this.bttnRemoveItem.BackColor = System.Drawing.Color.SeaShell;
-            this.bttnRemoveItem.Location = new System.Drawing.Point(1272, 722);
+            this.bttnRemoveItem.Location = new System.Drawing.Point(1272, 844);
             this.bttnRemoveItem.Margin = new System.Windows.Forms.Padding(4);
             this.bttnRemoveItem.Name = "bttnRemoveItem";
             this.bttnRemoveItem.Size = new System.Drawing.Size(165, 81);
@@ -173,7 +174,7 @@ namespace ChapeauUI
             // bttnAddQNT
             // 
             this.bttnAddQNT.BackColor = System.Drawing.Color.SeaShell;
-            this.bttnAddQNT.Location = new System.Drawing.Point(1098, 722);
+            this.bttnAddQNT.Location = new System.Drawing.Point(1098, 844);
             this.bttnAddQNT.Margin = new System.Windows.Forms.Padding(4);
             this.bttnAddQNT.Name = "bttnAddQNT";
             this.bttnAddQNT.Size = new System.Drawing.Size(165, 81);
@@ -185,7 +186,7 @@ namespace ChapeauUI
             // bttnAddComment
             // 
             this.bttnAddComment.BackColor = System.Drawing.Color.SeaShell;
-            this.bttnAddComment.Location = new System.Drawing.Point(1099, 811);
+            this.bttnAddComment.Location = new System.Drawing.Point(1099, 933);
             this.bttnAddComment.Margin = new System.Windows.Forms.Padding(4);
             this.bttnAddComment.Name = "bttnAddComment";
             this.bttnAddComment.Size = new System.Drawing.Size(338, 90);
@@ -396,7 +397,7 @@ namespace ChapeauUI
         private System.Windows.Forms.Button bttnDiner;
         private System.Windows.Forms.Button bttnMenuCategory;
         private System.Windows.Forms.ListView listViewOrderOrder;
-        private System.Windows.Forms.ColumnHeader orderItemId;
+        private System.Windows.Forms.ColumnHeader orderItemComment;
         private System.Windows.Forms.ColumnHeader orderItemQNT;
         private System.Windows.Forms.Button bttnSend;
         private System.Windows.Forms.Button bttnRemoveItem;
