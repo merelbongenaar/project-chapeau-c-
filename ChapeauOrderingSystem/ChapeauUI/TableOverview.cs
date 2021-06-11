@@ -23,7 +23,7 @@ namespace ChapeauUI
         {
             InitializeComponent();
             this.employee = employee;
-            lblEmployeeInfo.Text = $"{employee.EmployeeID}: {employee.Name}";
+            lblEmployeeInfo.Text = $"Welcome {employee.Name} ({employee.EmployeeID})";
 
             //hide buttons order view 
             btnAddItem.Hide();
@@ -76,7 +76,7 @@ namespace ChapeauUI
                 if (dialogResult == DialogResult.Yes)
                 {
                     tableService.UpdateStateTableToTrue(tableNr);
-                    button.BackColor = Color.Green;
+                    button.BackColor = Color.PaleTurquoise;
                     RefreshTables();
                 }
                 else if (dialogResult == DialogResult.No)
@@ -109,6 +109,29 @@ namespace ChapeauUI
 
         }
 
+        //-----------------------------------------------------------------------------------------------mark item as served----------------------------------------------------------------------------------------------------------------------------
+
+        private void readyTable1_Click(object sender, EventArgs e)
+        {
+            PictureBox icon = (PictureBox)sender;
+            int tableNr = Convert.ToInt32(icon.Tag);
+
+            OrderService orderservice = new OrderService();
+
+            DialogResult dialogResult = MessageBox.Show($"Do you want to update the food status to served for table {tableNr}?", "Serve food", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Order order = orderservice.GetOrderByTableNR(tableNr);
+                orderservice.UpdateOrderState(4, order.OrderNr);
+                icon.Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------icons-------------------------------------------------------------------------------------------------------------------------------------------
         private void RefreshIcons()
         {
             PictureBox[] readyIcons = new PictureBox[] { readyTable1, readyTable2, readyTable3, readyTable4, readyTable5, readyTable6, readyTable7, readyTable8, readyTable9, readyTable10 };
@@ -137,22 +160,10 @@ namespace ChapeauUI
                         preparingIcons[o.TableID - 1].Show();
                     }
 
-                    //this should be removed i think
-                    //else
-                    //{
-                    //    preparingIcons[i].Hide();
-                    //}
-
                     if (item.State == State.Done)
                     {
                         readyIcons[o.TableID - 1].Show();
                     }
-
-                    //this one as well
-                    //else
-                    //{
-                    //    readyIcons[i].Hide();
-                    //}
                 }
 
                 i++;
@@ -170,7 +181,7 @@ namespace ChapeauUI
             {
                 if (table.IsOccupied)
                 {
-                    buttons[i].BackColor = Color.LightGreen;
+                    buttons[i].BackColor = Color.PaleTurquoise;
                 }
                 else
                 {
@@ -190,6 +201,11 @@ namespace ChapeauUI
             int tableNr = (int)btn.Tag;
 
             Form formOrder = new Ordering(tableNr, employee);
+
+            formOrder.StartPosition = FormStartPosition.Manual;
+            formOrder.Location = this.Location;
+            formOrder.Size = this.Size;
+
             formOrder.Show();
            
         }
@@ -198,6 +214,11 @@ namespace ChapeauUI
         private void btnPayForOrder_Click(object sender, EventArgs e)
         {
             Form formPayment = new BillForm(order);
+
+            formPayment.StartPosition = FormStartPosition.Manual;
+            formPayment.Location = this.Location;
+            formPayment.Size = this.Size;
+
             formPayment.Show();
             //listViewOrderTableOverview.Clear();
         }
@@ -217,5 +238,7 @@ namespace ChapeauUI
         {
 
         }
+
+
     }
 }

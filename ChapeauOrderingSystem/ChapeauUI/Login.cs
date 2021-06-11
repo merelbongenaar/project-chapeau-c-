@@ -40,12 +40,23 @@ namespace ChapeauUI
                     Form tableOverview = new TableOverview(employee);
                     this.Hide();
 
+                    //open new form same location and size as login form 
+                    tableOverview.StartPosition = FormStartPosition.Manual;
+                    tableOverview.Location = this.Location;
+                    tableOverview.Size = this.Size;
+
                     tableOverview.ShowDialog();
                 }
 
                 else if (employee.Role == Role.Kitchen || employee.Role == Role.Bar)
                 {
                     BarKitchenView barKitchenView = new BarKitchenView(employee);
+
+                    //open new form same location and size as login form
+                    barKitchenView.StartPosition = FormStartPosition.Manual;
+                    barKitchenView.Location = this.Location;
+                    barKitchenView.Size = this.Size;
+
                     this.Hide();
 
                     barKitchenView.Show();
