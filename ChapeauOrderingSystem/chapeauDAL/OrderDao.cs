@@ -38,19 +38,26 @@ namespace ChapeauDAL
 
 
 
-        public void AddOrderOrderItems(Order order)// this method adds all the orderItems from the list in Order to the database
+        //public void AddOrderOrderItems(Order order)// this method adds all the orderItems from the list in Order to the database
+        //{
+        //    foreach (OrderItem orderItem in order.orderedItems)
+        //    {
+        //        int state = (int)orderItem.State;
+        //        string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
+
+        //        SqlParameter[] sqlParameters = new SqlParameter[0];
+
+        //        ExecuteEditQuery(query, sqlParameters);
+        //    }
+        //}
+
+        public void AddOrder(Order order)
         {
-            foreach (OrderItem orderItem in order.orderedItems)
-            {
-                int state = (int)orderItem.State;
-                string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
+            string query = $"INSERT INTO [Order] (employeeID, tableID, startTime) Values ({order.EmployeeID}, {order.TableID}, '{order.StartTime.Value.Date.Year}-{order.StartTime.Value.Date.Month}-{order.StartTime.Value.Date.Day} {order.StartTime.Value.Date.Hour}:{order.StartTime.Value.Date.Minute}:{order.StartTime.Value.Date.Second}');";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
 
-                SqlParameter[] sqlParameters = new SqlParameter[0];
-
-                ExecuteEditQuery(query, sqlParameters);
-            }
+            ExecuteEditQuery(query, sqlParameters);
         }
-
 
         public List<Order> GetAllOrders()
         {
@@ -77,8 +84,6 @@ namespace ChapeauDAL
 
             return order;
         }
-
-
 
         private List<Order> ReadTables(DataTable dataTable)
         {

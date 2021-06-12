@@ -27,15 +27,20 @@ namespace ChapeauLogic
             return runningOrders;
         }
 
-        public void AddDataToOrder(Order order)
+        public void AddOrder(Order order)
         {
-            foreach (OrderItem item in order.orderedItems)
-            {
-                //orderdb.AddOrder
-                //add orderItems to the database
-            }
- 
-            orderdb.AddOrderOrderItems(order); //list
+            orderdb.AddOrder(order);
+        }
+
+        public void AddOrderItems()
+        { 
+            //orderdb.
+        }
+
+        public Order GetLastOrder()
+        {
+            //Order lastOrder = orderdb.
+            return null;
         }
 
         public List<Order> GetAllOrders()

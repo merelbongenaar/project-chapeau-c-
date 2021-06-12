@@ -11,6 +11,7 @@ namespace ChapeauUI
 {
     public partial class Ordering : Form
     {
+        private Employee employee;
         private Order currentOrder;
         private OrderItem selectedOrderItem;
 
@@ -18,11 +19,13 @@ namespace ChapeauUI
         {
             InitializeComponent();
 
+            this.employee = employee;
+
             currentOrder = new Order();
             currentOrder.EmployeeID = employee.EmployeeID;
             currentOrder.StartTime = DateTime.Now;
             currentOrder.TableID = tableNr;
-            currentOrder.EndTime = null;
+            //currentOrder.EndTime = null;
 
             lblEmployeeName.Text = employee.Name.ToString();
             lblTableNr.Text = tableNr.ToString();
@@ -46,8 +49,21 @@ namespace ChapeauUI
         //sending order to the database
         private void bttnSend_Click(object sender, EventArgs e)
         {
+            //inserting the order to the database
             OrderService orderService = new OrderService();
-            orderService.AddDataToOrder(currentOrder); //does not work yet
+            orderService.AddOrder(currentOrder);
+
+            //inserting the orderItems to the database
+
+
+            //open new tableOverview form 
+            Form formTableOverview = new TableOverview(employee);
+
+            formTableOverview.StartPosition = FormStartPosition.Manual;
+            formTableOverview.Location = this.Location;
+            formTableOverview.Size = this.Size;
+
+            formTableOverview.Show();
         }
 
         //buttons for changing the orderItem
@@ -178,13 +194,13 @@ namespace ChapeauUI
             }
             else
             {
+                //create a new orderItem
                 OrderItem orderItem = new OrderItem();
-
                 orderItem.Item = selectedMenuItem;
-                orderItem.OrderID = currentOrder.OrderNr; 
-                orderItem.OrderTime = DateTime.Now;
+                orderItem.OrderID = currentOrder.OrderNr;
                 orderItem.Quantity = 1;
                 orderItem.State = State.NotStarted;
+                orderItem.OrderTime = DateTime.Now;
 
                 //decrease stock
                 ItemService itemService = new ItemService();
@@ -194,11 +210,15 @@ namespace ChapeauUI
                 item.Stock--;
                 itemService.UpdateStock(item);
 
+                //adding to the list of orderItems
                 currentOrder.orderedItems.Add(orderItem);
 
+                //
                 DisplayOrders();
             }
         }
+
+
 
         //buttons category 
         private void bttnMenuCategory_Click(object sender, EventArgs e)
