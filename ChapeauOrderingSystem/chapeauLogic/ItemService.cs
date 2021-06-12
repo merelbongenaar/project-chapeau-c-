@@ -33,5 +33,9 @@ namespace ChapeauLogic
             return allItemsOfCategory;
         }
 
+        public void UpdateStock(Item item)
+        {
+            itemdb.UpdateStock(item);
+        }
     }
 }

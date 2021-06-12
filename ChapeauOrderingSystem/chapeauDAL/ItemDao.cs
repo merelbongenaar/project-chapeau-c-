@@ -59,5 +59,16 @@ namespace ChapeauDAL
 
             return items;
         }
+
+        public void UpdateStock(Item item)
+        {
+            string query = $"UPDATE [Items] SET stock=@stock WHERE itemID=@itemID";
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("stock", item.Stock);//("itemID", item.ItemID);
+            sqlParameters[1] = new SqlParameter("itemID", item.ItemID);
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
