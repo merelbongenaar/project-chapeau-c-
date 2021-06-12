@@ -19,6 +19,7 @@ namespace ChapeauLogic
             billDao.AddBill(order.Bill);
             billDao.UpdateOrderStatus(order);
             billDao.UpdateTableStatus(order.TableID);
+            billDao.UpdateOrderEndTime(order);
         }
 
     }
