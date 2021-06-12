@@ -67,21 +67,28 @@ namespace ChapeauUI
         
         private void txtBoxTip_TextChanged(object sender, EventArgs e)
         {
-            // get the tip amount that the user will enter            
+            // get the tip amount that the user will enter     
             decimal tip = 0;
+            try
+            {
+                if (txtBoxTip.Text.Length > 0 && TxtBoxDigitsFilter(txtBoxTip.Text))
+                {
+                    tip = decimal.Parse(txtBoxTip.Text);
+                }
+                else if (!TxtBoxDigitsFilter(txtBoxTip.Text) && txtBoxTip.Text.Length > 0)
+                {
+                    MessageBox.Show("Invalid tip amount, please enter only digits!");
+                    txtBoxTip.Text = "";
+                }
+                else
+                {
+                    tip = 0;
+                }
+            }
+            catch (Exception t)
+            {
 
-            if (txtBoxTip.Text.Length > 0 && TxtBoxDigitsFilter(txtBoxTip.Text))
-            {
-                tip = decimal.Parse(txtBoxTip.Text);
-            }
-            else if (!TxtBoxDigitsFilter(txtBoxTip.Text) && txtBoxTip.Text.Length > 0)
-            {
-                MessageBox.Show("Invalid tip amount, please enter only digits!");
-                txtBoxTip.Text = "";
-            }
-            else
-            {  
-                tip = 0;                
+                MessageBox.Show("Something went wrong with the tip: " + t.Message);
             }
 
             // store the tip amount to the new bill object
@@ -95,6 +102,7 @@ namespace ChapeauUI
         // method to filter the txtbox to accept int only
         private bool TxtBoxDigitsFilter(string txt)
         {
+            
             foreach (char c in txt)
             {
                 if (c == '.')
