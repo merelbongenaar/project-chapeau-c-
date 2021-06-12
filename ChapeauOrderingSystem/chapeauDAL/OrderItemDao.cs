@@ -19,6 +19,23 @@ namespace ChapeauDAL
             return orderItems;
         }
 
+        public void UpdateOrderState(int orderState, int orderID)
+        {
+            string query = $"UPDATE OrderItem SET state = {orderState} WHERE orderID = {orderID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        //This method retrieves an OrderItem based on the provided name, state and orderID of the order it belongs to
+        public OrderItem GetOrderItem(string itemName, int orderID, int state)
+        {
+            string query = $"SELECT orderID, OrderItem.itemID, [count], state, orderTime, comment FROM OrderItem JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} AND state = {state} AND Items.itemName = '{itemName}' ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<OrderItem> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
+            return items[0];
+        }
+
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();

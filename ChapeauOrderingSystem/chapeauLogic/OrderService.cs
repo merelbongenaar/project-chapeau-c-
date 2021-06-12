@@ -43,9 +43,9 @@ namespace ChapeauLogic
             return orderdb.GetAllOrders();
         }
 
-        public void UpdateOrderState(int orderState, int orderID)
+        public Order GetOrderByOrderID(int orderID)
         {
-            orderdb.UpdateOrderState(orderState, orderID);
+            return orderdb.GetOrderByOrderID(orderID);
         }
     }
 }

@@ -116,13 +116,14 @@ namespace ChapeauUI
             PictureBox icon = (PictureBox)sender;
             int tableNr = Convert.ToInt32(icon.Tag);
 
+            OrderItemService orderItemservice = new OrderItemService();
             OrderService orderservice = new OrderService();
 
             DialogResult dialogResult = MessageBox.Show($"Do you want to update the food status to served for table {tableNr}?", "Serve food", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Order order = orderservice.GetOrderByTableNR(tableNr);
-                orderservice.UpdateOrderState(4, order.OrderNr);
+                orderItemservice.UpdateOrderState(4, order.OrderNr);
                 icon.Hide();
             }
             else if (dialogResult == DialogResult.No)

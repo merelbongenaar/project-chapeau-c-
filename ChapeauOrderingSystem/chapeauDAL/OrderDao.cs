@@ -29,7 +29,7 @@ namespace ChapeauDAL
         //the joins in this one dont really work
         public List<Order> GetAllRunningOrders()
         {
-            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0 ORDER BY orderID";
+            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0 ORDER BY orderTime ";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
@@ -54,23 +54,16 @@ namespace ChapeauDAL
 
         public List<Order> GetAllOrders()
         {
-            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID";
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID ORDER BY orderTime";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
 
             return orders;
         }
 
-        public void UpdateOrderState(int orderState, int orderID)
-        {
-            string query = $"UPDATE OrderItem SET state = {orderState} WHERE orderID = {orderID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
         public Order GetOrderByOrderID(int orderID)
         {
-            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE orderID = {orderID} ";
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             Order order = orders[1];
