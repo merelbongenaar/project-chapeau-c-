@@ -97,7 +97,11 @@ namespace ChapeauUI
         {
             foreach (char c in txt)
             {
-                if (c < '0' || c > '9')
+                if (c == '.')
+                {
+                    return true;
+                }
+                else if (c < '0' || c > '9')
                 {
                     return false;
                 }
@@ -134,7 +138,7 @@ namespace ChapeauUI
 
             // diaplay a message to the user that the order has been paid for
             MessageBox.Show("order has been paid");
-
+   
             // close the form and return to table overview
             this.Close();
         }
