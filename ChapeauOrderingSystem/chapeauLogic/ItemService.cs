@@ -21,6 +21,11 @@ namespace ChapeauLogic
             return allItems;
         }
 
+        public Item GetItemByName(string itemName)
+        {
+            return itemdb.GetItemByName(itemName);
+        }
+
         public List<Item> GetItemsByCategory(int category)
         {
             List<Item> allItemsOfCategory = itemdb.GetMenuItemByCategory(category);

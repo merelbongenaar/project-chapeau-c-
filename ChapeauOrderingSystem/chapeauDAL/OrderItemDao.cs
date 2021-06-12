@@ -26,6 +26,13 @@ namespace ChapeauDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void UpdateOrderState(int itemID, int orderState, int orderID)
+        {
+            string query = $"UPDATE OrderItem SET [state] = {orderState} WHERE orderID = {orderID} AND itemID = {itemID} ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         //This method retrieves an OrderItem based on the provided name, state and orderID of the order it belongs to
         public OrderItem GetOrderItem(string itemName, int orderID, int state)
         {

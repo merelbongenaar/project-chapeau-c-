@@ -30,6 +30,10 @@ namespace ChapeauUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDisplayingThis = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlFinishedOrders = new System.Windows.Forms.Panel();
+            this.lstFinishedOrders = new System.Windows.Forms.ListView();
             this.btnChangeOrderState2 = new System.Windows.Forms.Button();
             this.btnUndoOrder2 = new System.Windows.Forms.Button();
             this.pnlOrder2 = new System.Windows.Forms.Panel();
@@ -46,8 +50,6 @@ namespace ChapeauUI
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lblDisplayingThis = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnChangeOrderState = new System.Windows.Forms.Button();
             this.btnUndoOrder1 = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -69,15 +71,27 @@ namespace ChapeauUI
             this.tsmiAllOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRunningOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFinishedOrders = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlFinishedOrders = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.order_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.table_number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.start_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.end_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.employee_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ordered_items = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstbStarters1Quantity = new System.Windows.Forms.ListBox();
+            this.lstbMains1Quantity = new System.Windows.Forms.ListBox();
+            this.lstbDesserts1Quantity = new System.Windows.Forms.ListBox();
+            this.lstbDrinks1Quantity = new System.Windows.Forms.ListBox();
+            this.lstbStarters2Quantity = new System.Windows.Forms.ListBox();
+            this.lstbMains2Quantity = new System.Windows.Forms.ListBox();
+            this.lstbDesserts2Quantity = new System.Windows.Forms.ListBox();
+            this.lstbDrinks2Quantity = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
+            this.pnlFinishedOrders.SuspendLayout();
             this.pnlOrder2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnlOrder1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.pnlFinishedOrders.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,6 +114,54 @@ namespace ChapeauUI
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // lblDisplayingThis
+            // 
+            this.lblDisplayingThis.AutoSize = true;
+            this.lblDisplayingThis.ForeColor = System.Drawing.Color.Black;
+            this.lblDisplayingThis.Location = new System.Drawing.Point(189, 14);
+            this.lblDisplayingThis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDisplayingThis.Name = "lblDisplayingThis";
+            this.lblDisplayingThis.Size = new System.Drawing.Size(113, 17);
+            this.lblDisplayingThis.TabIndex = 5;
+            this.lblDisplayingThis.Text = "All Active Orders";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(52, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Currently displaying";
+            // 
+            // pnlFinishedOrders
+            // 
+            this.pnlFinishedOrders.BackColor = System.Drawing.Color.White;
+            this.pnlFinishedOrders.Controls.Add(this.lstFinishedOrders);
+            this.pnlFinishedOrders.Location = new System.Drawing.Point(1167, 103);
+            this.pnlFinishedOrders.Name = "pnlFinishedOrders";
+            this.pnlFinishedOrders.Size = new System.Drawing.Size(1216, 748);
+            this.pnlFinishedOrders.TabIndex = 9;
+            // 
+            // lstFinishedOrders
+            // 
+            this.lstFinishedOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.order_id,
+            this.table_number,
+            this.start_time,
+            this.end_time,
+            this.employee_id,
+            this.ordered_items});
+            this.lstFinishedOrders.HideSelection = false;
+            this.lstFinishedOrders.Location = new System.Drawing.Point(116, 90);
+            this.lstFinishedOrders.Name = "lstFinishedOrders";
+            this.lstFinishedOrders.Size = new System.Drawing.Size(977, 614);
+            this.lstFinishedOrders.TabIndex = 0;
+            this.lstFinishedOrders.UseCompatibleStateImageBehavior = false;
+            this.lstFinishedOrders.View = System.Windows.Forms.View.Details;
+            // 
             // btnChangeOrderState2
             // 
             this.btnChangeOrderState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -109,8 +171,10 @@ namespace ChapeauUI
             this.btnChangeOrderState2.Name = "btnChangeOrderState2";
             this.btnChangeOrderState2.Size = new System.Drawing.Size(100, 59);
             this.btnChangeOrderState2.TabIndex = 8;
+            this.btnChangeOrderState2.Tag = "";
             this.btnChangeOrderState2.Text = "Prepare";
             this.btnChangeOrderState2.UseVisualStyleBackColor = false;
+            this.btnChangeOrderState2.Click += new System.EventHandler(this.btnChangeOrderState2_Click);
             // 
             // btnUndoOrder2
             // 
@@ -122,6 +186,7 @@ namespace ChapeauUI
             this.btnUndoOrder2.TabIndex = 7;
             this.btnUndoOrder2.Text = "Undo";
             this.btnUndoOrder2.UseVisualStyleBackColor = true;
+            this.btnUndoOrder2.Click += new System.EventHandler(this.btnUndoOrder2_Click);
             // 
             // pnlOrder2
             // 
@@ -182,6 +247,10 @@ namespace ChapeauUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.lstbDrinks2Quantity);
+            this.panel5.Controls.Add(this.lstbDesserts2Quantity);
+            this.panel5.Controls.Add(this.lstbMains2Quantity);
+            this.panel5.Controls.Add(this.lstbStarters2Quantity);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.lstbDrinks2);
             this.panel5.Controls.Add(this.lstbMains2);
@@ -214,7 +283,7 @@ namespace ChapeauUI
             this.lstbDrinks2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbDrinks2.Name = "lstbDrinks2";
             this.lstbDrinks2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbDrinks2.Size = new System.Drawing.Size(231, 132);
+            this.lstbDrinks2.Size = new System.Drawing.Size(198, 132);
             this.lstbDrinks2.TabIndex = 16;
             // 
             // lstbMains2
@@ -225,7 +294,7 @@ namespace ChapeauUI
             this.lstbMains2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbMains2.Name = "lstbMains2";
             this.lstbMains2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbMains2.Size = new System.Drawing.Size(231, 132);
+            this.lstbMains2.Size = new System.Drawing.Size(197, 132);
             this.lstbMains2.TabIndex = 15;
             // 
             // lstbDesserts2
@@ -236,7 +305,7 @@ namespace ChapeauUI
             this.lstbDesserts2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbDesserts2.Name = "lstbDesserts2";
             this.lstbDesserts2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbDesserts2.Size = new System.Drawing.Size(231, 132);
+            this.lstbDesserts2.Size = new System.Drawing.Size(197, 132);
             this.lstbDesserts2.TabIndex = 14;
             // 
             // lstbStarters2
@@ -247,7 +316,7 @@ namespace ChapeauUI
             this.lstbStarters2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbStarters2.Name = "lstbStarters2";
             this.lstbStarters2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbStarters2.Size = new System.Drawing.Size(231, 132);
+            this.lstbStarters2.Size = new System.Drawing.Size(197, 132);
             this.lstbStarters2.TabIndex = 13;
             // 
             // label8
@@ -285,37 +354,16 @@ namespace ChapeauUI
             this.label10.TabIndex = 3;
             this.label10.Text = "Starters";
             // 
-            // lblDisplayingThis
-            // 
-            this.lblDisplayingThis.AutoSize = true;
-            this.lblDisplayingThis.ForeColor = System.Drawing.Color.Black;
-            this.lblDisplayingThis.Location = new System.Drawing.Point(189, 14);
-            this.lblDisplayingThis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDisplayingThis.Name = "lblDisplayingThis";
-            this.lblDisplayingThis.Size = new System.Drawing.Size(113, 17);
-            this.lblDisplayingThis.TabIndex = 5;
-            this.lblDisplayingThis.Text = "All Active Orders";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(52, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Currently displaying";
-            // 
             // btnChangeOrderState
             // 
             this.btnChangeOrderState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnChangeOrderState.ForeColor = System.Drawing.Color.Black;
-            this.btnChangeOrderState.Location = new System.Drawing.Point(317, 551);
+            this.btnChangeOrderState.Location = new System.Drawing.Point(350, 551);
             this.btnChangeOrderState.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeOrderState.Name = "btnChangeOrderState";
             this.btnChangeOrderState.Size = new System.Drawing.Size(100, 59);
             this.btnChangeOrderState.TabIndex = 3;
+            this.btnChangeOrderState.Tag = "";
             this.btnChangeOrderState.Text = "Prepare";
             this.btnChangeOrderState.UseVisualStyleBackColor = false;
             this.btnChangeOrderState.Click += new System.EventHandler(this.btnChangeOrderState_Click);
@@ -323,7 +371,7 @@ namespace ChapeauUI
             // btnUndoOrder1
             // 
             this.btnUndoOrder1.ForeColor = System.Drawing.Color.Black;
-            this.btnUndoOrder1.Location = new System.Drawing.Point(150, 551);
+            this.btnUndoOrder1.Location = new System.Drawing.Point(183, 551);
             this.btnUndoOrder1.Margin = new System.Windows.Forms.Padding(4);
             this.btnUndoOrder1.Name = "btnUndoOrder1";
             this.btnUndoOrder1.Size = new System.Drawing.Size(100, 59);
@@ -403,6 +451,10 @@ namespace ChapeauUI
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.lstbDrinks1Quantity);
+            this.panel3.Controls.Add(this.lstbDesserts1Quantity);
+            this.panel3.Controls.Add(this.lstbMains1Quantity);
+            this.panel3.Controls.Add(this.lstbStarters1Quantity);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.lstbDrinks1);
             this.panel3.Controls.Add(this.lstbDesserts1);
@@ -435,7 +487,7 @@ namespace ChapeauUI
             this.lstbDrinks1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbDrinks1.Name = "lstbDrinks1";
             this.lstbDrinks1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbDrinks1.Size = new System.Drawing.Size(231, 132);
+            this.lstbDrinks1.Size = new System.Drawing.Size(197, 132);
             this.lstbDrinks1.TabIndex = 11;
             // 
             // lstbDesserts1
@@ -446,7 +498,7 @@ namespace ChapeauUI
             this.lstbDesserts1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbDesserts1.Name = "lstbDesserts1";
             this.lstbDesserts1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbDesserts1.Size = new System.Drawing.Size(230, 132);
+            this.lstbDesserts1.Size = new System.Drawing.Size(197, 132);
             this.lstbDesserts1.TabIndex = 10;
             // 
             // lstbMains1
@@ -457,18 +509,18 @@ namespace ChapeauUI
             this.lstbMains1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbMains1.Name = "lstbMains1";
             this.lstbMains1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbMains1.Size = new System.Drawing.Size(231, 132);
+            this.lstbMains1.Size = new System.Drawing.Size(197, 132);
             this.lstbMains1.TabIndex = 9;
             // 
             // lstbStarters1
             // 
             this.lstbStarters1.FormattingEnabled = true;
             this.lstbStarters1.ItemHeight = 16;
-            this.lstbStarters1.Location = new System.Drawing.Point(0, 31);
+            this.lstbStarters1.Location = new System.Drawing.Point(-1, 31);
             this.lstbStarters1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstbStarters1.Name = "lstbStarters1";
             this.lstbStarters1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbStarters1.Size = new System.Drawing.Size(230, 132);
+            this.lstbStarters1.Size = new System.Drawing.Size(197, 132);
             this.lstbStarters1.TabIndex = 8;
             // 
             // label5
@@ -546,24 +598,106 @@ namespace ChapeauUI
             this.tsmiFinishedOrders.Text = "Finished Orders";
             this.tsmiFinishedOrders.Click += new System.EventHandler(this.tsmiFinishedOrders_Click);
             // 
-            // pnlFinishedOrders
+            // order_id
             // 
-            this.pnlFinishedOrders.BackColor = System.Drawing.Color.White;
-            this.pnlFinishedOrders.Controls.Add(this.listView1);
-            this.pnlFinishedOrders.Location = new System.Drawing.Point(0, 0);
-            this.pnlFinishedOrders.Name = "pnlFinishedOrders";
-            this.pnlFinishedOrders.Size = new System.Drawing.Size(1216, 748);
-            this.pnlFinishedOrders.TabIndex = 9;
+            this.order_id.Text = "OrderID";
             // 
-            // listView1
+            // table_number
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(116, 90);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(977, 614);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.table_number.Text = "Table number";
+            this.table_number.Width = 96;
+            // 
+            // start_time
+            // 
+            this.start_time.Text = "Start Time";
+            this.start_time.Width = 73;
+            // 
+            // end_time
+            // 
+            this.end_time.Text = "End Time";
+            this.end_time.Width = 70;
+            // 
+            // employee_id
+            // 
+            this.employee_id.Text = "Employee ID";
+            this.employee_id.Width = 90;
+            // 
+            // ordered_items
+            // 
+            this.ordered_items.Text = "Ordered Items";
+            this.ordered_items.Width = 585;
+            // 
+            // lstbStarters1Quantity
+            // 
+            this.lstbStarters1Quantity.FormattingEnabled = true;
+            this.lstbStarters1Quantity.ItemHeight = 16;
+            this.lstbStarters1Quantity.Location = new System.Drawing.Point(194, 31);
+            this.lstbStarters1Quantity.Name = "lstbStarters1Quantity";
+            this.lstbStarters1Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbStarters1Quantity.TabIndex = 13;
+            // 
+            // lstbMains1Quantity
+            // 
+            this.lstbMains1Quantity.FormattingEnabled = true;
+            this.lstbMains1Quantity.ItemHeight = 16;
+            this.lstbMains1Quantity.Location = new System.Drawing.Point(194, 229);
+            this.lstbMains1Quantity.Name = "lstbMains1Quantity";
+            this.lstbMains1Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbMains1Quantity.TabIndex = 14;
+            // 
+            // lstbDesserts1Quantity
+            // 
+            this.lstbDesserts1Quantity.FormattingEnabled = true;
+            this.lstbDesserts1Quantity.ItemHeight = 16;
+            this.lstbDesserts1Quantity.Location = new System.Drawing.Point(459, 31);
+            this.lstbDesserts1Quantity.Name = "lstbDesserts1Quantity";
+            this.lstbDesserts1Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbDesserts1Quantity.TabIndex = 15;
+            // 
+            // lstbDrinks1Quantity
+            // 
+            this.lstbDrinks1Quantity.FormattingEnabled = true;
+            this.lstbDrinks1Quantity.ItemHeight = 16;
+            this.lstbDrinks1Quantity.Location = new System.Drawing.Point(459, 229);
+            this.lstbDrinks1Quantity.Name = "lstbDrinks1Quantity";
+            this.lstbDrinks1Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbDrinks1Quantity.TabIndex = 16;
+            // 
+            // lstbStarters2Quantity
+            // 
+            this.lstbStarters2Quantity.FormattingEnabled = true;
+            this.lstbStarters2Quantity.ItemHeight = 16;
+            this.lstbStarters2Quantity.Location = new System.Drawing.Point(184, 30);
+            this.lstbStarters2Quantity.Name = "lstbStarters2Quantity";
+            this.lstbStarters2Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbStarters2Quantity.TabIndex = 17;
+            // 
+            // lstbMains2Quantity
+            // 
+            this.lstbMains2Quantity.FormattingEnabled = true;
+            this.lstbMains2Quantity.ItemHeight = 16;
+            this.lstbMains2Quantity.Location = new System.Drawing.Point(184, 229);
+            this.lstbMains2Quantity.Name = "lstbMains2Quantity";
+            this.lstbMains2Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbMains2Quantity.TabIndex = 18;
+            // 
+            // lstbDesserts2Quantity
+            // 
+            this.lstbDesserts2Quantity.FormattingEnabled = true;
+            this.lstbDesserts2Quantity.ItemHeight = 16;
+            this.lstbDesserts2Quantity.Location = new System.Drawing.Point(458, 31);
+            this.lstbDesserts2Quantity.Name = "lstbDesserts2Quantity";
+            this.lstbDesserts2Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbDesserts2Quantity.TabIndex = 19;
+            // 
+            // lstbDrinks2Quantity
+            // 
+            this.lstbDrinks2Quantity.FormattingEnabled = true;
+            this.lstbDrinks2Quantity.ItemHeight = 16;
+            this.lstbDrinks2Quantity.Location = new System.Drawing.Point(458, 229);
+            this.lstbDrinks2Quantity.Name = "lstbDrinks2Quantity";
+            this.lstbDrinks2Quantity.Size = new System.Drawing.Size(36, 132);
+            this.lstbDrinks2Quantity.TabIndex = 20;
             // 
             // BarKitchenView
             // 
@@ -580,6 +714,7 @@ namespace ChapeauUI
             this.Text = "BarKitchenView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlFinishedOrders.ResumeLayout(false);
             this.pnlOrder2.ResumeLayout(false);
             this.pnlOrder2.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -590,7 +725,6 @@ namespace ChapeauUI
             this.panel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.pnlFinishedOrders.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -638,6 +772,20 @@ namespace ChapeauUI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox lstbDrinks1;
         private System.Windows.Forms.Panel pnlFinishedOrders;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lstFinishedOrders;
+        private System.Windows.Forms.ColumnHeader order_id;
+        private System.Windows.Forms.ColumnHeader table_number;
+        private System.Windows.Forms.ColumnHeader start_time;
+        private System.Windows.Forms.ColumnHeader end_time;
+        private System.Windows.Forms.ColumnHeader employee_id;
+        private System.Windows.Forms.ColumnHeader ordered_items;
+        private System.Windows.Forms.ListBox lstbDrinks2Quantity;
+        private System.Windows.Forms.ListBox lstbDesserts2Quantity;
+        private System.Windows.Forms.ListBox lstbMains2Quantity;
+        private System.Windows.Forms.ListBox lstbStarters2Quantity;
+        private System.Windows.Forms.ListBox lstbDrinks1Quantity;
+        private System.Windows.Forms.ListBox lstbDesserts1Quantity;
+        private System.Windows.Forms.ListBox lstbMains1Quantity;
+        private System.Windows.Forms.ListBox lstbStarters1Quantity;
     }
 }

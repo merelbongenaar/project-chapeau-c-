@@ -33,6 +33,7 @@ namespace ChapeauDAL
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
+
             return orders;
         }
 
@@ -66,9 +67,11 @@ namespace ChapeauDAL
             string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
-            Order order = orders[1];
 
-            return order;
+            if (orders.Count > 0)
+                return orders[0];
+            else
+                return null;
         }
 
 

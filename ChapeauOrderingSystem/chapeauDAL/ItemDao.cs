@@ -19,6 +19,19 @@ namespace ChapeauDAL
             return items;
         }
 
+        public Item GetItemByName(string itemName)
+        {
+            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemName = '{itemName}' ";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Item> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
+            if (items.Count > 0)
+                return items[0];
+            else
+                return null;
+        }
+
         private List<Item> ReadTables(DataTable dataTable)
         {
             List<Item> items = new List<Item>();

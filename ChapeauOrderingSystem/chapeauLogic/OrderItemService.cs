@@ -20,6 +20,11 @@ namespace ChapeauLogic
             orderItemdb.UpdateOrderState(orderState, orderID);
         }
 
+        public void UpdateOrderState(int itemID, int orderState, int orderID)
+        {
+            orderItemdb.UpdateOrderState(itemID, orderState, orderID);
+        }
+
         public OrderItem GetOrderItem(string itemName, int orderID, int state)
         {
             return orderItemdb.GetOrderItem(itemName, orderID, state);
