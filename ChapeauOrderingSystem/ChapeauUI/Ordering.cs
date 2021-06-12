@@ -2,13 +2,10 @@
 using ChapeauModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+
 
 namespace ChapeauUI
 {
@@ -23,7 +20,6 @@ namespace ChapeauUI
 
             currentOrder = new Order();
             currentOrder.EmployeeID = employee.EmployeeID;
-            currentOrder.OrderNr = 5; ////////how should I do this, this should be the lastOrder nummer but ++
             currentOrder.StartTime = DateTime.Now;
             currentOrder.TableID = tableNr;
             currentOrder.EndTime = null;
@@ -38,12 +34,12 @@ namespace ChapeauUI
             {
                 ListViewItem li = listViewOrderOrder.SelectedItems[0];
                 
-                Item selItem = new Item();
-                //selItem.ItemName
+                Item item = new Item();
                 selectedOrderItem = new OrderItem();
-                selectedOrderItem.Quantity = int.Parse(li.SubItems[0].Text); //this works
-                selectedOrderItem.Item.ItemName = li.SubItems[1].Text; //set to null reference, so doesnt work :((
+                selectedOrderItem.Quantity = int.Parse(li.SubItems[0].Text);
+                item.ItemName = li.SubItems[1].Text;
 
+                selectedOrderItem.Item = item;
             }
         }
 
@@ -59,9 +55,9 @@ namespace ChapeauUI
         {
             string comment = ""; //need a way for the user to enter this in the form
 
-            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            for (int i = 0; i <= currentOrder.orderedItems.Count; i++)
             {
-                if (currentOrder.orderedItems[i] == selectedOrderItem)
+                if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
                 {
                     currentOrder.orderedItems[i].Comment = comment;
                 }
@@ -72,9 +68,26 @@ namespace ChapeauUI
         {
             for (int i = 0; i < currentOrder.orderedItems.Count; i++)
             {
-                if (currentOrder.orderedItems[i] == selectedOrderItem)
+                if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
                 {
-                    currentOrder.orderedItems.Remove(currentOrder.orderedItems[i]);
+                    if (selectedOrderItem.Quantity > 1)
+                    {
+                        //decrease stock
+                        ItemService itemService = new ItemService();
+                        Item item = new Item();
+                        item = currentOrder.orderedItems[i].Item;
+
+                        item.Stock++;
+                        itemService.UpdateStock(item);
+
+                        currentOrder.orderedItems[i].Quantity--;
+                    }
+                    else
+                    {
+                        currentOrder.orderedItems.Remove(currentOrder.orderedItems[i]);
+                    }
+
+                    DisplayOrders();
                 }
             }
         }
@@ -83,15 +96,25 @@ namespace ChapeauUI
         {
             for (int i = 0; i < currentOrder.orderedItems.Count; i++)
             {
-                if (currentOrder.orderedItems[i] == selectedOrderItem)
+                if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
                 {
                     currentOrder.orderedItems[i].Quantity++;
+                    
+                    //decrease stock
+                    ItemService itemService = new ItemService();
+                    Item item = new Item();
+                    item = currentOrder.orderedItems[i].Item;
+
+                    item.Stock--;
+                    itemService.UpdateStock(item);
+
+                    DisplayOrders();
                 }
             }
         }
 
         //methods 
-        private void DisplayRunningOrders()
+        private void DisplayOrders()
         {
             listViewOrderOrder.Items.Clear();
 
@@ -155,17 +178,25 @@ namespace ChapeauUI
             }
             else
             {
-                OrderItem orderItem = new OrderItem(); 
+                OrderItem orderItem = new OrderItem();
+
                 orderItem.Item = selectedMenuItem;
                 orderItem.OrderID = currentOrder.OrderNr; 
                 orderItem.OrderTime = DateTime.Now;
                 orderItem.Quantity = 1;
                 orderItem.State = State.NotStarted;
-                orderItem.Item.Stock--;
+
+                //decrease stock
+                ItemService itemService = new ItemService();
+                Item item = new Item();
+                item = selectedMenuItem;
+
+                item.Stock--;
+                itemService.UpdateStock(item);
 
                 currentOrder.orderedItems.Add(orderItem);
 
-                DisplayRunningOrders();
+                DisplayOrders();
             }
         }
 
@@ -180,10 +211,7 @@ namespace ChapeauUI
             flowPnlItems.Controls.Clear();
 
             List<Item> menuItems = new List<Item>();
-            if (menuItems.Count <= 0)
-            {
-                menuItems = ListOfMenuItemsByCategory(category);
-            }
+            menuItems = ListOfMenuItemsByCategory(category);
 
             CreateMenuButtons(menuItems);
         }
@@ -199,11 +227,7 @@ namespace ChapeauUI
             flowPnlItems.Controls.Clear();
 
             List<Item> menuItems = new List<Item>();
-            if (menuItems.Count == 0)
-            {
-                MessageBox.Show("test"); //this always shows up :(
-                menuItems = ListOfMenuItemsBySubCategory(subCategory);
-            }
+            menuItems = ListOfMenuItemsBySubCategory(subCategory);
 
             CreateMenuButtons(menuItems);
         }

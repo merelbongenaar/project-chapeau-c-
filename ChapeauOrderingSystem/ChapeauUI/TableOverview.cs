@@ -23,7 +23,7 @@ namespace ChapeauUI
         {
             InitializeComponent();
             this.employee = employee;
-            lblEmployeeInfo.Text = $"Welcome {employee.Name} ({employee.EmployeeID})";
+            lblEmployeeInfo.Text = $"Employee: {employee.Name} ({employee.EmployeeID})";
 
             //hide buttons order view 
             btnAddItem.Hide();
@@ -221,6 +221,8 @@ namespace ChapeauUI
             formPayment.Size = this.Size;
 
             formPayment.Show();
+
+            //clear listview 
             //listViewOrderTableOverview.Clear();
         }
 
