@@ -35,12 +35,13 @@ namespace ChapeauUI
 
             //create timer 
             System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
-            t.Interval = 15000; // specify interval time as you want
+            t.Interval = 15000; 
             t.Tick += new EventHandler(timer_Tick);
             t.Start();
 
         }
 
+        //event which happens each interval
         void timer_Tick(object sender, EventArgs e)
         {
             RefreshTables();
@@ -50,6 +51,7 @@ namespace ChapeauUI
         //------------------------------------------------------------------------------------LOG OUT------------------------------------------------------------------------------------------------------
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //close tableoverview and open login form
             this.Close();
             Form loginForm = new Login();
             loginForm.Show();
@@ -72,7 +74,7 @@ namespace ChapeauUI
 
             if (!selectedTable.IsOccupied)
             {
-                DialogResult dialogResult = MessageBox.Show("occupy table", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show($"Do you want to seat guests at table {tableNr}", "Seat guests", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     tableService.UpdateStateTableToTrue(tableNr);
@@ -109,10 +111,17 @@ namespace ChapeauUI
 
         }
 
+        private void SeatGuests()
+        {
+
+        }
+
         //-----------------------------------------------------------------------------------------------mark item as served----------------------------------------------------------------------------------------------------------------------------
 
         private void readyTable1_Click(object sender, EventArgs e)
         {
+            //when the readyicon is clicked => update state orderitems to served
+
             PictureBox icon = (PictureBox)sender;
             int tableNr = Convert.ToInt32(icon.Tag);
 
@@ -126,10 +135,7 @@ namespace ChapeauUI
                 orderItemservice.UpdateOrderState(4, order.OrderNr);
                 icon.Hide();
             }
-            else if (dialogResult == DialogResult.No)
-            {
 
-            }
         }
 
         //----------------------------------------------------------------------------------------------icons-------------------------------------------------------------------------------------------------------------------------------------------
@@ -207,6 +213,7 @@ namespace ChapeauUI
             formOrder.Location = this.Location;
             formOrder.Size = this.Size;
 
+            Close();
             formOrder.Show();
            
         }
@@ -223,7 +230,11 @@ namespace ChapeauUI
             formPayment.Show();
 
             //clear listview 
-            //listViewOrderTableOverview.Clear();
+            listViewOrderTableOverview.Clear();
+
+            //refresh table status and icons
+            RefreshTables();
+            RefreshIcons();
         }
 
 
@@ -231,16 +242,6 @@ namespace ChapeauUI
 
         //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------
 
-
-        private void listViewOrderTableOverview_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
     }

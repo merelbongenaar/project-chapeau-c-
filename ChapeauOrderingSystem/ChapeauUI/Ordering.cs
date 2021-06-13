@@ -14,6 +14,7 @@ namespace ChapeauUI
         private Employee employee;
         private Order currentOrder;
         private OrderItem selectedOrderItem;
+        private List<OrderItem> newItems;
 
         public Ordering(int tableNr, Employee employee)
         {
@@ -26,17 +27,32 @@ namespace ChapeauUI
             int orderID = orderService.GetLastOrder();
             orderID++;
 
-            //order
-            currentOrder = new Order();
-            currentOrder.EmployeeID = employee.EmployeeID;
-            currentOrder.StartTime = DateTime.Now;
-            currentOrder.TableID = tableNr;
-            currentOrder.OrderNr = orderID;
-            currentOrder.EndTime = null;
+            Order order = orderService.GetOrderByTableNR(tableNr);
+
+            //check if order is already running
+            if (order == null)
+            {
+                currentOrder = new Order();
+                currentOrder.EmployeeID = employee.EmployeeID;
+                currentOrder.StartTime = DateTime.Now;
+                currentOrder.TableID = tableNr;
+                currentOrder.OrderNr = orderID;
+                currentOrder.EndTime = null;
+
+                orderService.AddOrder(currentOrder);
+
+            }
+            else
+            {
+                currentOrder = order;
+            }
+            
 
             //lables 
             lblEmployeeName.Text = employee.Name.ToString();
             lblTableNr.Text = tableNr.ToString();
+
+            newItems = new List<OrderItem>();
         }
 
         private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +60,7 @@ namespace ChapeauUI
             if (listViewOrderOrder.SelectedItems.Count > 0)
             {
                 ListViewItem li = listViewOrderOrder.SelectedItems[0];
-                
+
                 Item item = new Item();
                 selectedOrderItem = new OrderItem();
                 selectedOrderItem.Quantity = int.Parse(li.SubItems[0].Text);
@@ -59,13 +75,15 @@ namespace ChapeauUI
         {
             //inserting the order to the database
             OrderService orderService = new OrderService();
-            orderService.AddOrder(currentOrder);
+            //orderService.AddOrder(currentOrder);
 
             //inserting the orderItems to the database
-            foreach (OrderItem orderItem in currentOrder.orderedItems)
+            foreach (OrderItem orderItem in newItems)
             {
                 orderService.AddOrderItems(orderItem);
             }
+
+            newItems.Clear();
 
             //open new tableOverview form 
             Form formTableOverview = new TableOverview(employee);
@@ -74,6 +92,7 @@ namespace ChapeauUI
             formTableOverview.Location = this.Location;
             formTableOverview.Size = this.Size;
 
+            Close();
             formTableOverview.Show();
         }
 
@@ -126,7 +145,7 @@ namespace ChapeauUI
                 if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
                 {
                     currentOrder.orderedItems[i].Quantity++;
-                    
+
                     //decrease stock
                     ItemService itemService = new ItemService();
                     Item item = new Item();
@@ -223,6 +242,7 @@ namespace ChapeauUI
                 itemService.UpdateStock(item);
 
                 //adding to the list of orderItems
+                newItems.Add(orderItem);
                 currentOrder.orderedItems.Add(orderItem);
 
                 //display
