@@ -139,7 +139,7 @@ namespace ChapeauUI
             // 
             this.preparingTable9.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable9.Image")));
             this.preparingTable9.Location = new System.Drawing.Point(118, 572);
-            this.preparingTable9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable9.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable9.Name = "preparingTable9";
             this.preparingTable9.Size = new System.Drawing.Size(33, 29);
             this.preparingTable9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,7 +150,7 @@ namespace ChapeauUI
             // 
             this.preparingTable7.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable7.Image")));
             this.preparingTable7.Location = new System.Drawing.Point(118, 467);
-            this.preparingTable7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable7.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable7.Name = "preparingTable7";
             this.preparingTable7.Size = new System.Drawing.Size(33, 29);
             this.preparingTable7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,7 +161,7 @@ namespace ChapeauUI
             // 
             this.preparingTable5.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable5.Image")));
             this.preparingTable5.Location = new System.Drawing.Point(119, 352);
-            this.preparingTable5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable5.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable5.Name = "preparingTable5";
             this.preparingTable5.Size = new System.Drawing.Size(33, 29);
             this.preparingTable5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -172,7 +172,7 @@ namespace ChapeauUI
             // 
             this.preparingTable10.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable10.Image")));
             this.preparingTable10.Location = new System.Drawing.Point(373, 572);
-            this.preparingTable10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable10.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable10.Name = "preparingTable10";
             this.preparingTable10.Size = new System.Drawing.Size(33, 29);
             this.preparingTable10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -183,7 +183,7 @@ namespace ChapeauUI
             // 
             this.preparingTable8.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable8.Image")));
             this.preparingTable8.Location = new System.Drawing.Point(373, 467);
-            this.preparingTable8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable8.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable8.Name = "preparingTable8";
             this.preparingTable8.Size = new System.Drawing.Size(33, 29);
             this.preparingTable8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -194,7 +194,7 @@ namespace ChapeauUI
             // 
             this.preparingTable6.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable6.Image")));
             this.preparingTable6.Location = new System.Drawing.Point(373, 352);
-            this.preparingTable6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable6.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable6.Name = "preparingTable6";
             this.preparingTable6.Size = new System.Drawing.Size(33, 29);
             this.preparingTable6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,7 +205,7 @@ namespace ChapeauUI
             // 
             this.preparingTable2.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable2.Image")));
             this.preparingTable2.Location = new System.Drawing.Point(373, 101);
-            this.preparingTable2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable2.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable2.Name = "preparingTable2";
             this.preparingTable2.Size = new System.Drawing.Size(33, 29);
             this.preparingTable2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -216,7 +216,7 @@ namespace ChapeauUI
             // 
             this.preparingTable1.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable1.Image")));
             this.preparingTable1.Location = new System.Drawing.Point(118, 101);
-            this.preparingTable1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable1.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable1.Name = "preparingTable1";
             this.preparingTable1.Size = new System.Drawing.Size(33, 29);
             this.preparingTable1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -227,7 +227,7 @@ namespace ChapeauUI
             // 
             this.preparingTable4.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable4.Image")));
             this.preparingTable4.Location = new System.Drawing.Point(373, 220);
-            this.preparingTable4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable4.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable4.Name = "preparingTable4";
             this.preparingTable4.Size = new System.Drawing.Size(33, 29);
             this.preparingTable4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -238,7 +238,7 @@ namespace ChapeauUI
             // 
             this.preparingTable3.Image = ((System.Drawing.Image)(resources.GetObject("preparingTable3.Image")));
             this.preparingTable3.Location = new System.Drawing.Point(118, 220);
-            this.preparingTable3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.preparingTable3.Margin = new System.Windows.Forms.Padding(2);
             this.preparingTable3.Name = "preparingTable3";
             this.preparingTable3.Size = new System.Drawing.Size(33, 29);
             this.preparingTable3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -517,7 +517,6 @@ namespace ChapeauUI
             this.listViewOrderTableOverview.TabIndex = 4;
             this.listViewOrderTableOverview.UseCompatibleStateImageBehavior = false;
             this.listViewOrderTableOverview.View = System.Windows.Forms.View.Details;
-            
             // 
             // orderItem
             // 
