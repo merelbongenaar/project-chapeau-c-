@@ -93,7 +93,7 @@ namespace ChapeauUI
             desserts.Items.Clear();
             drinks.Items.Clear();
 
-            //This value is used to check if the order is being prepared
+            //This value is used to check if only a part of the order is being prepared
             bool oneItemPreparing = false;
 
             //Adding each ordered item to the listviews 
@@ -116,9 +116,13 @@ namespace ChapeauUI
                     AddItem(drinks, orderedItem);
                 }
 
-                if (!oneItemPreparing) //If one item is being prepared you do not need to check the rest of the items
-                    if(orderedItem.State == (State)2)
+                if (!oneItemPreparing) //If one item is being prepared you do not need to check the rest of the items for bool oneItemPreparing
+                {
+                    if ((int)orderedItem.State == 2 || (int)orderedItem.State == 3)
+                    {
                         oneItemPreparing = true;
+                    }  
+                }
             }
 
             if (CheckIfFinished(order))
@@ -126,11 +130,17 @@ namespace ChapeauUI
                 orderPanel.BackColor = Color.Green;
                 changeOrderState.Hide();
             }
-            else if (oneItemPreparing)
+            else if(CheckIfAllPreparing(order))
             {
                 orderPanel.BackColor = Color.DarkOrange;
                 changeOrderState.BackColor = Color.Green;
                 changeOrderState.Text = "Ready";
+            }
+            else if (oneItemPreparing)
+            {
+                orderPanel.BackColor = Color.DarkOrange;
+                changeOrderState.BackColor = Color.DarkOrange;
+                changeOrderState.Text = "Prepare/ Ready";
             }
         }
 
@@ -145,7 +155,9 @@ namespace ChapeauUI
 
             foreach(Order order in allOrders)
             {
-                if (CheckIfFinished(order) && order.EndTime == DateTime.Today)
+                string orderEndTime = $"{order.EndTime: dd/MM/yyyy}";
+                string today = $"{DateTime.Today: dd/MM/yyyy}";
+                if (CheckIfFinished(order) && orderEndTime == today)
                     finishedOrders.Add(order);
             }
 
@@ -261,6 +273,18 @@ namespace ChapeauUI
             return true; //If all dishes have the ready or served state, the order is Done
         }
 
+        //Checks if all the dishes in the order are being prepared or have already been prepared, similair to CheckIfFinished()
+        private bool CheckIfAllPreparing(Order order)
+        {
+            foreach (OrderItem orderedItem in order.orderedItems)
+            {
+                if (orderedItem.State == (State)1)  //If an item is done or served the color of the panel shoud be orange, so only not started dishes cause a false to be returned 
+                    return false;
+            }
+
+            return true;
+        }
+
         private void btnUndoOrder2_Click(object sender, EventArgs e)
         {
             UndoChangeToState(lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2, int.Parse(lblOrderId2.Text));
@@ -277,22 +301,53 @@ namespace ChapeauUI
             //Depending on the state of the dishes in the order, the button changes text and
             //appearance.
             if (button.Text == "Prepare")  //Clicking on the prepare button changes the state
-            {                              //of all dishes to "being prepared"
-                Order order = orderService.GetOrderByOrderID(orderID);
-                if (order != null)
+            {                              //of all dishes
+                                           //If no dishes have been selected, the user can change the state of all dishes at once
+                if (starters.SelectedItems.Count == 0 && mains.SelectedItems.Count == 0 && desserts.SelectedItems.Count == 0 && drinks.SelectedItems.Count == 0)
                 {
-                    foreach (OrderItem item in order.orderedItems)
-                        orderItemService.UpdateOrderState(2, orderID);
+                    string message = "Click OK to change the state of all dishes in this order. Click cancel and select a dish to only mark that dish as ready.";
+                    string title = "Change state of all dishes?";
+                    MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                    DialogResult result = MessageBox.Show(message, title, buttons);
 
-                    MessageBox.Show("The state has been updated");
+                    if(result == DialogResult.OK)
+                    {
+                        Order order = orderService.GetOrderByOrderID(orderID);
 
-                    button.BackColor = Color.Green;     //The button is changed from a 
-                    button.Text = "Ready";              //'prepare' button to a ready button
+                        if (order != null)
+                        {
+                            foreach (OrderItem item in order.orderedItems)
+                                orderItemService.UpdateOrderState(2, orderID);
+
+                            MessageBox.Show("The state of the dish(es) has been updated");
+                        }  
+                        else
+                            MessageBox.Show("The order could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, order not found");
+                    }
                 }
                 else
-                    MessageBox.Show("The order could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, order not found");
+                {
+                    string message = "Are you sure you want to change the state of these dishes?";
+                    string title = "Change state of selected dishes?";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        //Passing the listboxes to the method in a list makes the method require less duplicate code
+                        List<ListBox> boxes = new List<ListBox>();
+                        boxes.Add(starters);
+                        boxes.Add(mains);
+                        boxes.Add(desserts);
+                        boxes.Add(drinks);
+
+                        UpdateListBoxContent(boxes, orderID);
+
+                        MessageBox.Show("The state of the dish(es) has been updated");
+                    }
+                }
             }
-            else if (button.Text == "Ready")
+            else if (button.Text == "Prepare/ Ready" || button.Text == "Ready")
             {
                 //If no dishes have been selected, the user can change the state of all dishes at once
                 if (starters.SelectedItems.Count == 0 && mains.SelectedItems.Count == 0 && desserts.SelectedItems.Count == 0 && drinks.SelectedItems.Count == 0)
@@ -309,8 +364,8 @@ namespace ChapeauUI
                         {
                             foreach (OrderItem item in order.orderedItems)
                                 orderItemService.UpdateOrderState(3, orderID);
-                                //Update to orderstate 3 because it equals the 'done' state
-                            MessageBox.Show("The state has been updated");
+                            
+                            MessageBox.Show("The state of the dish(es) has been updated");
                         }
                         else
                             MessageBox.Show("The order could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, order not found");
@@ -318,8 +373,8 @@ namespace ChapeauUI
                 }
                 else
                 {
-                    string message = "Are you sure you want to mark these items as ready?";
-                    string title = "Mark Items as Ready?";
+                    string message = "Are you sure you want to change the state of these items?";
+                    string title = "Change state of selected dishes?";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons);
 
@@ -332,9 +387,9 @@ namespace ChapeauUI
                         boxes.Add(desserts);
                         boxes.Add(drinks);
 
-                        UpdateListBoxContent(boxes, orderID, 3);
+                        UpdateListBoxContent(boxes, orderID);
 
-                        MessageBox.Show("The state has been updated");
+                        MessageBox.Show("The state of the dish(es) has been updated");
                     }
                 }
             }
@@ -345,18 +400,28 @@ namespace ChapeauUI
         //This method was created to avoid duplicate code in the ChangeOrderState method
         //It changes the state of the selected items in the listboxes passed onto it to 
         //the given state
-        private void UpdateListBoxContent(List<ListBox> boxes, int orderID, int orderState)
+        private void UpdateListBoxContent(List<ListBox> boxes, int orderID)
         {
             ItemService itemService = new ItemService();
             OrderItemService orderItemService = new OrderItemService();
+            OrderService orderService = new OrderService();
+            Order order = orderService.GetOrderByOrderID(orderID);
 
-            foreach(ListBox listBox in boxes)
+            foreach (ListBox listBox in boxes)
             {
                 for (int i = 0; i < listBox.SelectedItems.Count; i++)
                 {
                     string selectedItem = listBox.SelectedItems[i].ToString();
                     string[] itemName = selectedItem.Split('-');
                     Item item = itemService.GetItemByName(itemName[0]);
+
+                    int orderState = 0;
+
+                    foreach (OrderItem orderedItem in order.orderedItems)
+                    {
+                        if (orderedItem.Item.ItemName == itemName[0])
+                            orderState = (int)orderedItem.State + 1;
+                    }
 
                     if (item != null)
                         orderItemService.UpdateOrderState(item.ItemID, orderState, orderID);
@@ -369,11 +434,14 @@ namespace ChapeauUI
         //This method adds the ordereditems to the correct listbox
         private void AddItem(ListBox listbox, OrderItem orderedItem)
         {
-            listbox.Items.Add($"{orderedItem.Item.ItemName}-{orderedItem.State}- x{orderedItem.Quantity}");
-            if (orderedItem.Comment != "")
-                listbox.Items.Add(orderedItem.Comment);
-            else
-                listbox.Items.Add("...");
+            if(orderedItem.State != State.Served)   //Served Items do not need to be displayed in the kitchen, they are no longer relevant to the staff
+            {
+                listbox.Items.Add($"{orderedItem.Item.ItemName}-{orderedItem.State}- x{orderedItem.Quantity}");
+                if (orderedItem.Comment != "")
+                    listbox.Items.Add(orderedItem.Comment);
+                else
+                    listbox.Items.Add("...");
+            }
         }
 
         private void UndoChangeToState(ListBox starters, ListBox mains, ListBox desserts, ListBox drinks, int orderID)
@@ -401,18 +469,15 @@ namespace ChapeauUI
                 if (result == DialogResult.OK)
                 {
                     Order order = orderService.GetOrderByOrderID(orderID);
+
                     foreach (OrderItem orderedItem in order.orderedItems)
                     {
-                        if((int)orderedItem.State > 2)      //Only orders accidentaly marked as ready can be undone, the prepare state simply means the kitchen and bar staff has seen the order and will start working on it
+                        if ((int)orderedItem.State == 2 || (int)orderedItem.State == 3)      //Only states 2 and 3 can be changed because a 'Not started' or 'Served' order can not be undone
                             orderItemService.UpdateOrderState(orderedItem.Item.ItemID, ((int)orderedItem.State - 1), orderID);
                         else
-                        {
                             MessageBox.Show($"Cannot change the state of this dish: {orderedItem.Item.ItemName}");
-                            return;
-                        }
-                    }
-
-                    MessageBox.Show("The state has been updated");
+                    }      
+                    MessageBox.Show("The state of the dish(es) has been updated");
                 }
             }
             else
@@ -432,6 +497,8 @@ namespace ChapeauUI
                         {
                             if (tempString[1] == "Done")
                                 orderItemService.UpdateOrderState(item.ItemID, 2, orderID);
+                            else if (tempString[1] == "Preparing")
+                                orderItemService.UpdateOrderState(item.ItemID, 1, orderID);
                             else
                             {
                                 MessageBox.Show($"Cannot change the state of this dish: {item.ItemName}");
@@ -439,10 +506,13 @@ namespace ChapeauUI
                             }
                         }
                         else
+                        {
                             MessageBox.Show("One or more items could not be found in the database, perhaps you selected the wrong item?.", "Error, item not found");
+                            return;
+                        }
                     }
 
-                    MessageBox.Show("The state has been updated");
+                    MessageBox.Show("The state of the dish(es) has been updated");
                 }
             }
 

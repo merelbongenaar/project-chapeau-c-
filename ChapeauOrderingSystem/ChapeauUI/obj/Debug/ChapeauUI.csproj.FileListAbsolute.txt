@@ -121,7 +121,6 @@ C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\Chapea
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csprojAssemblyReference.cache
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BarKitchenView.resources
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.BillForm.resources
-C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Form1.resources
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Login.resources
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Ordering.resources
 C:\Users\ruben\Documents\GitHub\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Properties.Resources.resources
