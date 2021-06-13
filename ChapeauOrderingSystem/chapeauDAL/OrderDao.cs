@@ -29,7 +29,7 @@ namespace ChapeauDAL
         //the joins in this one dont really work
         public List<Order> GetAllRunningOrders()
         {
-            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0 ORDER BY orderTime ";
+            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0 ORDER BY orderTime ASC";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
@@ -57,7 +57,7 @@ namespace ChapeauDAL
 
         public List<Order> GetAllOrders()
         {
-            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID ORDER BY orderTime";
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID ORDER BY orderTime ASC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
 
