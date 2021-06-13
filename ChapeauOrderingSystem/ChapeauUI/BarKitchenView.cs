@@ -26,16 +26,12 @@ namespace ChapeauUI
             DisplayOrders("All Active Orders");
         }
 
-        //This method checks determines which orders should be displayed
+        //This method determines which orders should be displayed
         private void DisplayOrders(string menu) //The menu string is which menu or page is currently selected
         {
             OrderService orderService = new OrderService();
 
             ResetBarKitchenDisplay();
-
-            //Same thing for the pannels containing the orders.
-            pnlOrder1.BackColor = Color.DarkGray;
-            pnlOrder2.BackColor = Color.DarkGray;
 
             //Display the orders based on the selected "menu" in the aplication.
             if (menu == "All Active Orders")
@@ -88,6 +84,8 @@ namespace ChapeauUI
             orderID.Text = $"{order.OrderNr}";
             startTime.Text = $"{order.StartTime: hh:mm}";
             tableNumber.Text = $"Table {order.TableID}";
+            employeeID.Text = $"EmployeeID: {order.EmployeeID}";
+            
 
             //Clear out the listbox items
             starters.Items.Clear();
@@ -227,6 +225,10 @@ namespace ChapeauUI
             //while using the application.
             ResetButton(btnChangeOrderState);
             ResetButton(btnChangeOrderState2);
+
+            //Same thing for the pannels containing the orders.
+            pnlOrder1.BackColor = Color.DarkGray;
+            pnlOrder2.BackColor = Color.DarkGray;
         }
 
         private void ResetButton(Button btn)
@@ -245,6 +247,7 @@ namespace ChapeauUI
             int orderID = int.Parse(lblOrderId2.Text);
             ChangeOrderState((Button)sender, orderID, lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2);
         }
+
         //This method checks all the dishes in the order passed to it to see
         //if the whole order is ready. If it is not, it returns false, otherwise true
         private bool CheckIfFinished(Order order)
@@ -308,10 +311,10 @@ namespace ChapeauUI
                                 orderItemService.UpdateOrderState(3, orderID);
                                 //Update to orderstate 3 because it equals the 'done' state
                             MessageBox.Show("The state has been updated");
-                        }   
+                        }
+                        else
+                            MessageBox.Show("The order could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, order not found");
                     }
-                    else
-                        MessageBox.Show("The order could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, order not found");
                 }
                 else
                 {
@@ -404,7 +407,7 @@ namespace ChapeauUI
                             orderItemService.UpdateOrderState(orderedItem.Item.ItemID, ((int)orderedItem.State - 1), orderID);
                         else
                         {
-                            MessageBox.Show("Cannot change the state of this dish");
+                            MessageBox.Show($"Cannot change the state of this dish: {orderedItem.Item.ItemName}");
                             return;
                         }
                     }
@@ -431,12 +434,12 @@ namespace ChapeauUI
                                 orderItemService.UpdateOrderState(item.ItemID, 2, orderID);
                             else
                             {
-                                MessageBox.Show("Cannot change the state of this dish");
+                                MessageBox.Show($"Cannot change the state of this dish: {item.ItemName}");
                                 return;
                             }
                         }
                         else
-                            MessageBox.Show("The item could not be found in the database, perhaps you selected the wrong item?.", "Error, item not found");
+                            MessageBox.Show("One or more items could not be found in the database, perhaps you selected the wrong item?.", "Error, item not found");
                     }
 
                     MessageBox.Show("The state has been updated");
@@ -446,6 +449,8 @@ namespace ChapeauUI
             DisplayOrders(lblDisplayingThis.Text);
         }
 
+        //This method takes the items from all the listbox in the List and adds them to a list 
+        //of strings
         private List<string> CreateOrderedItemsList(List<ListBox> boxes)
         {
             List<string> selectedOrderItems = new List<string>();
