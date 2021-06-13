@@ -58,7 +58,6 @@ C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\Chapea
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\bin\Debug\ChapeauDAL.pdb
 C:\Users\yeraz\OneDrive\Desktop\DatabasesProject3-main\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.CopyComplete
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csproj.AssemblyReference.cache
-C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Form1.resources
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Login.resources
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Ordering.resources
 C:\Users\moham\OneDrive\Desktop\proj22\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Properties.Resources.resources
