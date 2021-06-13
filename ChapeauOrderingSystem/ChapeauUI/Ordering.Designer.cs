@@ -44,7 +44,6 @@ namespace ChapeauUI
             this.bttnAddComment = new System.Windows.Forms.Button();
             this.flowPnlItems = new System.Windows.Forms.FlowLayoutPanel();
             this.lblEmployeeName = new System.Windows.Forms.Label();
-            this.lblDrinks = new System.Windows.Forms.Label();
             this.bttnMenuSubCatgory = new System.Windows.Forms.Button();
             this.bttnSoftDrinks = new System.Windows.Forms.Button();
             this.bttnAlcDrinks = new System.Windows.Forms.Button();
@@ -208,7 +207,7 @@ namespace ChapeauUI
             // 
             // flowPnlItems
             // 
-            this.flowPnlItems.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flowPnlItems.BackColor = System.Drawing.Color.White;
             this.flowPnlItems.Location = new System.Drawing.Point(13, 321);
             this.flowPnlItems.Margin = new System.Windows.Forms.Padding(4);
             this.flowPnlItems.Name = "flowPnlItems";
@@ -219,21 +218,12 @@ namespace ChapeauUI
             // 
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
-            this.lblEmployeeName.Location = new System.Drawing.Point(22, 15);
+            this.lblEmployeeName.Location = new System.Drawing.Point(13, 9);
             this.lblEmployeeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(30, 34);
             this.lblEmployeeName.TabIndex = 16;
             this.lblEmployeeName.Text = "...";
-            // 
-            // lblDrinks
-            // 
-            this.lblDrinks.AutoSize = true;
-            this.lblDrinks.Location = new System.Drawing.Point(1550, 1203);
-            this.lblDrinks.Name = "lblDrinks";
-            this.lblDrinks.Size = new System.Drawing.Size(67, 25);
-            this.lblDrinks.TabIndex = 17;
-            this.lblDrinks.Text = "Drinks";
             // 
             // bttnMenuSubCatgory
             // 
@@ -395,7 +385,7 @@ namespace ChapeauUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1670, 1246);
             this.Controls.Add(this.lblEmployeeName);
             this.Controls.Add(this.bttnWines);
@@ -408,7 +398,6 @@ namespace ChapeauUI
             this.Controls.Add(this.bttnLunchMain);
             this.Controls.Add(this.bttnSoftDrinks);
             this.Controls.Add(this.bttnMenuSubCatgory);
-            this.Controls.Add(this.lblDrinks);
             this.Controls.Add(this.bttnDiner);
             this.Controls.Add(this.bttnLunch);
             this.Controls.Add(this.bttnMenuCategory);
@@ -439,7 +428,6 @@ namespace ChapeauUI
         private System.Windows.Forms.Button bttnAddComment;
         private System.Windows.Forms.FlowLayoutPanel flowPnlItems;
         private System.Windows.Forms.Label lblEmployeeName;
-        private System.Windows.Forms.Label lblDrinks;
         private System.Windows.Forms.Button bttnMenuSubCatgory;
         private System.Windows.Forms.Button bttnSoftDrinks;
         private System.Windows.Forms.Button bttnAlcDrinks;

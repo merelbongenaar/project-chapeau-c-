@@ -186,9 +186,10 @@ namespace ChapeauUI
             {
                 Button itemButten = new Button();
                 itemButten.Text = item.ItemName;
-                itemButten.Size = new Size(90, 90);
+                itemButten.Size = new Size(92, 92);
                 itemButten.Click += new EventHandler(itemButten_Click);
                 itemButten.Tag = item;
+                itemButten.BackColor = Color.LightGray;
 
                 flowPnlItems.Controls.Add(itemButten);
             }

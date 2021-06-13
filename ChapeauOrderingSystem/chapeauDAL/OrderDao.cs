@@ -38,7 +38,7 @@ namespace ChapeauDAL
 
         public void AddOrder(Order order)
         {
-            string query = $"INSERT INTO [Order] (orderID, employeeID, tableID, startTime) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, '{order.StartTime.Value.Date.Year}-{order.StartTime.Value.Date.Month}-{order.StartTime.Value.Date.Day} {order.StartTime.Value.Date.Hour}:{order.StartTime.Value.Date.Minute}:{order.StartTime.Value.Date.Second}');";
+            string query = $"INSERT INTO [Order] (orderID, employeeID, tableID, startTime, isPaid) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, '{order.StartTime.Value.Date.Year}-{order.StartTime.Value.Date.Month}-{order.StartTime.Value.Date.Day} {order.StartTime.Value.Date.Hour}:{order.StartTime.Value.Date.Minute}:{order.StartTime.Value.Date.Second}', 0);";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             ExecuteEditQuery(query, sqlParameters);
