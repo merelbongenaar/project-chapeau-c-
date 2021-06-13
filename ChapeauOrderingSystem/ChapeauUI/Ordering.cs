@@ -14,7 +14,7 @@ namespace ChapeauUI
         private Employee employee;
         private Order currentOrder;
         private OrderItem selectedOrderItem;
-        private List<OrderItem> newItems;
+        private int nrOfItemsInRunningOrder; 
 
         public Ordering(int tableNr, Employee employee)
         {
@@ -40,19 +40,16 @@ namespace ChapeauUI
                 currentOrder.EndTime = null;
 
                 orderService.AddOrder(currentOrder);
-
             }
             else
             {
                 currentOrder = order;
+                nrOfItemsInRunningOrder = currentOrder.orderedItems.Count;
             }
             
-
             //lables 
-            lblEmployeeName.Text = employee.Name.ToString();
+            lblEmployeeName.Text = $"Employee: {employee.Name} ({employee.EmployeeID})";
             lblTableNr.Text = tableNr.ToString();
-
-            newItems = new List<OrderItem>();
         }
 
         private void listViewOrderOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,15 +72,12 @@ namespace ChapeauUI
         {
             //inserting the order to the database
             OrderService orderService = new OrderService();
-            //orderService.AddOrder(currentOrder);
 
             //inserting the orderItems to the database
-            foreach (OrderItem orderItem in newItems)
+            for (int i = nrOfItemsInRunningOrder; i < currentOrder.orderedItems.Count; i++)
             {
-                orderService.AddOrderItems(orderItem);
+                orderService.AddOrderItems(currentOrder.orderedItems[i]);
             }
-
-            newItems.Clear();
 
             //open new tableOverview form 
             Form formTableOverview = new TableOverview(employee);
@@ -99,20 +93,20 @@ namespace ChapeauUI
         //buttons for changing the orderItem
         private void bttnAddComment_Click(object sender, EventArgs e)
         {
-            string comment = ""; //need a way for the user to enter this in the form
+            //string comment = ""; 
 
-            for (int i = 0; i <= currentOrder.orderedItems.Count; i++)
-            {
-                if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
-                {
-                    currentOrder.orderedItems[i].Comment = comment;
-                }
-            }
+            //for (int i = 0; i <= currentOrder.orderedItems.Count; i++)
+            //{
+            //    if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
+            //    {
+            //        currentOrder.orderedItems[i].Comment = comment;
+            //    }
+            //}
         }
 
         private void bttnRemoveItem_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            for (int i = nrOfItemsInRunningOrder; i < currentOrder.orderedItems.Count; i++)
             {
                 if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
                 {
@@ -140,7 +134,7 @@ namespace ChapeauUI
 
         private void bttnAddQNT_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            for (int i = nrOfItemsInRunningOrder; i < currentOrder.orderedItems.Count; i++)
             {
                 if (currentOrder.orderedItems[i].Item.ItemName == selectedOrderItem.Item.ItemName)
                 {
@@ -164,7 +158,7 @@ namespace ChapeauUI
         {
             listViewOrderOrder.Items.Clear();
 
-            for (int i = 0; i < currentOrder.orderedItems.Count; i++)
+            for (int i = nrOfItemsInRunningOrder; i < currentOrder.orderedItems.Count; i++)
             {
                 ListViewItem li = new ListViewItem(currentOrder.orderedItems[i].Quantity.ToString());
                 li.SubItems.Add(currentOrder.orderedItems[i].Item.ItemName);
@@ -225,6 +219,16 @@ namespace ChapeauUI
             }
             else
             {
+                for (int i = nrOfItemsInRunningOrder; i < currentOrder.orderedItems.Count; i++)
+                {
+                    if (currentOrder.orderedItems[i].Item.ItemName == selectedMenuItem.ItemName)
+                    {
+                        currentOrder.orderedItems[i].Quantity++;
+                        DisplayOrders();
+                        return;
+                    }
+                }
+
                 //create a new orderItem
                 OrderItem orderItem = new OrderItem();
                 orderItem.Item = selectedMenuItem;
@@ -232,6 +236,10 @@ namespace ChapeauUI
                 orderItem.Quantity = 1;
                 orderItem.State = State.NotStarted;
                 orderItem.OrderTime = DateTime.Now;
+
+                //adding to the list of orderItems
+                //newItems.Add(orderItem);
+                currentOrder.orderedItems.Add(orderItem);
 
                 //decrease stock
                 ItemService itemService = new ItemService();
@@ -241,16 +249,10 @@ namespace ChapeauUI
                 item.Stock--;
                 itemService.UpdateStock(item);
 
-                //adding to the list of orderItems
-                newItems.Add(orderItem);
-                currentOrder.orderedItems.Add(orderItem);
-
                 //display
                 DisplayOrders();
             }
         }
-
-
 
         //buttons category 
         private void bttnMenuCategory_Click(object sender, EventArgs e)

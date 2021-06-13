@@ -11,11 +11,10 @@ namespace ChapeauModel
 
         public int TableID { get; set; }
         public int EmployeeID { get; set; }
-
+        
         //nullable datetimes
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        //public decimal Bill { get; set; }
         public Bill Bill { get; set; }
 
         public decimal TotalPrice
@@ -51,13 +50,11 @@ namespace ChapeauModel
                 return Bill.Tax;
             }
         }
-
+       
         public Order()
         {
             orderedItems = new List<OrderItem>();
             Bill = new Bill();
         }
-
-        //method add order item if 
     }
 }
