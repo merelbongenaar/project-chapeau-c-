@@ -56,11 +56,11 @@ namespace ChapeauUI
 
                 if (activeOrders.Count > 1)    //If there are more than one orders, the second one is displayed, but if not, the panel for order 2 stays hidden, because it would be an empty pannel
                 {
-                    DisplayOrder(activeOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbStarters1Quantity, lstbMains1, lstbMains1Quantity, lstbDesserts1, lstbDesserts1Quantity, lstbDrinks1, lstbDrinks1Quantity, pnlOrder1, btnChangeOrderState);
-                    DisplayOrder(activeOrders[1], lblOrderId2, lblOrderStartTime2, lblTableNumber2, lstbStarters2, lstbStarters2Quantity, lstbMains2, lstbMains2Quantity, lstbDesserts2, lstbDesserts2Quantity, lstbDrinks2, lstbDrinks2Quantity, pnlOrder2, btnChangeOrderState2);
+                    DisplayOrder(activeOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbMains1, lstbDesserts1, lstbDrinks1, pnlOrder1, btnChangeOrderState);
+                    DisplayOrder(activeOrders[1], lblOrderId2, lblOrderStartTime2, lblTableNumber2, lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2, pnlOrder2, btnChangeOrderState2);
                 }
                 else if (activeOrders.Count == 1)
-                    DisplayOrder(activeOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbStarters1Quantity, lstbMains1, lstbMains1Quantity, lstbDesserts1, lstbDesserts1Quantity, lstbDrinks1, lstbDrinks1Quantity, pnlOrder1, btnChangeOrderState);
+                    DisplayOrder(activeOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbMains1, lstbDesserts1, lstbDrinks1, pnlOrder1, btnChangeOrderState);
                 else
                     MessageBox.Show("No active orders at the moment...");
             }
@@ -77,11 +77,11 @@ namespace ChapeauUI
 
                 if(runningOrders.Count > 1)
                 {
-                    DisplayOrder(runningOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbStarters1Quantity, lstbMains1, lstbMains1Quantity, lstbDesserts1, lstbDesserts1Quantity, lstbDrinks1, lstbDrinks1Quantity, pnlOrder1, btnChangeOrderState);
-                    DisplayOrder(runningOrders[1], lblOrderId2, lblOrderStartTime2, lblTableNumber2, lstbStarters2, lstbStarters2Quantity, lstbMains2, lstbMains2Quantity, lstbDesserts2, lstbDesserts2Quantity, lstbDrinks2, lstbDrinks2Quantity, pnlOrder2, btnChangeOrderState2);
+                    DisplayOrder(runningOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbMains1, lstbDesserts1, lstbDrinks1, pnlOrder1, btnChangeOrderState);
+                    DisplayOrder(runningOrders[1], lblOrderId2, lblOrderStartTime2, lblTableNumber2, lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2, pnlOrder2, btnChangeOrderState2);
                 }
                 if (runningOrders.Count > 0)
-                    DisplayOrder(runningOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbStarters1Quantity, lstbMains1, lstbMains1Quantity, lstbDesserts1, lstbDesserts1Quantity, lstbDrinks1, lstbDrinks1Quantity, pnlOrder1, btnChangeOrderState);
+                    DisplayOrder(runningOrders[0], lblOrderID1, lblOrderStartTime1, lblTablenumber1, lstbStarters1, lstbMains1, lstbDesserts1, lstbDrinks1, pnlOrder1, btnChangeOrderState);
                 else
                     MessageBox.Show("No running orders at the moment... ");
             }
@@ -92,7 +92,7 @@ namespace ChapeauUI
         }
 
         //This one makes sure the order displays have the correct information on display
-        public void DisplayOrder(Order order, Label orderID, Label startTime, Label tableNumber, ListBox starters, ListBox startersQuantity, ListBox mains, ListBox mainsQuantity, ListBox desserts, ListBox dessertsQuantity, ListBox drinks, ListBox drinksQuantity, Panel orderPanel, Button changeOrderState)
+        public void DisplayOrder(Order order, Label orderID, Label startTime, Label tableNumber, ListBox starters, ListBox mains, ListBox desserts, ListBox drinks, Panel orderPanel, Button changeOrderState)
         {
             orderPanel.Show();
 
@@ -106,10 +106,6 @@ namespace ChapeauUI
             mains.Items.Clear();
             desserts.Items.Clear();
             drinks.Items.Clear();
-            startersQuantity.Items.Clear();
-            mainsQuantity.Items.Clear();
-            dessertsQuantity.Items.Clear();
-            drinksQuantity.Items.Clear();
 
             //This value is used to check if the order is being prepared
             bool oneItemPreparing = false;
@@ -119,50 +115,22 @@ namespace ChapeauUI
             {
                 if (orderedItem.Item.SubCategory == SubCategory.Starters || orderedItem.Item.SubCategory == SubCategory.Bites)
                 {
-                    starters.Items.Add($"{orderedItem.Item.ItemName}");
-                    if (orderedItem.Comment != "")
-                        starters.Items.Add(orderedItem.Comment);
-                    else
-                        starters.Items.Add("...");
-
-                    startersQuantity.Items.Add($"x{orderedItem.Quantity}");
-                    startersQuantity.Items.Add("");   //Add an empty item so the quantity does not end up next to a comment in the listbox for the orderitems
+                    AddItem(starters, orderedItem);
                 }
                 else if (orderedItem.Item.SubCategory == SubCategory.Mains || orderedItem.Item.SubCategory == SubCategory.LunchMain || orderedItem.Item.SubCategory == SubCategory.Specials)
                 {
-                    mains.Items.Add($"{orderedItem.Item.ItemName}");
-                    if (orderedItem.Comment != "")
-                        mains.Items.Add(orderedItem.Comment);
-                    else
-                        mains.Items.Add("...");
-
-                    mainsQuantity.Items.Add($"x{orderedItem.Quantity}");
-                    mainsQuantity.Items.Add("");
+                    AddItem(mains, orderedItem);
                 }
                 else if (orderedItem.Item.SubCategory == SubCategory.Desserts)
                 {
-                    desserts.Items.Add($"{orderedItem.Item.ItemName}");
-                    if (orderedItem.Comment != "")
-                        desserts.Items.Add(orderedItem.Comment);
-                    else
-                        desserts.Items.Add("...");
-
-                    dessertsQuantity.Items.Add($"x{orderedItem.Quantity}");
-                    dessertsQuantity.Items.Add("");
+                    AddItem(desserts, orderedItem);
                 }
-                else if(orderedItem.Item.Category == Category.Drinks)
+                else if (orderedItem.Item.Category == Category.Drinks)
                 {
-                    drinks.Items.Add($"{orderedItem.Item.ItemName}");
-                    if (orderedItem.Comment != "")
-                        drinks.Items.Add(orderedItem.Comment);
-                    else
-                        drinks.Items.Add("...");
-
-                    drinksQuantity.Items.Add($"x{orderedItem.Quantity}");
-                    drinksQuantity.Items.Add("");
+                    AddItem(drinks, orderedItem);
                 }
 
-                if(!oneItemPreparing) //If one item is being prepared you do not need to check the rest of the items
+                if (!oneItemPreparing) //If one item is being prepared you do not need to check the rest of the items
                     if(orderedItem.State == (State)2)
                         oneItemPreparing = true;
             }
@@ -261,9 +229,13 @@ namespace ChapeauUI
 
         private void btnUndoOrder1_Click(object sender, EventArgs e)
         {
-            
+            UndoChangeToState(lstbStarters1, lstbMains1, lstbDesserts1, lstbDrinks1, int.Parse(lblOrderID1.Text));
         }
-
+        private void btnChangeOrderState2_Click(object sender, EventArgs e)
+        {
+            int orderID = int.Parse(lblOrderId2.Text);
+            ChangeOrderState((Button)sender, orderID, lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2);
+        }
         //This method checks all the dishes in the order passed to it to see
         //if the whole order is ready. If it is not, it returns false, otherwise true
         public bool CheckIfFinished(Order order)
@@ -279,14 +251,10 @@ namespace ChapeauUI
 
         private void btnUndoOrder2_Click(object sender, EventArgs e)
         {
-
+            UndoChangeToState(lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2, int.Parse(lblOrderId2.Text));
         }
 
-        private void btnChangeOrderState2_Click(object sender, EventArgs e)
-        {
-            int orderID = int.Parse(lblOrderId2.Text);
-            ChangeOrderState((Button)sender, orderID, lstbStarters2, lstbMains2, lstbDesserts2, lstbDrinks2);
-        }
+        
 
         //This method was created to avoid duplicate code in the ChangeOrderState method
         private void UpdateListBoxContent(ListBox listBox, int orderID)
@@ -296,8 +264,9 @@ namespace ChapeauUI
 
             for (int i = 0; i < listBox.SelectedItems.Count; i++)
             {
-                string itemName = listBox.SelectedItems[i].ToString();
-                Item item = itemService.GetItemByName(itemName);
+                string selectedItem = listBox.SelectedItems[i].ToString();
+                string[] itemName = selectedItem.Split('-');
+                Item item = itemService.GetItemByName(itemName[0]);
 
                 if (item != null)
                     orderItemService.UpdateOrderState(item.ItemID, 3, orderID);
@@ -314,22 +283,25 @@ namespace ChapeauUI
             OrderService orderService = new OrderService();
             OrderItemService orderItemService = new OrderItemService();
 
-            if (button.Text == "Prepare")
-            {
+            //Depending on the state of the dishes in the order, the button changes text and
+            //appearance.
+            if (button.Text == "Prepare")  //Clicking on the prepare button changes the state
+            {                              //of all dishes to "being prepared"
                 Order order = orderService.GetOrderByOrderID(orderID);
                 if (order != null)
                 {
                     foreach (OrderItem item in order.orderedItems)
                         orderItemService.UpdateOrderState(2, orderID);
 
-                    button.BackColor = Color.Green;
-                    button.Text = "Ready";
+                    button.BackColor = Color.Green;     //The button is changed from a 
+                    button.Text = "Ready";              //'prepare' button to a ready button
                 }
                 else
                     MessageBox.Show("The order could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, order not found");
             }
             else if (button.Text == "Ready")
             {
+                //If no dishes have been selected, the user can change the state of all dishes at once
                 if (starters.SelectedItems.Count == 0 && mains.SelectedItems.Count == 0 && desserts.SelectedItems.Count == 0 && drinks.SelectedItems.Count == 0)
                 {
                     string message = "Click OK to change the state of all dishes in this order to ready. Click cancel and select a dish to only mark that dish as ready.";
@@ -344,6 +316,7 @@ namespace ChapeauUI
                         {
                             foreach (OrderItem item in order.orderedItems)
                                 orderItemService.UpdateOrderState(3, orderID);
+                                //Update to orderstate 3 because it equals the 'done' state
                         }   
                     }
                     else
@@ -367,6 +340,83 @@ namespace ChapeauUI
             }
 
             DisplayOrders(lblDisplayingThis.Text);
+        }
+
+        //This method adds the ordereditems to the correct listbox
+        private void AddItem(ListBox listbox, OrderItem orderedItem)
+        {
+            listbox.Items.Add($"{orderedItem.Item.ItemName}-{orderedItem.State}- x{orderedItem.Quantity}");
+            if (orderedItem.Comment != "")
+                listbox.Items.Add(orderedItem.Comment);
+            else
+                listbox.Items.Add("...");
+        }
+
+
+        private void UndoChangeToState(ListBox starters, ListBox mains, ListBox desserts, ListBox drinks, int orderID)
+        {
+            OrderItemService orderItemService = new OrderItemService();
+            OrderService orderService = new OrderService();
+            ItemService itemService = new ItemService();
+
+            List<ListBox> boxes = new List<ListBox>();
+            boxes.Add(starters);
+            boxes.Add(mains);
+            boxes.Add(desserts);
+            boxes.Add(drinks);
+            List<string> selectedOrderItems = CreateOrderedItemsList(boxes);
+
+            if(selectedOrderItems.Count == 0)
+            {
+                string message = "Click OK to undo changes to the state of all dishes in this ordery. Click cancel and select a dish to only undo the changes to that dish.";
+                string title = "Undo entire order?";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+
+                if (result == DialogResult.OK)
+                {
+                    Order order = orderService.GetOrderByOrderID(orderID);
+                    foreach(OrderItem orderedItem in order.orderedItems)
+                        orderItemService.UpdateOrderState(orderedItem.Item.ItemID, ((int)orderedItem.State - 1), orderID);
+                }
+            }
+            else
+            {
+                string message = "Undo changes to the selected items? ";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, "", buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    foreach(string selectedItem in selectedOrderItems)
+                    {
+                        string[] tempString = selectedItem.Split('-');
+                        Item item = itemService.GetItemByName(tempString[0]);
+
+                        if (item != null)
+                        {
+                            OrderItem selectedOrderItem = orderItemService.GetOrderItem(tempString[0], orderID);
+
+                            orderItemService.UpdateOrderState(item.ItemID, ((int)selectedOrderItem.State - 1), orderID);
+                        }
+                        else
+                            MessageBox.Show("The item could not be found in the database, it may have been removed. Please refresh the page and notify someone about this issue.", "Error, item not found");
+                    }
+                }
+            }
+        }
+
+        private List<string> CreateOrderedItemsList(List<ListBox> boxes)
+        {
+            List<string> selectedOrderItems = new List<string>();
+
+            foreach(ListBox box in boxes)
+            {
+                for (int i = 0; i < box.SelectedItems.Count; i++)
+                    selectedOrderItems.Add(box.SelectedItems[i].ToString());
+            }
+            
+            return selectedOrderItems;
         }
     }
 }

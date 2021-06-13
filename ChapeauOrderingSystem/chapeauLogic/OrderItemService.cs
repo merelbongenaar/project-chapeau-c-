@@ -25,9 +25,9 @@ namespace ChapeauLogic
             orderItemdb.UpdateOrderState(itemID, orderState, orderID);
         }
 
-        public OrderItem GetOrderItem(string itemName, int orderID, int state)
+        public OrderItem GetOrderItem(string itemName, int orderID)
         {
-            return orderItemdb.GetOrderItem(itemName, orderID, state);
+            return orderItemdb.GetOrderItem(itemName, orderID);
         }
     }
 }

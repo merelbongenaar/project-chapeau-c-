@@ -34,18 +34,22 @@ namespace ChapeauDAL
         }
 
         //This method retrieves an OrderItem based on the provided name, state and orderID of the order it belongs to
-        public OrderItem GetOrderItem(string itemName, int orderID, int state)
+        public OrderItem GetOrderItem(string itemName, int orderID)
         {
-            string query = $"SELECT orderID, OrderItem.itemID, [count], state, orderTime, comment FROM OrderItem JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} AND state = {state} AND Items.itemName = '{itemName}' ";
+            string query = $"SELECT orderID, OrderItem.itemID, [count], state, orderTime, comment FROM OrderItem JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} AND Items.itemName = '{itemName}' ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<OrderItem> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
-            return items[0];
+            if (items.Count > 0)
+                return items[0];
+            else
+                return null;
         }
 
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
+
 
             foreach (DataRow dr in dataTable.Rows)
             {
