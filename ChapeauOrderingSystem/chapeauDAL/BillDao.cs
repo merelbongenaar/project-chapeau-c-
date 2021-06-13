@@ -26,7 +26,7 @@ namespace ChapeauDAL
         public void UpdateOrderStatus(Order order)
         {
             string query = $"UPDATE [order] SET isPaid=@isPaid, endTime=@endTime WHERE orderID=@orderID";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
+            SqlParameter[] sqlParameters = new SqlParameter[3];
             sqlParameters[0] = new SqlParameter("orderID", order.OrderNr);
             sqlParameters[1] = new SqlParameter("isPaid", 1);
             sqlParameters[2] = new SqlParameter("endTime", order.EndTime);

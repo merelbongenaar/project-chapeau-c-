@@ -517,7 +517,7 @@ namespace ChapeauUI
             this.listViewOrderTableOverview.TabIndex = 4;
             this.listViewOrderTableOverview.UseCompatibleStateImageBehavior = false;
             this.listViewOrderTableOverview.View = System.Windows.Forms.View.Details;
-            this.listViewOrderTableOverview.SelectedIndexChanged += new System.EventHandler(this.listViewOrderTableOverview_SelectedIndexChanged);
+            
             // 
             // orderItem
             // 

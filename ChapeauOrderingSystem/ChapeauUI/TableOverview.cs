@@ -207,6 +207,7 @@ namespace ChapeauUI
             formOrder.Location = this.Location;
             formOrder.Size = this.Size;
 
+            Close();
             formOrder.Show();
            
         }
@@ -223,7 +224,11 @@ namespace ChapeauUI
             formPayment.Show();
 
             //clear listview 
-            //listViewOrderTableOverview.Clear();
+            listViewOrderTableOverview.Clear();
+
+            //refresh table status and icons
+            RefreshTables();
+            RefreshIcons();
         }
 
 
@@ -231,16 +236,6 @@ namespace ChapeauUI
 
         //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------
 
-
-        private void listViewOrderTableOverview_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
     }
