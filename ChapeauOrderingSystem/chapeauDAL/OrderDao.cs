@@ -36,27 +36,22 @@ namespace ChapeauDAL
             return orders;
         }
 
-
-
-        //public void AddOrderOrderItems(Order order)// this method adds all the orderItems from the list in Order to the database
-        //{
-        //    foreach (OrderItem orderItem in order.orderedItems)
-        //    {
-        //        int state = (int)orderItem.State;
-        //        string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
-
-        //        SqlParameter[] sqlParameters = new SqlParameter[0];
-
-        //        ExecuteEditQuery(query, sqlParameters);
-        //    }
-        //}
-
         public void AddOrder(Order order)
         {
-            string query = $"INSERT INTO [Order] (employeeID, tableID, startTime) Values ({order.EmployeeID}, {order.TableID}, '{order.StartTime.Value.Date.Year}-{order.StartTime.Value.Date.Month}-{order.StartTime.Value.Date.Day} {order.StartTime.Value.Date.Hour}:{order.StartTime.Value.Date.Minute}:{order.StartTime.Value.Date.Second}');";
+            string query = $"INSERT INTO [Order] (orderID, employeeID, tableID, startTime) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, '{order.StartTime.Value.Date.Year}-{order.StartTime.Value.Date.Month}-{order.StartTime.Value.Date.Day} {order.StartTime.Value.Date.Hour}:{order.StartTime.Value.Date.Minute}:{order.StartTime.Value.Date.Second}');";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public Order GetLastOrder()
+        {
+            string query = $"select top 1 orderID, employeeID, tableID, startTime, endTime, isPaid FROM [Order] ORDER BY orderID DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            
+            Order order = ReadTable(ExecuteSelectQuery(query, sqlParameters));
+
+            return order;
         }
 
         public List<Order> GetAllOrders()
@@ -68,6 +63,15 @@ namespace ChapeauDAL
             return orders;
         }
 
+        public void AddOrderedItems(OrderItem orderItem)
+        {
+            int state = (int)orderItem.State;
+            string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public Order GetOrderByOrderID(int orderID)
         {
             string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} ";
@@ -75,6 +79,37 @@ namespace ChapeauDAL
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             Order order = orders[1];
 
+            return order;
+        }
+
+        private Order ReadTable(DataTable dataTable)
+        {
+            Order order = new Order();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                order.OrderNr = (int)(dr["orderID"]);
+                order.EmployeeID = (int)(dr["employeeID"]);
+                order.TableID = (int)(dr["tableID"]);
+
+                if (dr["startTime"] != DBNull.Value)
+                {
+                    order.StartTime = (DateTime)(dr["startTime"]);
+                }
+                else
+                {
+                    order.StartTime = null;
+                }
+
+                if ((dr["endTime"]) != DBNull.Value)
+                {
+                    order.EndTime = (DateTime)(dr["endTime"]);
+                }
+                else
+                {
+                    order.EndTime = null;
+                }
+            }
             return order;
         }
 

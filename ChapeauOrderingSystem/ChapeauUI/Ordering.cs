@@ -21,12 +21,20 @@ namespace ChapeauUI
 
             this.employee = employee;
 
+            //orderID
+            OrderService orderService = new OrderService();
+            int orderID = orderService.GetLastOrder();
+            orderID++;
+
+            //order
             currentOrder = new Order();
             currentOrder.EmployeeID = employee.EmployeeID;
             currentOrder.StartTime = DateTime.Now;
             currentOrder.TableID = tableNr;
-            //currentOrder.EndTime = null;
+            currentOrder.OrderNr = orderID;
+            currentOrder.EndTime = null;
 
+            //lables 
             lblEmployeeName.Text = employee.Name.ToString();
             lblTableNr.Text = tableNr.ToString();
         }
@@ -54,7 +62,10 @@ namespace ChapeauUI
             orderService.AddOrder(currentOrder);
 
             //inserting the orderItems to the database
-
+            foreach (OrderItem orderItem in currentOrder.orderedItems)
+            {
+                orderService.AddOrderItems(orderItem);
+            }
 
             //open new tableOverview form 
             Form formTableOverview = new TableOverview(employee);
@@ -88,7 +99,7 @@ namespace ChapeauUI
                 {
                     if (selectedOrderItem.Quantity > 1)
                     {
-                        //decrease stock
+                        //add stock back
                         ItemService itemService = new ItemService();
                         Item item = new Item();
                         item = currentOrder.orderedItems[i].Item;
@@ -213,7 +224,7 @@ namespace ChapeauUI
                 //adding to the list of orderItems
                 currentOrder.orderedItems.Add(orderItem);
 
-                //
+                //display
                 DisplayOrders();
             }
         }

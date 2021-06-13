@@ -32,15 +32,17 @@ namespace ChapeauLogic
             orderdb.AddOrder(order);
         }
 
-        public void AddOrderItems()
-        { 
-            //orderdb.
+        public void AddOrderItems(OrderItem orderItem)
+        {
+            orderdb.AddOrderedItems(orderItem);
         }
 
-        public Order GetLastOrder()
+        public int GetLastOrder()
         {
-            //Order lastOrder = orderdb.
-            return null;
+            Order lastOrder = orderdb.GetLastOrder();
+            int lastOrderID = lastOrder.OrderNr;
+
+            return lastOrderID;
         }
 
         public List<Order> GetAllOrders()
