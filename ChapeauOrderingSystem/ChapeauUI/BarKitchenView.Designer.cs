@@ -77,6 +77,8 @@ namespace ChapeauUI
             this.tsmiAllOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRunningOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFinishedOrders = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblEmployeeID1 = new System.Windows.Forms.Label();
+            this.lblEmployeeID2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlFinishedOrders.SuspendLayout();
             this.pnlOrder2.SuspendLayout();
@@ -213,6 +215,7 @@ namespace ChapeauUI
             // 
             this.pnlOrder2.BackColor = System.Drawing.Color.DarkGray;
             this.pnlOrder2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlOrder2.Controls.Add(this.lblEmployeeID2);
             this.pnlOrder2.Controls.Add(this.label6);
             this.pnlOrder2.Controls.Add(this.lblOrderId2);
             this.pnlOrder2.Controls.Add(this.lblOrderStartTime2);
@@ -413,6 +416,7 @@ namespace ChapeauUI
             // 
             this.pnlOrder1.BackColor = System.Drawing.Color.DarkGray;
             this.pnlOrder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlOrder1.Controls.Add(this.lblEmployeeID1);
             this.pnlOrder1.Controls.Add(this.label2);
             this.pnlOrder1.Controls.Add(this.lblOrderID1);
             this.pnlOrder1.Controls.Add(this.lblOrderStartTime1);
@@ -611,6 +615,24 @@ namespace ChapeauUI
             this.tsmiFinishedOrders.Text = "Finished Orders";
             this.tsmiFinishedOrders.Click += new System.EventHandler(this.tsmiFinishedOrders_Click);
             // 
+            // lblEmployeeID1
+            // 
+            this.lblEmployeeID1.AutoSize = true;
+            this.lblEmployeeID1.Location = new System.Drawing.Point(268, 12);
+            this.lblEmployeeID1.Name = "lblEmployeeID1";
+            this.lblEmployeeID1.Size = new System.Drawing.Size(82, 17);
+            this.lblEmployeeID1.TabIndex = 4;
+            this.lblEmployeeID1.Text = "employeeID";
+            // 
+            // lblEmployeeID2
+            // 
+            this.lblEmployeeID2.AutoSize = true;
+            this.lblEmployeeID2.Location = new System.Drawing.Point(272, 11);
+            this.lblEmployeeID2.Name = "lblEmployeeID2";
+            this.lblEmployeeID2.Size = new System.Drawing.Size(82, 17);
+            this.lblEmployeeID2.TabIndex = 5;
+            this.lblEmployeeID2.Text = "employeeID";
+            // 
             // BarKitchenView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -691,5 +713,7 @@ namespace ChapeauUI
         private System.Windows.Forms.ColumnHeader end_time;
         private System.Windows.Forms.ColumnHeader employee_id;
         private System.Windows.Forms.ColumnHeader ordered_items;
+        private System.Windows.Forms.Label lblEmployeeID2;
+        private System.Windows.Forms.Label lblEmployeeID1;
     }
 }

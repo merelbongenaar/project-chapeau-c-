@@ -11,9 +11,12 @@ namespace ChapeauDAL
     {
         public Employee GetEmployee(string username, string password)
         {
-            string query = $"SELECT employeeID, name, role, password FROM Employee WHERE employeeID = '{username}' AND [password] = '{password}'";
+            string query = $"SELECT employeeID, name, role, password FROM Employee WHERE employeeID = @username AND [password] = @password";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("username", int.Parse(username));
+            sqlParameters[1] = new SqlParameter("password", password);
+
             List<Employee> employees = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             if (employees.Count == 0)

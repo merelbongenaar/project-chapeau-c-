@@ -14,6 +14,7 @@ namespace ChapeauDAL
             string query = $"SELECT orderID, item, quantity, state, orderTime, comment FROM OrderItem";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
+
             List<OrderItem> orderItems = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             return orderItems;
@@ -21,23 +22,33 @@ namespace ChapeauDAL
 
         public void UpdateOrderState(int orderState, int orderID)
         {
-            string query = $"UPDATE OrderItem SET state = {orderState} WHERE orderID = {orderID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"UPDATE OrderItem SET state = @state WHERE orderID = @orderID";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("state", orderState);
+            sqlParameters[1] = new SqlParameter("orderID", orderID);
+
             ExecuteEditQuery(query, sqlParameters);
         }
 
         public void UpdateOrderState(int itemID, int orderState, int orderID)
         {
-            string query = $"UPDATE OrderItem SET [state] = {orderState} WHERE orderID = {orderID} AND itemID = {itemID} ";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"UPDATE OrderItem SET [state] = @state WHERE orderID = @orderID AND itemID = @itemID ";
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("state", orderState);
+            sqlParameters[1] = new SqlParameter("orderID", orderID);
+            sqlParameters[2] = new SqlParameter("itemID", itemID);
+
             ExecuteEditQuery(query, sqlParameters);
         }
 
         //This method retrieves an OrderItem based on the provided name, state and orderID of the order it belongs to
         public OrderItem GetOrderItem(string itemName, int orderID)
         {
-            string query = $"SELECT orderID, OrderItem.itemID, [count], state, orderTime, comment FROM OrderItem JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} AND Items.itemName = '{itemName}' ";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"SELECT orderID, OrderItem.itemID, [count], state, orderTime, comment FROM OrderItem JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = @orderID AND Items.itemName = @itemName ";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("orderID", orderID);
+            sqlParameters[1] = new SqlParameter("itemName", itemName);
+
             List<OrderItem> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             if (items.Count > 0)
