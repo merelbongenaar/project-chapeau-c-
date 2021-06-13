@@ -60,16 +60,18 @@ namespace ChapeauUI
         //----------------------------------------------------------------------------------TABLE BUTTONS-----------------------------------------------------------------------------------------------------------
         private void btnTable1_Click(object sender, EventArgs e)
         {
+            //see which table button has been clicked
             Button button = (Button)sender;
 
             int tableNr = Convert.ToInt32(button.Tag);
-            btnAddItem.Tag = tableNr; //assign clicked tablenr to addbtn
+            btnAddItem.Tag = tableNr; 
 
             lblTableNR.Text = $"Table {tableNr}";
 
             TableService tableService = new TableService();
             OrderService orderService = new OrderService();
 
+            //get state table
             Table selectedTable = tableService.GetTableByTableNR(tableNr);
 
             if (!selectedTable.IsOccupied)
@@ -97,24 +99,22 @@ namespace ChapeauUI
 
                 order = orderService.GetOrderByTableNR(tableNr);
 
+
                 if (order != null)
                 {
                     foreach (OrderItem orderItem in order.orderedItems)
                     {
                         ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
                         li.SubItems.Add(orderItem.Quantity.ToString());
-
                         listViewOrderTableOverview.Items.Add(li);
+                        
                     }
                 }
             }
 
         }
 
-        private void SeatGuests()
-        {
 
-        }
 
         //-----------------------------------------------------------------------------------------------mark item as served----------------------------------------------------------------------------------------------------------------------------
 

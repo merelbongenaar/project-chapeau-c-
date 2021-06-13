@@ -1,5 +1,4 @@
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.csprojAssemblyReference.cache
-C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Form1.resources
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Login.resources
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Ordering.resources
 C:\Users\Gebruiker\source\repos\school\project\project-chapeau-c-\ChapeauOrderingSystem\ChapeauUI\obj\Debug\ChapeauUI.Properties.Resources.resources
