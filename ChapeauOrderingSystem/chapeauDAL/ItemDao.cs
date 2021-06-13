@@ -21,9 +21,10 @@ namespace ChapeauDAL
 
         public Item GetItemByName(string itemName)
         {
-            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemName = '{itemName}' ";
+            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemName = @itemName ";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("itemName", itemName);
             List<Item> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             if (items.Count > 0)
@@ -55,9 +56,11 @@ namespace ChapeauDAL
 
         public List<Item> GetMenuItemByCategory(int category)
         {
-            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemType = {category}";
+            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemType = @category";
                                                                                        
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("category", category);
+
             List<Item> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             return items;
@@ -65,9 +68,11 @@ namespace ChapeauDAL
 
         public List<Item> GetMenuItemBySubCategory(int category)
         {
-            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemSubType = {category}";
+            string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemSubType = @category";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("category", category);
+
             List<Item> items = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             return items;

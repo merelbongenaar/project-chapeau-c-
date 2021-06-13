@@ -12,8 +12,10 @@ namespace ChapeauDAL
 
         public Order GetOrderByTableNr(int tableNr)
         {
-            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE tableID = {tableNr} AND isPaid = 0";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE tableID=@tableID AND isPaid = 0";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("tableID", tableNr);
+
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             if (orders.Count == 0)
@@ -39,8 +41,13 @@ namespace ChapeauDAL
 
         public void AddOrder(Order order)
         {
-            string query = $"INSERT INTO [Order] (orderID, employeeID, tableID, startTime, isPaid) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, '{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day} {DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}', 0);";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"INSERT INTO [Order] (orderID, employeeID, tableID, startTime, isPaid) Values (@orderID, @employeeID, @tableID, '@startTime', 0);";
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+            sqlParameters[0] = new SqlParameter("orderID", order.OrderNr);
+            sqlParameters[1] = new SqlParameter("employeeID", order.EmployeeID);
+            sqlParameters[2] = new SqlParameter("tableID", order.TableID);
+            sqlParameters[3] = new SqlParameter("startTime", DateTime.Now);
+
 
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -67,16 +74,25 @@ namespace ChapeauDAL
         public void AddOrderedItems(OrderItem orderItem)
         {
             int state = (int)orderItem.State;
-            string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            orderItem.OrderTime = DateTime.Now;
+            string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values (@orderID, @itemID, @count, @state, @orderTime, @comment );";
+            SqlParameter[] sqlParameters = new SqlParameter[6];
+            sqlParameters[0] = new SqlParameter("orderID", orderItem.OrderID);
+            sqlParameters[1] = new SqlParameter("itemID", orderItem.Item.ItemID);
+            sqlParameters[2] = new SqlParameter("count", orderItem.Quantity);
+            sqlParameters[3] = new SqlParameter("state", state);
+            sqlParameters[4] = new SqlParameter("orderTime", orderItem.OrderTime);
+            sqlParameters[5] = new SqlParameter("comment", orderItem.Comment);
 
             ExecuteEditQuery(query, sqlParameters);
         }
 
         public Order GetOrderByOrderID(int orderID)
         {
-            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID = {orderID} ";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.orderID=@orderID ";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("orderID", orderID);
+
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
             if (orders.Count > 0)
