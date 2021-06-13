@@ -25,10 +25,11 @@ namespace ChapeauDAL
 
         public void UpdateOrderStatus(Order order)
         {
-            string query = $"UPDATE [order] SET isPaid=@isPaid WHERE orderID=@orderID";
+            string query = $"UPDATE [order] SET isPaid=@isPaid, endTime=@endTime WHERE orderID=@orderID";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("orderID", order.OrderNr);
             sqlParameters[1] = new SqlParameter("isPaid", 1);
+            sqlParameters[2] = new SqlParameter("endTime", order.EndTime);
 
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -41,17 +42,6 @@ namespace ChapeauDAL
 
             ExecuteEditQuery(query, sqlParameters);
         }
-
-        public void UpdateOrderEndTime(Order order)
-        {
-            string query = $"UPDATE [order] SET endTime=@endTime WHERE orderID=@orderID";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("orderID", order.OrderNr);
-            sqlParameters[1] = new SqlParameter("endTime", order.EndTime);
-
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
 
 
     }

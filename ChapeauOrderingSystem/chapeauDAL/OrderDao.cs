@@ -37,21 +37,23 @@ namespace ChapeauDAL
             return orders;
         }
 
-
-
-        public void AddOrderOrderItems(Order order)// this method adds all the orderItems from the list in Order to the database
+        public void AddOrder(Order order)
         {
-            foreach (OrderItem orderItem in order.orderedItems)
-            {
-                int state = (int)orderItem.State;
-                string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
+            string query = $"INSERT INTO [Order] (orderID, employeeID, tableID, startTime, isPaid) Values ({order.OrderNr}, {order.EmployeeID}, {order.TableID}, '{order.StartTime.Value.Date.Year}-{order.StartTime.Value.Date.Month}-{order.StartTime.Value.Date.Day} {order.StartTime.Value.Date.Hour}:{order.StartTime.Value.Date.Minute}:{order.StartTime.Value.Date.Second}', 0);";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
 
-                SqlParameter[] sqlParameters = new SqlParameter[0];
-
-                ExecuteEditQuery(query, sqlParameters);
-            }
+            ExecuteEditQuery(query, sqlParameters);
         }
 
+        public Order GetLastOrder()
+        {
+            string query = $"select top 1 orderID, employeeID, tableID, startTime, endTime, isPaid FROM [Order] ORDER BY orderID DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            
+            Order order = ReadTable(ExecuteSelectQuery(query, sqlParameters));
+
+            return order;
+        }
 
         public List<Order> GetAllOrders()
         {
@@ -60,6 +62,15 @@ namespace ChapeauDAL
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
 
             return orders;
+        }
+
+        public void AddOrderedItems(OrderItem orderItem)
+        {
+            int state = (int)orderItem.State;
+            string query = $"INSERT INTO [OrderItem] (orderID, itemID, count, state, orderTime, comment) Values ({orderItem.OrderID}, {orderItem.Item.ItemID}, {orderItem.Quantity}, {state}, '{orderItem.OrderTime.Year}-{orderItem.OrderTime.Month}-{orderItem.OrderTime.Day} {orderItem.OrderTime.Hour}:{orderItem.OrderTime.Minute}:{orderItem.OrderTime.Second}', '' );";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         public Order GetOrderByOrderID(int orderID)
@@ -74,7 +85,36 @@ namespace ChapeauDAL
                 return null;
         }
 
+        private Order ReadTable(DataTable dataTable)
+        {
+            Order order = new Order();
 
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                order.OrderNr = (int)(dr["orderID"]);
+                order.EmployeeID = (int)(dr["employeeID"]);
+                order.TableID = (int)(dr["tableID"]);
+
+                if (dr["startTime"] != DBNull.Value)
+                {
+                    order.StartTime = (DateTime)(dr["startTime"]);
+                }
+                else
+                {
+                    order.StartTime = null;
+                }
+
+                if ((dr["endTime"]) != DBNull.Value)
+                {
+                    order.EndTime = (DateTime)(dr["endTime"]);
+                }
+                else
+                {
+                    order.EndTime = null;
+                }
+            }
+            return order;
+        }
 
         private List<Order> ReadTables(DataTable dataTable)
         {
