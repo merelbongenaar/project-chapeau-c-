@@ -229,20 +229,9 @@ namespace ChapeauUI
 
             formPayment.Show();
 
-            //clear listview 
-            listViewOrderTableOverview.Clear();
-
             //refresh table status and icons
             RefreshTables();
             RefreshIcons();
         }
-
-
-
-
-        //---------------------------------------------------------------i dont knwo what this is---------------------------------------------------------------------------------------------------------------------
-
-
-
     }
 }

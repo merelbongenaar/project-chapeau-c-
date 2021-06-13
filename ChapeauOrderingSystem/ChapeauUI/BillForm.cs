@@ -101,8 +101,7 @@ namespace ChapeauUI
 
         // method to filter the txtbox to accept int only
         private bool TxtBoxDigitsFilter(string txt)
-        {
-            
+        {   
             foreach (char c in txt)
             {
                 if (c == '.')
