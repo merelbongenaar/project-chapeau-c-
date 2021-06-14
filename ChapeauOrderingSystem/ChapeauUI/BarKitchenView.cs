@@ -266,7 +266,7 @@ namespace ChapeauUI
         {
             foreach (OrderItem orderedItem in order.orderedItems)
             {
-                if (orderedItem.State != (State)3 && orderedItem.State != (State)4) //If one dish is not ready, the order is not finished
+                if (orderedItem.State != State.Done && orderedItem.State != State.Served) //If one dish is not ready, the order is not finished
                     return false;
             }
 
@@ -420,7 +420,15 @@ namespace ChapeauUI
                     foreach (OrderItem orderedItem in order.orderedItems)
                     {
                         if (orderedItem.Item.ItemName == itemName[0])
-                            orderState = (int)orderedItem.State + 1;
+                        {
+                            if(orderedItem.State != State.Done)
+                                orderState = (int)orderedItem.State + 1;
+                            else
+                            {
+                                MessageBox.Show($"Cannot change the state of this dish: {orderedItem.Item.ItemName}");
+                            }    
+                        }
+                            
                     }
 
                     if (item != null)
@@ -434,14 +442,13 @@ namespace ChapeauUI
         //This method adds the ordereditems to the correct listbox
         private void AddItem(ListBox listbox, OrderItem orderedItem)
         {
-            if(orderedItem.State != State.Served)   //Served Items do not need to be displayed in the kitchen, they are no longer relevant to the staff
-            {
-                listbox.Items.Add($"{orderedItem.Item.ItemName}-{orderedItem.State}- x{orderedItem.Quantity}");
-                if (orderedItem.Comment != "")
-                    listbox.Items.Add(orderedItem.Comment);
-                else
-                    listbox.Items.Add("...");
-            }
+            listbox.Items.Add($"{orderedItem.Item.ItemName}-{orderedItem.State}- x{orderedItem.Quantity}");
+
+            if (orderedItem.Comment != "")
+                listbox.Items.Add(orderedItem.Comment);
+            else
+                listbox.Items.Add("...");
+            
         }
 
         private void UndoChangeToState(ListBox starters, ListBox mains, ListBox desserts, ListBox drinks, int orderID)
@@ -532,6 +539,14 @@ namespace ChapeauUI
             }
             
             return selectedOrderItems;
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+
+            this.Hide();
         }
     }
 }
