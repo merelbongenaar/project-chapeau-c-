@@ -22,16 +22,17 @@ namespace ChapeauUI
 
             this.employee = employee;
 
-            //orderID
-            OrderService orderService = new OrderService();
-            int orderID = orderService.GetLastOrder();
-            orderID++;
 
+            OrderService orderService = new OrderService();
             Order order = orderService.GetOrderByTableNR(tableNr);
 
             //check if order is already running
             if (order == null)
             {
+                //orderID
+                int orderID = orderService.GetLastOrder();
+                orderID++;
+
                 currentOrder = new Order();
                 currentOrder.EmployeeID = employee.EmployeeID;
                 currentOrder.StartTime = DateTime.Now;
@@ -70,10 +71,9 @@ namespace ChapeauUI
         //sending order to the database
         private void bttnSend_Click(object sender, EventArgs e)
         {
-            //inserting the order to the database
+            //inserting the orderItems to the database
             OrderService orderService = new OrderService();
 
-            //inserting the orderItems to the database
             for (int i = nrOfItemsInRunningOrder; i < currentOrder.orderedItems.Count; i++)
             {
                 orderService.AddOrderItems(currentOrder.orderedItems[i]);
@@ -112,20 +112,20 @@ namespace ChapeauUI
                 {
                     if (selectedOrderItem.Quantity > 1)
                     {
-                        //add stock back
-                        ItemService itemService = new ItemService();
-                        Item item = new Item();
-                        item = currentOrder.orderedItems[i].Item;
-
-                        item.Stock++;
-                        itemService.UpdateStock(item);
-
                         currentOrder.orderedItems[i].Quantity--;
                     }
                     else
                     {
                         currentOrder.orderedItems.Remove(currentOrder.orderedItems[i]);
                     }
+
+                    //add stock back
+                    ItemService itemService = new ItemService();
+                    Item item = new Item();
+                    item = currentOrder.orderedItems[i].Item;
+
+                    item.Stock++;
+                    itemService.UpdateStock(item);
 
                     DisplayOrders();
                 }
@@ -238,7 +238,6 @@ namespace ChapeauUI
                 orderItem.OrderTime = DateTime.Now;
 
                 //adding to the list of orderItems
-                //newItems.Add(orderItem);
                 currentOrder.orderedItems.Add(orderItem);
 
                 //decrease stock
