@@ -1,9 +1,7 @@
-﻿using System;
+﻿using ChapeauModel;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
-using ChapeauModel;
 
 namespace ChapeauDAL
 {
@@ -57,7 +55,7 @@ namespace ChapeauDAL
         public List<Item> GetMenuItemByCategory(int category)
         {
             string query = $"SELECT itemID, itemName, stock, price, itemType, itemSubType FROM Items WHERE itemType = @category";
-                                                                                       
+
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("category", category);
 

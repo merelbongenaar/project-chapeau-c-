@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChapeauModel
+﻿namespace ChapeauModel
 {
     public class Table
     {

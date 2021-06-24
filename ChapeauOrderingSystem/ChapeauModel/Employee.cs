@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChapeauModel
+﻿namespace ChapeauModel
 {
-    public enum Role 
+    public enum Role
     {
-        Bar=1, Kitchen, Waiter, Manager
+        Bar = 1, Kitchen, Waiter, Manager
     }
 
     public class Employee

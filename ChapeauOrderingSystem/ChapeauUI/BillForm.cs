@@ -1,13 +1,6 @@
 ﻿using ChapeauLogic;
 using ChapeauModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChapeauUI
@@ -64,7 +57,7 @@ namespace ChapeauUI
                 MessageBox.Show("Something went wrong while loading the bills: " + r.Message);
             }
         }
-        
+
         private void txtBoxTip_TextChanged(object sender, EventArgs e)
         {
             // get the tip amount that the user will enter     
@@ -101,7 +94,7 @@ namespace ChapeauUI
 
         // method to filter the txtbox to accept int only
         private bool TxtBoxDigitsFilter(string txt)
-        {   
+        {
             foreach (char c in txt)
             {
                 if (c == '.')
@@ -145,7 +138,7 @@ namespace ChapeauUI
 
             // diaplay a message to the user that the order has been paid for
             MessageBox.Show("order has been paid");
-   
+
             // close the form and return to table overview
             this.Close();
         }

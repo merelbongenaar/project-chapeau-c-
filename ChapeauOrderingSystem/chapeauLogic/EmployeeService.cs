@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ChapeauDAL;
+﻿using ChapeauDAL;
 using ChapeauModel;
 
 namespace ChapeauLogic

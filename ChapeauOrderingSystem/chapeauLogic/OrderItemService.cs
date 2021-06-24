@@ -1,7 +1,4 @@
 ﻿using ChapeauDAL;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using ChapeauModel;
 
 namespace ChapeauLogic
@@ -15,19 +12,19 @@ namespace ChapeauLogic
             orderItemdb = new OrderItemDao();
         }
 
-        public void UpdateOrderState(int orderState, int orderID)
+        public void UpdateOrderState(State orderState, int orderID)
         {
             orderItemdb.UpdateOrderState(orderState, orderID);
         }
 
-        public void UpdateOrderState(int itemID, int orderState, int orderID)
+        public void UpdateOrderState(int itemID, State orderState, int orderID)
         {
             orderItemdb.UpdateOrderState(itemID, orderState, orderID);
         }
 
-        public OrderItem GetOrderItem(string itemName, int orderID)
+        public OrderItem GetOrderItem(int itemID, int orderID)
         {
-            return orderItemdb.GetOrderItem(itemName, orderID);
+            return orderItemdb.GetOrderItem(itemID, orderID);
         }
     }
 }

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ChapeauModel
 {
     public enum State
     {
-        NotStarted=1, Preparing, Done, Served
+        NotStarted = 1, Preparing, Done, Served
     }
 
     public class OrderItem

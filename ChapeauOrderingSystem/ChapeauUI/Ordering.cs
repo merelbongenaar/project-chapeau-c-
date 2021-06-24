@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 
 
 namespace ChapeauUI
@@ -14,7 +13,7 @@ namespace ChapeauUI
         private Employee employee;
         private Order currentOrder;
         private OrderItem selectedOrderItem;
-        private int nrOfItemsInRunningOrder; 
+        private int nrOfItemsInRunningOrder;
 
         public Ordering(int tableNr, Employee employee)
         {
@@ -47,7 +46,7 @@ namespace ChapeauUI
                 currentOrder = order;
                 nrOfItemsInRunningOrder = currentOrder.orderedItems.Count;
             }
-            
+
             //lables 
             lblEmployeeName.Text = $"Employee: {employee.Name} ({employee.EmployeeID})";
             lblTableNr.Text = tableNr.ToString();

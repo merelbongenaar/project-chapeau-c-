@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChapeauModel
+﻿namespace ChapeauModel
 {
     public enum SubCategory
     {
-        LunchMain=1, Specials, Bites, Starters, Mains, Desserts, SoftDrinks, HotDrinks, Beers, Wines
+        LunchMain = 1, Specials, Bites, Starters, Mains, Desserts, SoftDrinks, HotDrinks, Beers, Wines
     }
 
     public enum Category
     {
-        Lunch=1, Dinner, Drinks
+        Lunch = 1, Dinner, Drinks
     }
 
     public class Item

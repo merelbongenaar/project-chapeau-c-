@@ -11,7 +11,7 @@ namespace ChapeauModel
 
         public int TableID { get; set; }
         public int EmployeeID { get; set; }
-        
+
         //nullable datetimes
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
@@ -37,7 +37,7 @@ namespace ChapeauModel
                 Bill.Tax = 0;
                 foreach (OrderItem orderItem in orderedItems)
                 {
-                    
+
                     if (orderItem.Item.SubCategory == SubCategory.Beers || orderItem.Item.SubCategory == SubCategory.Wines)
                     {
                         Bill.Tax += orderItem.Item.Price * orderItem.Quantity * (decimal)0.21;
@@ -50,7 +50,7 @@ namespace ChapeauModel
                 return Bill.Tax;
             }
         }
-       
+
         public Order()
         {
             orderedItems = new List<OrderItem>();

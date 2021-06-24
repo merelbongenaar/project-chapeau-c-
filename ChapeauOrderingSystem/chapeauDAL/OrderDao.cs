@@ -1,9 +1,8 @@
-﻿using System;
+﻿using ChapeauModel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
-using ChapeauModel;
 
 namespace ChapeauDAL
 {
@@ -29,7 +28,7 @@ namespace ChapeauDAL
 
         public List<Order> GetAllRunningOrders()
         {
-            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0 ORDER BY orderTime ";
+            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE OrderItem.state != 4 ORDER BY orderTime ";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
@@ -54,7 +53,7 @@ namespace ChapeauDAL
         {
             string query = $"select top 1 orderID, employeeID, tableID, startTime, endTime, isPaid FROM [Order] ORDER BY orderID DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            
+
             Order order = ReadTable(ExecuteSelectQuery(query, sqlParameters));
 
             return order;
@@ -63,6 +62,16 @@ namespace ChapeauDAL
         public List<Order> GetAllOrders()
         {
             string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID ORDER BY orderTime";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
+
+            return orders;
+        }
+
+        public List<Order> GetAllActiveOrders()
+        {
+            string query = "select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE isPaid = 0 ORDER BY orderTime ";
+
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
 
@@ -80,7 +89,7 @@ namespace ChapeauDAL
             sqlParameters[2] = new SqlParameter("count", orderItem.Quantity);
             sqlParameters[3] = new SqlParameter("state", state);
             sqlParameters[4] = new SqlParameter("orderTime", orderItem.OrderTime);
-            
+
 
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -95,6 +104,19 @@ namespace ChapeauDAL
 
             if (orders.Count > 0)
                 return orders[0];
+            else
+                return null;
+        }
+
+        public List<Order> GetFinishedOrders()
+        {
+            string query = $"select OrderItem.orderID, employeeID, tableID, startTime, endTime, isPaid, Items.itemID, [count], [state], orderTime, comment, itemName, stock, price, itemType, itemSubType FROM[Order] JOIN OrderItem ON[Order].orderID = OrderItem.orderID JOIN Items ON[Items].itemID = OrderItem.itemID WHERE[Order].isPaid = 1 AND Cast([Order].endTime as date) = Cast('{DateTime.Today: yyyy-MM-dd}' as date) ORDER BY orderTime";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            List<Order> finishedOrders = ReadTablesTest2(ExecuteSelectQuery(query, sqlParameters));
+
+            if (finishedOrders.Count > 0)
+                return finishedOrders;
             else
                 return null;
         }

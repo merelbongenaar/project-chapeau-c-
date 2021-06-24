@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChapeauModel
+﻿namespace ChapeauModel
 {
     public enum typeOfPayment { creditCard = 1, pin, cash }
     public class Bill

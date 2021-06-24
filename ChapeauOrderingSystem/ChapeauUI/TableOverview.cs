@@ -1,13 +1,8 @@
-﻿using System;
+﻿using ChapeauLogic;
 using ChapeauModel;
-using ChapeauLogic;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -35,7 +30,7 @@ namespace ChapeauUI
 
             //create timer 
             System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
-            t.Interval = 15000; 
+            t.Interval = 15000;
             t.Tick += new EventHandler(timer_Tick);
             t.Start();
 
@@ -64,7 +59,7 @@ namespace ChapeauUI
             Button button = (Button)sender;
 
             int tableNr = Convert.ToInt32(button.Tag);
-            btnAddItem.Tag = tableNr; 
+            btnAddItem.Tag = tableNr;
 
             lblTableNR.Text = $"Table {tableNr}";
 
@@ -107,7 +102,7 @@ namespace ChapeauUI
                         ListViewItem li = new ListViewItem(orderItem.Item.ItemName);
                         li.SubItems.Add(orderItem.Quantity.ToString());
                         listViewOrderTableOverview.Items.Add(li);
-                        
+
                     }
                 }
             }
@@ -132,7 +127,7 @@ namespace ChapeauUI
             if (dialogResult == DialogResult.Yes)
             {
                 Order order = orderservice.GetOrderByTableNR(tableNr);
-                orderItemservice.UpdateOrderState(4, order.OrderNr);
+                orderItemservice.UpdateOrderState(State.Served, order.OrderNr);
                 icon.Hide();
             }
 
@@ -215,7 +210,7 @@ namespace ChapeauUI
 
             Close();
             formOrder.Show();
-           
+
         }
 
         //-------------------------------------------------------------------BUTTON PAY FOR ORDER---------------------------------------------------------------------------------------------------------------------

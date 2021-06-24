@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ChapeauDAL;
+﻿using ChapeauDAL;
 using ChapeauModel;
+using System.Collections.Generic;
 
 namespace ChapeauLogic
 {
@@ -53,6 +51,16 @@ namespace ChapeauLogic
         public Order GetOrderByOrderID(int orderID)
         {
             return orderdb.GetOrderByOrderID(orderID);
+        }
+
+        public List<Order> GetFinishedOrders()
+        {
+            return orderdb.GetFinishedOrders();
+        }
+
+        public List<Order> GetAllActiveOrders()
+        {
+            return orderdb.GetAllActiveOrders();
         }
     }
 }
